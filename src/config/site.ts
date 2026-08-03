@@ -9,10 +9,10 @@ export const siteConfig: SiteConfig = {
   aboutIntro: "I'm Mushfii, a multidisciplinary designer and creative developer crafting human-centered digital products, brand identities, and visual narratives.",
   aboutBio: "With over 5 years of experience bridging art direction, high-performance web engineering, and visual media, I build interfaces that feel calm, considered, and quietly fast. My work spans brand strategy, UI/UX systems, photography, and video creation.",
   email: "muhammedmushfiq178@gmail.com",
-  whatsapp: "+919876543210",
+  whatsapp: "+918157868714",
   location: "Calicut, Kerala, India • Available Worldwide",
   status: "Available for freelance projects & design roles",
-  avatarUrl: "/src/assets/images/regenerated_image_1785744008469.jpg",
+  avatarUrl: "/src/assets/images/Mushfii.jpg",
   resumeUrl: "#resume",
   roles: [
     "Creative Designer",
@@ -27,8 +27,8 @@ export const siteConfig: SiteConfig = {
     instagram: "https://instagram.com/mushfii_786",
     github: "https://github.com/mushfiq786",
     linkedin: "https://linkedin.com/in/muhammed-mushfiq",
-    pinterest: "https://pinterest.com/mushfii_786",
-    whatsapp: "https://wa.me/919876543210",
+    pinterest: "https://pin.it/1ONUTFjLl",
+    whatsapp: "https://wa.me/918157868714",
     email: "mailto:muhammedmushfiq178@gmail.com"
   },
   stats: [
