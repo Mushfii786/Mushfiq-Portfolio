@@ -1,5 +1,9 @@
 import { SiteConfig, Project, Photo, VideoItem, TimelineItem, TechItem, Service, ProcessStep, PolaroidPhoto } from '../types';
 import MushfiiImage from "../assets/images/Mushfii.jpg"
+import Night from "../assets/images/Night.jpg";
+import Dog from "../assets/images/Dog.jpg";
+import House from "../assets/images/House.jpg";
+import Horse from "../assets/images/Horse.jpg";
 
 export const siteConfig: SiteConfig = {
   name: "Mushfii",
@@ -297,25 +301,25 @@ export const videography: VideoItem[] = [
 export const polaroids: PolaroidPhoto[] = [
   {
     id: "pol-1",
-    imageUrl: "/src/assets/images/regenerated_image_1785733819493.jpg",
+    imageUrl: Night,
     caption: "Creating in the studio 🎨",
     rotation: -4
   },
   {
     id: "pol-2",
-    imageUrl: "/src/assets/images/regenerated_image_1785733558637.jpg",
+    imageUrl: Dog,
     caption: "Design sprint with the team 💻",
     rotation: 3
   },
   {
     id: "pol-3",
-    imageUrl: "/src/assets/images/regenerated_image_1785733561266.jpg",
+    imageUrl: House,
     caption: "Framing coastal sunsets 📸",
     rotation: -2
   },
   {
     id: "pol-4",
-    imageUrl: "/src/assets/images/regenerated_image_1785733563761.jpg",
+    imageUrl: Horse,
     caption: "Late night code sessions ☕",
     rotation: 5
   }
