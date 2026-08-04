@@ -303,26 +303,26 @@ export const polaroids: PolaroidPhoto[] = [
     id: "pol-1",
     imageUrl: Night,
     caption: "Creating in the studio 🎨",
-    rotation: -4
+    rotation: -4,
   },
   {
     id: "pol-2",
     imageUrl: Dog,
     caption: "Design sprint with the team 💻",
-    rotation: 3
+    rotation: 3,
   },
   {
     id: "pol-3",
     imageUrl: House,
     caption: "Framing coastal sunsets 📸",
-    rotation: -2
+    rotation: -2,
   },
   {
     id: "pol-4",
     imageUrl: Horse,
     caption: "Late night code sessions ☕",
-    rotation: 5
-  }
+    rotation: 5,
+  },
 ];
 
 export const timelineItems: TimelineItem[] = [
