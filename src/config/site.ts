@@ -1,4 +1,5 @@
 import { SiteConfig, Project, Photo, VideoItem, TimelineItem, TechItem, Service, ProcessStep, PolaroidPhoto } from '../types';
+import MushfiiImage from "../assets/images/Mushfii.jpg"
 
 export const siteConfig: SiteConfig = {
   name: "Mushfii",
@@ -12,7 +13,7 @@ export const siteConfig: SiteConfig = {
   whatsapp: "+918157868714",
   location: "Calicut, Kerala, India • Available Worldwide",
   status: "Available for freelance projects & design roles",
-  avatarUrl: "/src/assets/images/Mushfii.jpg",
+  avatarUrl: MushfiiImage,
   resumeUrl: "#resume",
   roles: [
     "Creative Designer",
