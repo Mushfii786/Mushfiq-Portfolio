@@ -49,19 +49,6 @@ export function About() {
             {siteConfig.aboutBio}
           </motion.p>
 
-          {/* Stats Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-neutral-200/80 dark:border-neutral-800/80">
-            {siteConfig.stats.map((stat, idx) => (
-              <div key={idx} className="hover:scale-105 transition-transform duration-200 cursor-default">
-                <p className="text-3xl sm:text-4xl font-mono font-bold text-neutral-900 dark:text-white">
-                  {stat.value}{stat.suffix}
-                </p>
-                <p className="text-xs text-neutral-500 font-medium mt-1">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Polaroid Photo Strip */}

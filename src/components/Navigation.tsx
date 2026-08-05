@@ -53,10 +53,10 @@ export function Navigation() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="fixed top-5 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
       >
-        <div className="relative flex items-center pointer-events-auto">
+        <div className="relative flex items-center pointer-events-auto w-[92vw] max-w-2xl sm:w-auto">
           
           {/* Main Floating Glass Pill Bar - Prominent & Roomy */}
-          <div className="flex items-center gap-2 sm:gap-3 bg-neutral-950/95 text-white backdrop-blur-2xl border border-neutral-800/90 p-2 sm:p-2.5 px-3 sm:px-5 rounded-full shadow-2xl shadow-black/80 transition-all">
+          <div className="flex items-center justify-between sm:justify-start w-full gap-2 sm:gap-3 bg-neutral-950/95 text-white backdrop-blur-2xl border border-neutral-800/90 p-2.5 sm:p-2.5 px-4 sm:px-5 rounded-full shadow-2xl shadow-black/80 transition-all">
             
             {/* Brand Logo - Mushfii */}
             <a

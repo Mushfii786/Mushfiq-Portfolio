@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Briefcase, GraduationCap, Calendar, MapPin, Sparkles, Cpu } from 'lucide-react';
-import { timelineItems, techCategories } from '../config/site';
+import { Briefcase, GraduationCap, Calendar, MapPin, Sparkles } from 'lucide-react';
+import { timelineItems } from '../config/site';
 
 export function Timeline() {
   const [activeTab, setActiveTab] = useState<'experience' | 'education'>('experience');
@@ -9,7 +9,7 @@ export function Timeline() {
   const filteredItems = timelineItems.filter(item => item.type === activeTab);
 
   return (
-    <section id="experience" className="py-28 px-6 max-w-7xl mx-auto relative space-y-24">
+    <section id="experience" className="py-28 px-6 max-w-7xl mx-auto relative">
       
       {/* --- SUBSECTION 1: Career Experience & Education --- */}
       <div>
@@ -132,62 +132,6 @@ export function Timeline() {
                     </span>
                   ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* --- SUBSECTION 2: Integrated Tech Stack & Arsenal --- */}
-      <div className="pt-12 border-t border-neutral-200/80 dark:border-neutral-800/80">
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FF4D12] font-semibold hover:scale-105 transition-transform duration-200 cursor-default"
-          >
-            <Cpu className="w-3.5 h-3.5" /> Technical Arsenal
-          </motion.div>
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-medium tracking-tight text-neutral-900 dark:text-white"
-          >
-            Tools, Frameworks & Stack
-          </motion.h3>
-          <p className="text-sm text-neutral-500 font-light">
-            The core tools, languages, and design systems I leverage to build modern web products.
-          </p>
-        </div>
-
-        {/* Tech Stack Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {techCategories.map((cat, idx) => (
-            <motion.div
-              key={cat.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-6 rounded-3xl bg-white dark:bg-neutral-900/70 border border-neutral-200 dark:border-neutral-800/80 shadow-md shadow-neutral-200/50 dark:shadow-none hover:border-[#FF4D12] hover:scale-105 transition-all duration-200 cursor-default"
-            >
-              <h4 className="text-sm font-mono font-bold uppercase text-[#FF4D12] mb-4 pb-2 border-b border-neutral-200 dark:border-neutral-800">
-                {cat.title}
-              </h4>
-
-              <div className="space-y-3">
-                {cat.skills.map((skill) => (
-                  <div key={skill.name} className="flex justify-between items-center text-xs hover:text-[#FF4D12] transition-colors">
-                    <span className="text-neutral-900 dark:text-neutral-200 font-medium">
-                      {skill.name}
-                    </span>
-                    <span className="font-mono text-neutral-500 dark:text-neutral-400 text-[10px]">
-                      {skill.level}%
-                    </span>
-                  </div>
-                ))}
               </div>
             </motion.div>
           ))}

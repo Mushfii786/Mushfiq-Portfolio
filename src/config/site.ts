@@ -30,9 +30,10 @@ export const siteConfig: SiteConfig = {
   ],
   socials: {
     instagram: "https://instagram.com/mushfii_786",
-    github: "https://github.com/mushfiq786",
-    linkedin: "https://linkedin.com/in/muhammed-mushfiq",
+    github: "https://github.com/Mushfii786",
+    linkedin: "https://www.linkedin.com/in/mushfii786/",
     pinterest: "https://pin.it/1ONUTFjLl",
+    behance: "https://www.behance.net/mushfiqpalappu",
     whatsapp: "https://wa.me/918157868714",
     email: "mailto:muhammedmushfiq178@gmail.com"
   },
@@ -302,25 +303,25 @@ export const polaroids: PolaroidPhoto[] = [
   {
     id: "pol-1",
     imageUrl: Night,
-    caption: "Creating in the studio 🎨",
+    caption: "Riding into neon nights 🎡",
     rotation: -4,
   },
   {
     id: "pol-2",
     imageUrl: Dog,
-    caption: "Design sprint with the team 💻",
+    caption: "Exploring one paw at a time 🐾",
     rotation: 3,
   },
   {
     id: "pol-3",
     imageUrl: House,
-    caption: "Framing coastal sunsets 📸",
+    caption: "Where the clouds gather 🌤️",
     rotation: -2,
   },
   {
     id: "pol-4",
     imageUrl: Horse,
-    caption: "Late night code sessions ☕",
+    caption: "Ready for the next adventure 🐎",
     rotation: 5,
   },
 ];

@@ -113,6 +113,7 @@ export interface SiteConfig {
     github: string;
     linkedin: string;
     pinterest: string;
+    behance: string;
     whatsapp: string;
     email: string;
   };
