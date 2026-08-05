@@ -20,7 +20,7 @@ export function Navigation() {
   // Active section scroll tracking
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'about', 'experience', 'contact'];
+      const sections = ['home', 'about', 'projects', 'experience', 'contact'];
       for (const section of sections.reverse()) {
         const el = document.getElementById(section);
         if (el) {
@@ -39,8 +39,8 @@ export function Navigation() {
 
   const navItems = [
     { id: 'home', label: 'Home', href: '#home' },
-    { id: 'projects', label: 'Works', href: '#projects' },
     { id: 'about', label: 'About', href: '#about' },
+    { id: 'projects', label: 'Works', href: '#projects' },
     { id: 'experience', label: 'Experience', href: '#experience' },
     { id: 'contact', label: 'Contact', href: '#contact' },
   ];
@@ -141,18 +141,6 @@ export function Navigation() {
               </a>
 
               <a
-                href="#projects"
-                onClick={() => setMobileOpen(false)}
-                className="p-3.5 rounded-2xl bg-neutral-900 border border-neutral-800 text-xs sm:text-sm font-bold text-white flex items-center justify-between hover:border-[#FF4D12] hover:scale-[1.02] active:scale-95 transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <FolderGit2 className="w-4 h-4 text-[#FF4D12]" />
-                  <span>Selected Works & Showcase</span>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-neutral-500" />
-              </a>
-
-              <a
                 href="#about"
                 onClick={() => setMobileOpen(false)}
                 className="p-3.5 rounded-2xl bg-neutral-900 border border-neutral-800 text-xs sm:text-sm font-bold text-white flex items-center justify-between hover:border-[#FF4D12] hover:scale-[1.02] active:scale-95 transition-all"
@@ -160,6 +148,18 @@ export function Navigation() {
                 <div className="flex items-center gap-3">
                   <User className="w-4 h-4 text-[#FF4D12]" />
                   <span>About Bio</span>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-neutral-500" />
+              </a>
+
+              <a
+                href="#projects"
+                onClick={() => setMobileOpen(false)}
+                className="p-3.5 rounded-2xl bg-neutral-900 border border-neutral-800 text-xs sm:text-sm font-bold text-white flex items-center justify-between hover:border-[#FF4D12] hover:scale-[1.02] active:scale-95 transition-all"
+              >
+                <div className="flex items-center gap-3">
+                  <FolderGit2 className="w-4 h-4 text-[#FF4D12]" />
+                  <span>Selected Works & Showcase</span>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-neutral-500" />
               </a>

@@ -69,11 +69,11 @@ export function App() {
 
         <main>
           <Hero />
+          <About />
           <div id="projects">
             <Projects />
             <Videography />
           </div>
-          <About />
           <Timeline />
           <Contact />
         </main>
