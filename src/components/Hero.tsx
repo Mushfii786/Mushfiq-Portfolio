@@ -72,22 +72,22 @@ export function Hero() {
         </motion.div>
 
         {/* Main Headline */}
-        <div className="space-y-0.5 sm:space-y-1">
+        <div className="space-y-1 sm:space-y-2">
           <motion.div variants={lineVariants} className="overflow-hidden">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2rem] xl:text-[4.8rem] font-bold tracking-tight text-white leading-[1.08]">
-              Bringing Stories
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.6rem] xl:text-[4.2rem] font-extrabold tracking-tight text-white leading-[1.08] drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
+              Crafting Unforgettable
             </h1>
           </motion.div>
 
           <motion.div variants={lineVariants} className="overflow-hidden">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2rem] xl:text-[4.8rem] font-bold tracking-tight text-white leading-[1.08]">
-              To Life Through
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.6rem] xl:text-[4.2rem] font-extrabold tracking-tight text-white leading-[1.08] drop-shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
+              Visuals Through
             </h1>
           </motion.div>
 
-          <motion.div variants={lineVariants} className="overflow-hidden">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2rem] xl:text-[4.8rem] font-bold tracking-tight leading-[1.08]">
-              <GradientText>Photography & Films</GradientText>
+          <motion.div variants={lineVariants} className="overflow-hidden py-1">
+            <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-[3.1rem] xl:text-[3.6rem] font-extrabold tracking-tight leading-[1.08] drop-shadow-[0_0_35px_rgba(139,92,246,0.4)]">
+              <GradientText>Photography, Videography & Editing</GradientText>
             </h1>
           </motion.div>
         </div>

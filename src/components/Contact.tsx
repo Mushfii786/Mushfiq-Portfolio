@@ -73,10 +73,6 @@ export function Contact() {
   return (
     <section id="contact" className="py-28 px-4 sm:px-6 max-w-7xl mx-auto relative overflow-hidden select-none">
       
-      {/* Background Ambient Glow Orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#2563EB]/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 -right-32 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
-
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
         
         {/* Left Column: Heading, Direct Info Cards & Networks */}
@@ -104,7 +100,7 @@ export function Contact() {
             >
               Let's Build <br />
               Something <br />
-              <span className="bg-gradient-to-r from-[#60A5FA] via-[#2563EB] to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#8B5CF6] via-[#3B82F6] to-[#06B6D4] bg-clip-text text-transparent">
                 Amazing.
               </span>
             </motion.h2>
@@ -201,26 +197,30 @@ export function Contact() {
 
         {/* Right Column: High-End Glassmorphic Form Container */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 35, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-7"
         >
-          <div className="p-8 sm:p-11 rounded-[2.5rem] bg-neutral-950/85 border border-white/10 backdrop-blur-3xl shadow-[0_25px_80px_rgba(0,0,0,0.8)] ring-1 ring-white/5 text-white relative overflow-hidden">
+          <div className="p-8 sm:p-11 rounded-[2.5rem] bg-neutral-950/85 border border-white/15 backdrop-blur-3xl shadow-[0_25px_80px_rgba(0,0,0,0.85)] ring-1 ring-white/10 text-white relative overflow-hidden group/form hover:border-purple-500/30 transition-all duration-500">
             
-            {/* Top Accent Gradient Border */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#2563EB] to-transparent" />
+            {/* Top Accent Gradient Border with Shimmer Pulse */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#8B5CF6] via-[#3B82F6] to-transparent animate-pulse duration-[3000ms]" />
+
+            {/* Inner Ambient Glow Orbs inside card */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-gradient-to-br from-purple-600/15 via-blue-600/10 to-transparent rounded-full blur-3xl pointer-events-none group-hover/form:scale-125 transition-transform duration-700" />
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-gradient-to-tr from-cyan-500/15 via-purple-500/10 to-transparent rounded-full blur-3xl pointer-events-none group-hover/form:scale-125 transition-transform duration-700" />
 
             {formSubmitted ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-                className="py-16 text-center space-y-5"
+                initial={{ opacity: 0, scale: 0.92, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="py-16 text-center space-y-5 relative z-10"
               >
-                <div className="w-20 h-20 rounded-full bg-[#2563EB]/20 text-[#60A5FA] mx-auto flex items-center justify-center border border-[#2563EB]/40 shadow-[0_0_30px_rgba(37,99,235,0.4)]">
-                  <Check className="w-10 h-10" />
+                <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#8B5CF6]/30 to-[#06B6D4]/30 text-[#60A5FA] mx-auto flex items-center justify-center border border-purple-500/40 shadow-[0_0_35px_rgba(139,92,246,0.4)] animate-bounce duration-1000">
+                  <Check className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-3xl font-extrabold text-white tracking-tight">
                   Message Dispatched!
@@ -228,23 +228,26 @@ export function Contact() {
                 <p className="text-sm sm:text-base text-neutral-300 max-w-md mx-auto leading-relaxed">
                   Thank you for reaching out, <span className="font-semibold text-white">{formData.firstName}</span>. I'll respond to <span className="text-[#60A5FA] font-mono">{formData.email}</span> within 24 hours.
                 </p>
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     setFormSubmitted(false);
                     setFormData({ firstName: '', lastName: '', email: '', phone: '', location: '', message: '' });
                   }}
-                  className="px-8 py-3 rounded-full bg-white text-black font-bold text-xs hover:bg-neutral-200 transition-all duration-300 cursor-pointer shadow-xl hover:scale-105 active:scale-95 mt-4"
+                  className="px-8 py-3.5 rounded-full bg-gradient-to-r from-white to-neutral-200 text-black font-extrabold text-xs hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300 cursor-pointer shadow-xl mt-4"
                 >
                   Send Another Message
-                </button>
+                </motion.button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 
                 {/* Form Title & Subtitle */}
                 <div className="space-y-1 mb-2">
-                  <h3 className="text-xl font-bold text-white tracking-tight">
-                    Send a Direct Inquiry
+                  <h3 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                    <span>Send a Direct Inquiry</span>
+                    <span className="w-2 h-2 rounded-full bg-[#06B6D4] animate-ping" />
                   </h3>
                   <p className="text-xs text-neutral-400">
                     Fill in your details below and I'll get back to you promptly.
@@ -253,92 +256,139 @@ export function Contact() {
 
                 {/* Row 1: First Name / Last Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
+                  <div className="relative group/input">
                     <input
                       type="text"
                       required
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      placeholder="First Name *"
-                      className="w-full px-5 py-4 rounded-2xl bg-neutral-900/90 border border-white/10 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/30 transition-all duration-300"
+                      placeholder=" "
+                      id="firstName"
+                      className="peer w-full px-4 pt-4 pb-3 rounded-2xl bg-neutral-900/80 border border-white/10 text-sm text-white placeholder-transparent focus:outline-none focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#8B5CF6]/30 focus:shadow-[0_0_25px_rgba(139,92,246,0.25)] focus:bg-neutral-900/95 transition-all duration-300 transform-gpu"
                     />
+                    <label
+                      htmlFor="firstName"
+                      className="absolute left-4 top-3.5 text-xs font-medium text-neutral-400 pointer-events-none border border-transparent rounded-lg px-1 py-0 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform-gpu origin-left peer-focus:-top-3.5 peer-focus:left-3 peer-focus:text-[11px] peer-focus:text-purple-300 peer-focus:font-semibold peer-focus:bg-neutral-950 peer-focus:border-purple-500/50 peer-focus:rounded-lg peer-focus:px-2.5 peer-focus:py-0.5 peer-focus:shadow-[0_0_15px_rgba(139,92,246,0.35)] peer-[&:not(:placeholder-shown)]:-top-3.5 peer-[&:not(:placeholder-shown)]:left-3 peer-[&:not(:placeholder-shown)]:text-[11px] peer-[&:not(:placeholder-shown)]:text-purple-300 peer-[&:not(:placeholder-shown)]:font-semibold peer-[&:not(:placeholder-shown)]:bg-neutral-950 peer-[&:not(:placeholder-shown)]:border-purple-500/40 peer-[&:not(:placeholder-shown)]:rounded-lg peer-[&:not(:placeholder-shown)]:px-2.5 peer-[&:not(:placeholder-shown)]:py-0.5 peer-[&:not(:placeholder-shown)]:shadow-[0_0_12px_rgba(139,92,246,0.25)]"
+                    >
+                      First Name *
+                    </label>
                   </div>
-                  <div>
+                  <div className="relative group/input">
                     <input
                       type="text"
                       value={formData.lastName}
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      placeholder="Last Name"
-                      className="w-full px-5 py-4 rounded-2xl bg-neutral-900/90 border border-white/10 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/30 transition-all duration-300"
+                      placeholder=" "
+                      id="lastName"
+                      className="peer w-full px-4 pt-4 pb-3 rounded-2xl bg-neutral-900/80 border border-white/10 text-sm text-white placeholder-transparent focus:outline-none focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#8B5CF6]/30 focus:shadow-[0_0_25px_rgba(139,92,246,0.25)] focus:bg-neutral-900/95 transition-all duration-300 transform-gpu"
                     />
+                    <label
+                      htmlFor="lastName"
+                      className="absolute left-4 top-3.5 text-xs font-medium text-neutral-400 pointer-events-none border border-transparent rounded-lg px-1 py-0 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform-gpu origin-left peer-focus:-top-3.5 peer-focus:left-3 peer-focus:text-[11px] peer-focus:text-purple-300 peer-focus:font-semibold peer-focus:bg-neutral-950 peer-focus:border-purple-500/50 peer-focus:rounded-lg peer-focus:px-2.5 peer-focus:py-0.5 peer-focus:shadow-[0_0_15px_rgba(139,92,246,0.35)] peer-[&:not(:placeholder-shown)]:-top-3.5 peer-[&:not(:placeholder-shown)]:left-3 peer-[&:not(:placeholder-shown)]:text-[11px] peer-[&:not(:placeholder-shown)]:text-purple-300 peer-[&:not(:placeholder-shown)]:font-semibold peer-[&:not(:placeholder-shown)]:bg-neutral-950 peer-[&:not(:placeholder-shown)]:border-purple-500/40 peer-[&:not(:placeholder-shown)]:rounded-lg peer-[&:not(:placeholder-shown)]:px-2.5 peer-[&:not(:placeholder-shown)]:py-0.5 peer-[&:not(:placeholder-shown)]:shadow-[0_0_12px_rgba(139,92,246,0.25)]"
+                    >
+                      Last Name
+                    </label>
                   </div>
                 </div>
 
                 {/* Row 2: Email / Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
+                  <div className="relative group/input">
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="Email Address *"
-                      className="w-full px-5 py-4 rounded-2xl bg-neutral-900/90 border border-white/10 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/30 transition-all duration-300"
+                      placeholder=" "
+                      id="email"
+                      className="peer w-full px-4 pt-4 pb-3 rounded-2xl bg-neutral-900/80 border border-white/10 text-sm text-white placeholder-transparent focus:outline-none focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#8B5CF6]/30 focus:shadow-[0_0_25px_rgba(139,92,246,0.25)] focus:bg-neutral-900/95 transition-all duration-300 transform-gpu"
                     />
+                    <label
+                      htmlFor="email"
+                      className="absolute left-4 top-3.5 text-xs font-medium text-neutral-400 pointer-events-none border border-transparent rounded-lg px-1 py-0 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform-gpu origin-left peer-focus:-top-3.5 peer-focus:left-3 peer-focus:text-[11px] peer-focus:text-purple-300 peer-focus:font-semibold peer-focus:bg-neutral-950 peer-focus:border-purple-500/50 peer-focus:rounded-lg peer-focus:px-2.5 peer-focus:py-0.5 peer-focus:shadow-[0_0_15px_rgba(139,92,246,0.35)] peer-[&:not(:placeholder-shown)]:-top-3.5 peer-[&:not(:placeholder-shown)]:left-3 peer-[&:not(:placeholder-shown)]:text-[11px] peer-[&:not(:placeholder-shown)]:text-purple-400 peer-[&:not(:placeholder-shown)]:font-semibold peer-[&:not(:placeholder-shown)]:bg-neutral-950 peer-[&:not(:placeholder-shown)]:border-purple-500/40 peer-[&:not(:placeholder-shown)]:rounded-lg peer-[&:not(:placeholder-shown)]:px-2.5 peer-[&:not(:placeholder-shown)]:py-0.5 peer-[&:not(:placeholder-shown)]:shadow-[0_0_12px_rgba(139,92,246,0.25)]"
+                    >
+                      Email Address *
+                    </label>
                   </div>
-                  <div>
+                  <div className="relative group/input">
                     <input
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="Phone Number"
-                      className="w-full px-5 py-4 rounded-2xl bg-neutral-900/90 border border-white/10 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/30 transition-all duration-300"
+                      placeholder=" "
+                      id="phone"
+                      className="peer w-full px-4 pt-4 pb-3 rounded-2xl bg-neutral-900/80 border border-white/10 text-sm text-white placeholder-transparent focus:outline-none focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#8B5CF6]/30 focus:shadow-[0_0_25px_rgba(139,92,246,0.25)] focus:bg-neutral-900/95 transition-all duration-300 transform-gpu"
                     />
+                    <label
+                      htmlFor="phone"
+                      className="absolute left-4 top-3.5 text-xs font-medium text-neutral-400 pointer-events-none border border-transparent rounded-lg px-1 py-0 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform-gpu origin-left peer-focus:-top-3.5 peer-focus:left-3 peer-focus:text-[11px] peer-focus:text-purple-300 peer-focus:font-semibold peer-focus:bg-neutral-950 peer-focus:border-purple-500/50 peer-focus:rounded-lg peer-focus:px-2.5 peer-focus:py-0.5 peer-focus:shadow-[0_0_15px_rgba(139,92,246,0.35)] peer-[&:not(:placeholder-shown)]:-top-3.5 peer-[&:not(:placeholder-shown)]:left-3 peer-[&:not(:placeholder-shown)]:text-[11px] peer-[&:not(:placeholder-shown)]:text-purple-400 peer-[&:not(:placeholder-shown)]:font-semibold peer-[&:not(:placeholder-shown)]:bg-neutral-950 peer-[&:not(:placeholder-shown)]:border-purple-500/40 peer-[&:not(:placeholder-shown)]:rounded-lg peer-[&:not(:placeholder-shown)]:px-2.5 peer-[&:not(:placeholder-shown)]:py-0.5 peer-[&:not(:placeholder-shown)]:shadow-[0_0_12px_rgba(139,92,246,0.25)]"
+                    >
+                      Phone Number
+                    </label>
                   </div>
                 </div>
 
                 {/* Row 3: Country & Place */}
-                <div>
+                <div className="relative group/input">
                   <input
                     type="text"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    placeholder="Country / Location"
-                    className="w-full px-5 py-4 rounded-2xl bg-neutral-900/90 border border-white/10 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/30 transition-all duration-300"
+                    placeholder=" "
+                    id="location"
+                    className="peer w-full px-4 pt-4 pb-3 rounded-2xl bg-neutral-900/80 border border-white/10 text-sm text-white placeholder-transparent focus:outline-none focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#8B5CF6]/30 focus:shadow-[0_0_25px_rgba(139,92,246,0.25)] focus:bg-neutral-900/95 transition-all duration-300 transform-gpu"
                   />
+                  <label
+                    htmlFor="location"
+                    className="absolute left-4 top-3.5 text-xs font-medium text-neutral-400 pointer-events-none border border-transparent rounded-lg px-1 py-0 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform-gpu origin-left peer-focus:-top-3.5 peer-focus:left-3 peer-focus:text-[11px] peer-focus:text-purple-300 peer-focus:font-semibold peer-focus:bg-neutral-950 peer-focus:border-purple-500/50 peer-focus:rounded-lg peer-focus:px-2.5 peer-focus:py-0.5 peer-focus:shadow-[0_0_15px_rgba(139,92,246,0.35)] peer-[&:not(:placeholder-shown)]:-top-3.5 peer-[&:not(:placeholder-shown)]:left-3 peer-[&:not(:placeholder-shown)]:text-[11px] peer-[&:not(:placeholder-shown)]:text-purple-400 peer-[&:not(:placeholder-shown)]:font-semibold peer-[&:not(:placeholder-shown)]:bg-neutral-950 peer-[&:not(:placeholder-shown)]:border-purple-500/40 peer-[&:not(:placeholder-shown)]:rounded-lg peer-[&:not(:placeholder-shown)]:px-2.5 peer-[&:not(:placeholder-shown)]:py-0.5 peer-[&:not(:placeholder-shown)]:shadow-[0_0_12px_rgba(139,92,246,0.25)]"
+                  >
+                    Country / Location
+                  </label>
                 </div>
 
                 {/* Row 4: Your Message */}
-                <div className="relative">
+                <div className="relative group/input">
                   <textarea
                     required
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Your Message *"
-                    className="w-full px-5 py-4 rounded-2xl bg-neutral-900/90 border border-white/10 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/30 transition-all duration-300 resize-none"
+                    placeholder=" "
+                    id="message"
+                    className="peer w-full px-4 pt-4 pb-3 rounded-2xl bg-neutral-900/80 border border-white/10 text-sm text-white placeholder-transparent focus:outline-none focus:border-[#8B5CF6] focus:ring-2 focus:ring-[#8B5CF6]/30 focus:shadow-[0_0_25px_rgba(139,92,246,0.25)] focus:bg-neutral-900/95 transition-all duration-300 resize-none transform-gpu"
                   />
+                  <label
+                    htmlFor="message"
+                    className="absolute left-4 top-3.5 text-xs font-medium text-neutral-400 pointer-events-none border border-transparent rounded-lg px-1 py-0 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] transform-gpu origin-left peer-focus:-top-3.5 peer-focus:left-3 peer-focus:text-[11px] peer-focus:text-purple-300 peer-focus:font-semibold peer-focus:bg-neutral-950 peer-focus:border-purple-500/50 peer-focus:rounded-lg peer-focus:px-2.5 peer-focus:py-0.5 peer-focus:shadow-[0_0_15px_rgba(139,92,246,0.35)] peer-[&:not(:placeholder-shown)]:-top-3.5 peer-[&:not(:placeholder-shown)]:left-3 peer-[&:not(:placeholder-shown)]:text-[11px] peer-[&:not(:placeholder-shown)]:text-purple-400 peer-[&:not(:placeholder-shown)]:font-semibold peer-[&:not(:placeholder-shown)]:bg-neutral-950 peer-[&:not(:placeholder-shown)]:border-purple-500/40 peer-[&:not(:placeholder-shown)]:rounded-lg peer-[&:not(:placeholder-shown)]:px-2.5 peer-[&:not(:placeholder-shown)]:py-0.5 peer-[&:not(:placeholder-shown)]:shadow-[0_0_12px_rgba(139,92,246,0.25)]"
+                  >
+                    Your Message *
+                  </label>
                 </div>
 
                 {/* Action Row */}
                 <div className="pt-2 flex items-center justify-between">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.97 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="group relative px-9 py-3.5 rounded-full bg-[#2563EB] hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_35px_rgba(37,99,235,0.8)] hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2.5 overflow-hidden"
+                    className="group/btn relative px-10 py-4 rounded-full bg-gradient-to-r from-[#8B5CF6] via-[#3B82F6] to-[#06B6D4] text-white font-extrabold text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-[0_0_30px_rgba(139,92,246,0.45)] hover:shadow-[0_0_45px_rgba(59,130,246,0.75)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3 overflow-hidden"
                   >
+                    {/* Sweeping Shimmer Highlight across button */}
+                    <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+
                     {isSubmitting ? (
                       <>
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Dispatching...</span>
+                        <Loader2 className="w-4 h-4 animate-spin relative z-10" />
+                        <span className="relative z-10">Dispatching...</span>
                       </>
                     ) : (
                       <>
-                        <span>SEND MESSAGE</span>
-                        <Send className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+                        <span className="relative z-10">SEND MESSAGE</span>
+                        <Send className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-0.5" />
                       </>
                     )}
-                  </button>
+                  </motion.button>
 
                   {submitError && (
                     <p className="text-xs text-red-400 font-mono">{submitError}</p>

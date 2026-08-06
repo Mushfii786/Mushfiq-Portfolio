@@ -92,42 +92,51 @@ export function About() {
         
         {/* ROW 1: LEFT CARD - Profile Avatar (Col 4) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="md:col-span-5 lg:col-span-4 bg-neutral-900/90 border border-neutral-800/80 rounded-[2rem] p-4 flex items-center justify-center shadow-xl backdrop-blur-md hover:border-neutral-700 transition-all group"
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="md:col-span-5 lg:col-span-4 bg-neutral-950/85 border border-white/10 rounded-[2.5rem] p-3 flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-3xl hover:border-purple-500/40 transition-all duration-500 group relative overflow-hidden"
         >
-          <div className="w-full aspect-square rounded-[1.5rem] overflow-hidden bg-gradient-to-tr from-cyan-600 via-blue-600 to-indigo-500 p-1 relative flex items-center justify-center shadow-inner">
-            <div className="w-full h-full rounded-[1.3rem] overflow-hidden bg-neutral-950 relative">
+          {/* Subtle Ambient Backing Glow */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/10 via-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+          <div className="w-full aspect-square rounded-[2rem] overflow-hidden bg-neutral-950 relative flex items-center justify-center group/img">
+            {/* Image Container with Smooth Motion */}
+            <motion.div className="w-full h-full relative overflow-hidden rounded-[2rem]">
               <img
                 src={siteConfig.avatarUrl}
                 alt={siteConfig.name}
-                className="w-full h-full object-cover object-top filter saturate-[1.15] brightness-[1.02] group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-top filter saturate-[1.1] brightness-[1.02] group-hover/img:scale-108 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
-            </div>
+              {/* Cinematic Vignette Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-neutral-950/20 opacity-90 group-hover/img:opacity-60 transition-opacity duration-500 pointer-events-none" />
+
+              {/* Sweeping Premium Shimmer Reflection */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent translate-x-[-100%] group-hover/img:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+            </motion.div>
           </div>
         </motion.div>
 
         {/* ROW 1: RIGHT CARD - Name & Bio (Col 8) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="md:col-span-7 lg:col-span-8 bg-neutral-900/90 border border-neutral-800/80 rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between shadow-xl backdrop-blur-md relative hover:border-neutral-700 transition-all group"
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="md:col-span-7 lg:col-span-8 bg-neutral-950/85 border border-white/10 rounded-[2.5rem] p-6 sm:p-9 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-3xl hover:border-purple-500/40 transition-all duration-500 group relative overflow-hidden"
         >
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-neutral-400">
-              <Sparkles className="w-5 h-5 text-neutral-400 group-hover:rotate-12 transition-transform duration-300" />
-            </div>
+          {/* Subtle Inner Ambient Glow */}
+          <div className="absolute -top-24 -right-24 w-72 h-72 bg-gradient-to-br from-purple-600/15 via-blue-600/10 to-transparent rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
 
-            <div className="space-y-2 pt-2">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <div className="space-y-4 relative z-10">
+
+
+            <div className="space-y-2 pt-1">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
                 {siteConfig.name}
               </h3>
-              <p className="text-xs font-mono uppercase tracking-widest text-[#2563EB] font-semibold">
+              <p className="text-xs sm:text-sm font-mono uppercase tracking-widest bg-gradient-to-r from-[#8B5CF6] via-[#3B82F6] to-[#06B6D4] bg-clip-text text-transparent font-bold">
                 {siteConfig.title}
               </p>
             </div>
@@ -137,9 +146,12 @@ export function About() {
             </p>
           </div>
 
-          <div className="pt-6 flex items-center justify-between text-xs text-neutral-500 font-mono">
-            <span>{siteConfig.location}</span>
-            <span className="flex items-center gap-1.5 text-emerald-400">
+          <div className="pt-6 flex items-center justify-between text-xs text-neutral-400 font-mono relative z-10 border-t border-white/5 mt-4">
+            <span className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+              {siteConfig.location}
+            </span>
+            <span className="flex items-center gap-2 text-emerald-400 font-medium px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
               Available for work
             </span>
@@ -148,22 +160,30 @@ export function About() {
 
         {/* ROW 2: LEFT CARD - Experience (Col 6) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="md:col-span-6 bg-neutral-900/90 border border-neutral-800/80 rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between shadow-xl backdrop-blur-md hover:border-neutral-700 transition-all"
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="md:col-span-6 bg-neutral-950/85 border border-white/10 rounded-[2.5rem] p-6 sm:p-8 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-3xl hover:border-purple-500/40 transition-all duration-500 group relative overflow-hidden"
         >
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-neutral-400 font-semibold mb-6">
-              EXPERIENCE
-            </h4>
+          {/* Subtle Ambient Orb */}
+          <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-purple-600/10 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
+
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_10px_#8B5CF6]" />
+              <h4 className="text-xs font-mono uppercase tracking-widest text-neutral-300 font-semibold">
+                EXPERIENCE
+              </h4>
+            </div>
 
             <div className="space-y-6">
               {experiences.map((exp, idx) => (
-                <div key={idx} className="space-y-1">
-                  <span className="text-xs font-mono text-neutral-500">{exp.period}</span>
-                  <h5 className="text-base font-bold text-white leading-snug">{exp.title}</h5>
+                <div key={idx} className="space-y-1.5 p-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-purple-500/30 hover:bg-white/[0.05] transition-all duration-300 group/exp">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-purple-300 px-2.5 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/20">{exp.period}</span>
+                  </div>
+                  <h5 className="text-base font-bold text-white leading-snug group-hover/exp:text-purple-200 transition-colors">{exp.title}</h5>
                   <p className="text-xs text-neutral-400 font-light">{exp.company}</p>
                 </div>
               ))}
@@ -173,22 +193,30 @@ export function About() {
 
         {/* ROW 2: RIGHT CARD - Education (Col 6) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="md:col-span-6 bg-neutral-900/90 border border-neutral-800/80 rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between shadow-xl backdrop-blur-md hover:border-neutral-700 transition-all"
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="md:col-span-6 bg-neutral-950/85 border border-white/10 rounded-[2.5rem] p-6 sm:p-8 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-3xl hover:border-purple-500/40 transition-all duration-500 group relative overflow-hidden"
         >
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-neutral-400 font-semibold mb-6">
-              EDUCATION
-            </h4>
+          {/* Subtle Ambient Orb */}
+          <div className="absolute -top-20 -right-20 w-60 h-60 bg-blue-600/10 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
+
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_#06B6D4]" />
+              <h4 className="text-xs font-mono uppercase tracking-widest text-neutral-300 font-semibold">
+                EDUCATION
+              </h4>
+            </div>
 
             <div className="space-y-6">
               {education.map((edu, idx) => (
-                <div key={idx} className="space-y-1">
-                  <span className="text-xs font-mono text-neutral-500">{edu.period}</span>
-                  <h5 className="text-base font-bold text-white leading-snug">{edu.title}</h5>
+                <div key={idx} className="space-y-1.5 p-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/30 hover:bg-white/[0.05] transition-all duration-300 group/edu">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-cyan-300 px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">{edu.period}</span>
+                  </div>
+                  <h5 className="text-base font-bold text-white leading-snug group-hover/edu:text-cyan-200 transition-colors">{edu.title}</h5>
                   <p className="text-xs text-neutral-400 font-light">{edu.company}</p>
                 </div>
               ))}
@@ -196,110 +224,84 @@ export function About() {
           </div>
         </motion.div>
 
-        {/* ROW 3: CARD 1 - Profiles / Socials (Col 3 or 4) */}
+        {/* ROW 3: CARD 1 - Profiles / Socials */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="md:col-span-4 lg:col-span-3 bg-neutral-900/90 border border-neutral-800/80 rounded-[2rem] p-6 flex flex-col justify-between shadow-xl backdrop-blur-md hover:border-neutral-700 transition-all group min-h-[200px]"
+          transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="md:col-span-5 lg:col-span-4 bg-neutral-950/85 border border-white/10 rounded-[2.5rem] p-6 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-3xl hover:border-purple-500/40 transition-all duration-500 group relative overflow-hidden min-h-[220px]"
         >
-          {/* Social Icons row */}
-          <div className="flex flex-wrap items-center gap-2.5 py-1">
+          {/* Social Icons grid */}
+          <div className="flex flex-wrap items-center gap-2.5 py-1 relative z-10">
             {socialList.map((social) => {
               const IconComp = social.icon;
               return (
-                <a
+                <motion.a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-neutral-800/90 border border-neutral-700/60 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-[#2563EB] hover:border-[#2563EB] hover:scale-110 active:scale-95 transition-all shadow-sm"
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-10 h-10 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center text-neutral-300 hover:text-white hover:border-purple-500 hover:bg-gradient-to-tr hover:from-purple-600 hover:to-blue-600 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all duration-300 shadow-md"
                   title={social.name}
                 >
                   <IconComp className="w-4 h-4" />
-                </a>
+                </motion.a>
               );
             })}
           </div>
 
           {/* Footer Meta */}
-          <div className="flex items-center justify-between pt-6">
+          <div className="flex items-center justify-between pt-6 relative z-10 border-t border-white/5">
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">
                 STAY WITH ME
               </span>
               <span className="text-base font-bold text-white">Profiles</span>
             </div>
-            <a
+            <motion.a
               href={siteConfig.socials.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-neutral-800 border border-neutral-700/60 flex items-center justify-center text-neutral-400 group-hover:text-white group-hover:bg-[#2563EB] group-hover:border-[#2563EB] transition-all"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-9 h-9 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white group-hover:bg-[#8B5CF6] group-hover:border-purple-400 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-300"
             >
               <ArrowUpRight className="w-4 h-4" />
-            </a>
+            </motion.a>
           </div>
         </motion.div>
 
-        {/* ROW 3: CARD 2 - Let's work together (Col 6) */}
+        {/* ROW 3: CARD 2 - Let's work together */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="md:col-span-8 lg:col-span-6 bg-neutral-900/90 border border-neutral-800/80 rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between shadow-xl backdrop-blur-md hover:border-neutral-700 transition-all group min-h-[200px]"
+          transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="md:col-span-7 lg:col-span-8 bg-neutral-950/85 border border-white/10 rounded-[2.5rem] p-6 sm:p-8 flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.8)] backdrop-blur-3xl hover:border-purple-500/40 transition-all duration-500 group relative overflow-hidden min-h-[220px]"
         >
-          <div className="space-y-1">
-            <Sparkles className="w-5 h-5 text-neutral-500 group-hover:text-[#2563EB] transition-colors duration-300" />
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight pt-2">
+          {/* Ambient Purple/Blue Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-purple-600/15 via-blue-600/15 to-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
+
+          <div className="space-y-1 relative z-10">
+            <Sparkles className="w-5 h-5 text-purple-400 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300" />
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight pt-2">
               Let's <br />
-              work <span className="text-[#2563EB] font-sans italic">together.</span>
+              work <span className="bg-gradient-to-r from-[#8B5CF6] via-[#3B82F6] to-[#06B6D4] bg-clip-text text-transparent font-sans italic">together.</span>
             </h3>
           </div>
 
-          <div className="flex justify-end pt-4">
-            <a
+          <div className="flex justify-end pt-4 relative z-10">
+            <motion.a
               href="#contact"
-              className="w-10 h-10 rounded-full bg-neutral-800 border border-neutral-700/60 flex items-center justify-center text-neutral-400 group-hover:text-white group-hover:bg-blue-600 group-hover:border-blue-500 group-hover:scale-110 transition-all shadow-lg"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-12 h-12 rounded-full bg-gradient-to-r from-[#8B5CF6] via-[#3B82F6] to-[#06B6D4] text-white flex items-center justify-center shadow-[0_0_25px_rgba(139,92,246,0.5)] hover:shadow-[0_0_35px_rgba(59,130,246,0.8)] transition-all duration-300"
             >
-              <ArrowUpRight className="w-5 h-5" />
-            </a>
-          </div>
-        </motion.div>
-
-        {/* ROW 3: CARD 3 - Credentials / Signature (Col 3) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="md:col-span-12 lg:col-span-3 bg-neutral-900/90 border border-neutral-800/80 rounded-[2rem] p-6 flex flex-col justify-between shadow-xl backdrop-blur-md hover:border-neutral-700 transition-all group min-h-[200px]"
-        >
-          {/* Signature SVG Illustration */}
-          <div className="flex items-center justify-center py-2 text-neutral-300 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
-            <svg className="w-36 h-12" viewBox="0 0 200 60" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              {/* Handwritten signature path for Mushfii */}
-              <path d="M 15 45 C 20 15, 30 10, 35 30 C 40 45, 45 40, 50 25 C 55 15, 60 35, 65 35 C 70 35, 75 20, 80 35 C 85 35, 90 22, 95 38 M 100 20 L 100 42 M 108 20 L 108 42 M 115 25 Q 130 10 145 25 Q 160 40 175 25 T 190 35" />
-              <circle cx="100" cy="14" r="2" fill="currentColor" />
-              <circle cx="108" cy="14" r="2" fill="currentColor" />
-            </svg>
-          </div>
-
-          {/* Footer Meta */}
-          <div className="flex items-center justify-between pt-4">
-            <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
-                MORE ABOUT ME
-              </span>
-              <span className="text-base font-bold text-white">Credentials</span>
-            </div>
-            <a
-              href="#projects"
-              className="w-8 h-8 rounded-full bg-neutral-800 border border-neutral-700/60 flex items-center justify-center text-neutral-400 group-hover:text-white group-hover:bg-[#2563EB] group-hover:border-[#2563EB] transition-all"
-            >
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+              <ArrowUpRight className="w-6 h-6" />
+            </motion.a>
           </div>
         </motion.div>
 
