@@ -137,7 +137,7 @@ export function TechStack() {
                     whileInView={{ width: `${item.level}%` }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: index * 0.05 }}
-                    className="h-full bg-gradient-to-r from-neutral-800 via-neutral-600 to-emerald-500 dark:from-white dark:via-neutral-300 dark:to-emerald-400 rounded-full"
+                    className="h-full bg-gradient-to-r from-purple-600 via-indigo-500 to-cyan-400 dark:from-purple-500 dark:via-blue-500 dark:to-cyan-400 rounded-full"
                   />
                 </div>
               </div>

@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Lenis from 'lenis';
-import { Preloader } from './components/Preloader';
 import { CustomCursor } from './components/CustomCursor';
 import { ScrollProgress } from './components/ScrollProgress';
+import { GradientWaves } from './components/GradientWaves';
 import { ShapeGrid } from './components/ShapeGrid';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { Projects } from './components/Projects';
 import { Videography } from './components/Videography';
 import { About } from './components/About';
-import { Timeline } from './components/Timeline';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
 export function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
   // Initialize Lenis smooth scroll engine and force dark mode
   useEffect(() => {
     document.documentElement.classList.add('dark');
@@ -45,14 +42,14 @@ export function App() {
   return (
     <div className="min-h-screen bg-background text-foreground relative selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-black font-sans antialiased overflow-x-hidden">
       
-      {/* Fullscreen Preloader */}
-      <Preloader onComplete={() => setIsLoaded(true)} />
-
       {/* Smooth Magnetic Cursor */}
       <CustomCursor />
 
       {/* Scroll Progress Bar */}
       <ScrollProgress />
+
+      {/* Animated Blue and White Gradient Waves Background */}
+      <GradientWaves />
 
       {/* Interactive Apple/Linear/Vercel Style Grid Backdrop */}
       <ShapeGrid
@@ -64,7 +61,7 @@ export function App() {
       />
 
       {/* Main Portfolio Content */}
-      <div className={`transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="opacity-100 transition-opacity duration-300">
         <Navigation />
 
         <main>
@@ -74,7 +71,6 @@ export function App() {
             <Projects />
             <Videography />
           </div>
-          <Timeline />
           <Contact />
         </main>
 

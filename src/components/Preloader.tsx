@@ -54,7 +54,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-2"
             >
-              <span className="w-2.5 h-2.5 rounded-full bg-[#FF4D12] animate-ping" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#2563EB] animate-ping" />
               <span className="font-semibold text-white">MUSHFII PORTFOLIO</span>
             </motion.div>
 
@@ -66,14 +66,14 @@ export function Preloader({ onComplete }: PreloaderProps) {
             >
               <span>CALICUT, IN</span>
               <span>•</span>
-              <span className="text-[#FF4D12] font-semibold">2026 EDITION</span>
+              <span className="text-[#2563EB] font-semibold">2026 EDITION</span>
             </motion.div>
           </div>
 
           {/* Center Brand Typography Reveal */}
           <div className="my-auto flex flex-col items-center justify-center text-center relative">
             {/* Ambient Background Radial Glow */}
-            <div className="absolute w-[350px] h-[350px] bg-[#FF4D12]/15 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute w-[350px] h-[350px] bg-[#2563EB]/15 rounded-full blur-[120px] pointer-events-none" />
 
             {/* Glowing Ring Progress Indicator */}
             <div className="relative w-36 h-36 mb-8 flex items-center justify-center">
@@ -91,7 +91,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
                   cx="50"
                   cy="50"
                   r="42"
-                  className="text-[#FF4D12]"
+                  className="text-[#2563EB]"
                   strokeWidth="4"
                   strokeDasharray={264}
                   strokeDashoffset={264 - (264 * progress) / 100}
@@ -135,12 +135,12 @@ export function Preloader({ onComplete }: PreloaderProps) {
           <div className="flex flex-col gap-2">
             <div className="flex justify-between items-center text-xs font-mono text-neutral-400">
               <span className="uppercase tracking-widest text-neutral-500">SYSTEM INITIALIZING</span>
-              <span className="text-[#FF4D12] font-semibold">LOADING ASSETS</span>
+              <span className="text-[#2563EB] font-semibold">LOADING ASSETS</span>
             </div>
 
             <div className="w-full h-[3px] bg-neutral-900 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#FF4D12] via-amber-500 to-[#FF4D12] rounded-full"
+                className="h-full bg-gradient-to-r from-[#2563EB] via-amber-500 to-[#2563EB] rounded-full"
                 style={{ width: `${progress}%` }}
                 transition={{ ease: 'easeOut' }}
               />

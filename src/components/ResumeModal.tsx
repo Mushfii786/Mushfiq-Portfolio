@@ -92,7 +92,7 @@ ${timelineItems.map(t => `### ${t.roleOrDegree} - ${t.organization} (${t.period}
             <div className="p-6 md:p-8 overflow-y-auto space-y-8 text-neutral-800 dark:text-neutral-200 text-sm leading-relaxed">
               {/* Summary */}
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-widest text-[#FF4D12] mb-2 font-semibold">
+                <h4 className="text-xs font-mono uppercase tracking-widest text-[#2563EB] mb-2 font-semibold">
                   Executive Summary
                 </h4>
                 <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed text-base">
@@ -102,7 +102,7 @@ ${timelineItems.map(t => `### ${t.roleOrDegree} - ${t.organization} (${t.period}
 
               {/* Roles */}
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-widest text-[#FF4D12] mb-3 font-semibold">
+                <h4 className="text-xs font-mono uppercase tracking-widest text-[#2563EB] mb-3 font-semibold">
                   Core Specializations
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -119,12 +119,12 @@ ${timelineItems.map(t => `### ${t.roleOrDegree} - ${t.organization} (${t.period}
 
               {/* Experience Highlights */}
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-widest text-[#FF4D12] mb-4 font-semibold">
+                <h4 className="text-xs font-mono uppercase tracking-widest text-[#2563EB] mb-4 font-semibold">
                   Career Experience
                 </h4>
                 <div className="space-y-6">
                   {timelineItems.filter(t => t.type === 'experience').map((item) => (
-                    <div key={item.id} className="border-l-2 border-neutral-200 dark:border-neutral-800 pl-4 space-y-1 hover:border-[#FF4D12] transition-colors">
+                    <div key={item.id} className="border-l-2 border-neutral-200 dark:border-neutral-800 pl-4 space-y-1 hover:border-[#2563EB] transition-colors">
                       <div className="flex justify-between items-start">
                         <h5 className="font-semibold text-neutral-900 dark:text-white text-base">
                           {item.roleOrDegree}
@@ -144,7 +144,7 @@ ${timelineItems.map(t => `### ${t.roleOrDegree} - ${t.organization} (${t.period}
 
               {/* Technical Stack */}
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-widest text-[#FF4D12] mb-3 font-semibold">
+                <h4 className="text-xs font-mono uppercase tracking-widest text-[#2563EB] mb-3 font-semibold">
                   Tools & Technologies
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">

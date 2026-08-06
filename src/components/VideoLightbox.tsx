@@ -126,20 +126,20 @@ export function VideoLightbox({ video, videos, onClose, onSelectVideo }: VideoLi
                 max="100"
                 value={progress}
                 onChange={handleSeek}
-                className="w-full h-1.5 bg-neutral-700 accent-[#FF4D12] rounded-lg cursor-pointer"
+                className="w-full h-1.5 bg-neutral-700 accent-[#2563EB] rounded-lg cursor-pointer"
               />
 
               <div className="flex items-center justify-between text-white text-xs font-mono pt-1">
                 <div className="flex items-center gap-3">
                   <button
                     onClick={togglePlay}
-                    className="p-1.5 rounded-full bg-white/10 hover:bg-[#FF4D12] transition-colors"
+                    className="p-1.5 rounded-full bg-white/10 hover:bg-[#2563EB] transition-colors"
                   >
                     {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
                   </button>
                   <button
                     onClick={toggleMute}
-                    className="p-1.5 rounded-full bg-white/10 hover:bg-[#FF4D12] transition-colors"
+                    className="p-1.5 rounded-full bg-white/10 hover:bg-[#2563EB] transition-colors"
                   >
                     {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
                   </button>
@@ -149,7 +149,7 @@ export function VideoLightbox({ video, videos, onClose, onSelectVideo }: VideoLi
                 <div className="flex items-center gap-2">
                   <button
                     onClick={toggleFullscreen}
-                    className="p-1.5 rounded-full bg-white/10 hover:bg-[#FF4D12] transition-colors"
+                    className="p-1.5 rounded-full bg-white/10 hover:bg-[#2563EB] transition-colors"
                   >
                     <Maximize className="w-4 h-4" />
                   </button>
@@ -160,7 +160,7 @@ export function VideoLightbox({ video, videos, onClose, onSelectVideo }: VideoLi
             {/* Navigation Arrows */}
             <button
               onClick={handlePrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-[#FF4D12] text-white hover:scale-110 active:scale-90 transition-all duration-200 backdrop-blur-md cursor-pointer z-20"
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-[#2563EB] text-white hover:scale-110 active:scale-90 transition-all duration-200 backdrop-blur-md cursor-pointer z-20"
               aria-label="Previous video"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -168,7 +168,7 @@ export function VideoLightbox({ video, videos, onClose, onSelectVideo }: VideoLi
 
             <button
               onClick={handleNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-[#FF4D12] text-white hover:scale-110 active:scale-90 transition-all duration-200 backdrop-blur-md cursor-pointer z-20"
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-[#2563EB] text-white hover:scale-110 active:scale-90 transition-all duration-200 backdrop-blur-md cursor-pointer z-20"
               aria-label="Next video"
             >
               <ChevronRight className="w-5 h-5" />
@@ -180,7 +180,7 @@ export function VideoLightbox({ video, videos, onClose, onSelectVideo }: VideoLi
             <div>
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <span className="px-3 py-1 rounded-full bg-[#FF4D12]/20 border border-[#FF4D12]/30 text-[#FF4D12] text-xs font-mono font-bold uppercase tracking-wider">
+                  <span className="px-3 py-1 rounded-full bg-[#2563EB]/20 border border-[#2563EB]/30 text-[#2563EB] text-xs font-mono font-bold uppercase tracking-wider">
                     {video.category}
                   </span>
                   <h3 className="text-2xl font-bold text-white mt-3 font-mono leading-tight">{video.title}</h3>
@@ -201,26 +201,26 @@ export function VideoLightbox({ video, videos, onClose, onSelectVideo }: VideoLi
               {/* Video Equipment & Specs */}
               <div className="space-y-4 pt-6 border-t border-neutral-800 text-xs text-neutral-400 font-mono">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#FF4D12]" />
+                  <MapPin className="w-4 h-4 text-[#2563EB]" />
                   <span>{video.location}</span>
                 </div>
 
                 {video.camera && (
                   <div className="flex items-center gap-2">
-                    <Video className="w-4 h-4 text-[#FF4D12]" />
+                    <Video className="w-4 h-4 text-[#2563EB]" />
                     <span>{video.camera} • {video.lens}</span>
                   </div>
                 )}
 
                 {video.settings && (
                   <div className="flex items-center gap-2">
-                    <Film className="w-4 h-4 text-[#FF4D12]" />
+                    <Film className="w-4 h-4 text-[#2563EB]" />
                     <span>{video.settings}</span>
                   </div>
                 )}
 
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-[#FF4D12]" />
+                  <Calendar className="w-4 h-4 text-[#2563EB]" />
                   <span>Released {video.year}</span>
                 </div>
 
@@ -229,8 +229,8 @@ export function VideoLightbox({ video, videos, onClose, onSelectVideo }: VideoLi
                     <Eye className="w-3.5 h-3.5 text-neutral-500" />
                     <span>{video.views.toLocaleString()} views</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[#FF4D12] font-semibold">
-                    <Heart className="w-3.5 h-3.5 fill-[#FF4D12]" />
+                  <div className="flex items-center gap-1.5 text-[#2563EB] font-semibold">
+                    <Heart className="w-3.5 h-3.5 fill-[#2563EB]" />
                     <span>{video.likes.toLocaleString()}</span>
                   </div>
                 </div>

@@ -26,7 +26,7 @@ export function Footer() {
     <footer className="relative pt-20 pb-12 px-6 border-t border-neutral-800/80 bg-neutral-950 text-white overflow-hidden">
       
       {/* Subtle Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-[#FF4D12]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-[#2563EB]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto flex flex-col items-center text-center space-y-10 relative z-10">
         
@@ -44,7 +44,7 @@ export function Footer() {
                   delay: index * 0.04,
                   ease: [0.16, 1, 0.3, 1]
                 }}
-                className="inline-block group-hover:text-[#FF4D12] transition-colors duration-300 font-mono"
+                className="inline-block group-hover:text-[#2563EB] transition-colors duration-300 font-mono"
               >
                 {char}
               </motion.span>
@@ -86,10 +86,10 @@ export function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-[#FF4D12] hover:scale-105 active:scale-95 transition-all cursor-pointer group"
+            className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-[#2563EB] hover:scale-105 active:scale-95 transition-all cursor-pointer group"
           >
             <span>Back to top</span>
-            <div className="p-1.5 rounded-full bg-neutral-900 border border-neutral-800 group-hover:border-[#FF4D12] group-hover:bg-[#FF4D12] group-hover:text-white transition-all">
+            <div className="p-1.5 rounded-full bg-neutral-900 border border-neutral-800 group-hover:border-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-white transition-all">
               <ArrowUp className="w-3.5 h-3.5" />
             </div>
           </button>

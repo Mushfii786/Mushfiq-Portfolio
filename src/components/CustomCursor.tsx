@@ -41,7 +41,7 @@ export function CustomCursor() {
     <div className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden">
       {/* Sleek Minimal Cursor Dot - Stays sharp & constant, never balloons or lag */}
       <motion.div
-        className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-[#FF4D12] shadow-[0_0_10px_#FF4D12]"
+        className="fixed top-0 left-0 w-2.5 h-2.5 rounded-full bg-[#2563EB] shadow-[0_0_10px_#2563EB]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -52,7 +52,7 @@ export function CustomCursor() {
 
       {/* Subtle Outer Follower Ring - Minimal size (18px) that never grows large on click */}
       <motion.div
-        className="fixed top-0 left-0 w-5 h-5 rounded-full border border-[#FF4D12]/50 backdrop-blur-[0.5px]"
+        className="fixed top-0 left-0 w-5 h-5 rounded-full border border-[#2563EB]/50 backdrop-blur-[0.5px]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,

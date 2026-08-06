@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, X, Maximize2, Heart, Share2, Camera, MapPin, Sparkles, Video, Play, Eye, Film } from 'lucide-react';
+import { GradientWaves } from './GradientWaves';
 
 interface VideoGalleryPageProps {
   onClose: () => void;
@@ -367,8 +368,9 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-0 z-[100] bg-[#080808] text-neutral-100 overflow-y-auto selection:bg-[#FF4D12] selection:text-white"
+      className="fixed inset-0 z-[100] bg-[#080808]/90 backdrop-blur-2xl text-neutral-100 overflow-y-auto selection:bg-[#2563EB] selection:text-white"
     >
+      <GradientWaves />
       {/* Top Header Navigation Bar */}
       <header className="sticky top-0 z-40 bg-[#080808]/90 backdrop-blur-md border-b border-neutral-800/80 px-4 sm:px-8 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
         
@@ -376,7 +378,7 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
         <div className="flex items-center gap-4">
           <button
             onClick={onClose}
-            className="group px-4 py-2 rounded-full bg-neutral-100 text-neutral-900 text-xs font-mono font-bold tracking-widest uppercase hover:bg-[#FF4D12] hover:text-white transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-md hover:scale-105 active:scale-95"
+            className="group px-4 py-2 rounded-full bg-neutral-100 text-neutral-900 text-xs font-mono font-bold tracking-widest uppercase hover:bg-[#2563EB] hover:text-white transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-md hover:scale-105 active:scale-95"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
             <span>BACK TO PORTFOLIO</span>
@@ -385,7 +387,7 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
           <div className="hidden sm:block h-5 w-[1px] bg-neutral-800" />
 
           <div className="flex items-center gap-2">
-            <Video className="w-4 h-4 text-[#FF4D12]" />
+            <Video className="w-4 h-4 text-[#2563EB]" />
             <h1 className="text-sm sm:text-base font-extrabold uppercase tracking-tight font-mono text-white">
               CURATED VIDEOGRAPHY GALLERY
             </h1>
@@ -400,7 +402,7 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
               onClick={() => handleCategoryClick(cat)}
               className={`px-3.5 py-1.5 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
                 selectedCategory === cat
-                  ? 'bg-[#FF4D12] text-white shadow-md shadow-[#FF4D12]/20'
+                  ? 'bg-[#2563EB] text-white shadow-md shadow-[#2563EB]/20'
                   : 'bg-neutral-900 text-neutral-400 hover:bg-neutral-800 hover:text-white'
               }`}
             >
@@ -415,7 +417,7 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
           <span className="hidden lg:inline">{filteredVideos.length} REELS ARCHIVED</span>
           <button
             onClick={onClose}
-            className="p-2 rounded-full bg-neutral-900 text-neutral-300 hover:bg-[#FF4D12] hover:text-white transition-colors cursor-pointer"
+            className="p-2 rounded-full bg-neutral-900 text-neutral-300 hover:bg-[#2563EB] hover:text-white transition-colors cursor-pointer"
             title="Close Gallery (Esc)"
           >
             <X className="w-5 h-5" />
@@ -477,7 +479,7 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
                           {/* Minimalist Hover Vignette Overlay */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-between">
                             <div className="flex justify-between items-start">
-                              <span className="px-2.5 py-1 rounded-full bg-[#FF4D12] text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm flex items-center gap-1">
+                              <span className="px-2.5 py-1 rounded-full bg-[#2563EB] text-white text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm flex items-center gap-1">
                                 <Video className="w-3 h-3 text-white" />
                                 <span>{item.category}</span>
                               </span>
@@ -485,8 +487,8 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
                                 onClick={(e) => toggleLike(item.id, e)}
                                 className={`p-2 rounded-full backdrop-blur-md transition-all ${
                                   isLiked
-                                    ? 'bg-[#FF4D12] text-white'
-                                    : 'bg-black/50 text-white hover:bg-[#FF4D12]'
+                                    ? 'bg-[#2563EB] text-white'
+                                    : 'bg-black/50 text-white hover:bg-[#2563EB]'
                                 }`}
                               >
                                 <Heart className={`w-3.5 h-3.5 ${isLiked ? 'fill-white' : ''}`} />
@@ -494,7 +496,7 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
                             </div>
 
                             {/* Center Play Button Icon on Hover */}
-                            <div className="self-center p-3.5 rounded-full bg-[#FF4D12] text-white shadow-2xl transform scale-90 group-hover:scale-110 transition-transform">
+                            <div className="self-center p-3.5 rounded-full bg-[#2563EB] text-white shadow-2xl transform scale-90 group-hover:scale-110 transition-transform">
                               <Play className="w-6 h-6 fill-white ml-0.5" />
                             </div>
 
@@ -507,11 +509,11 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
                               </p>
                               <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400 pt-1 border-t border-white/20">
                                 <span className="flex items-center gap-1">
-                                  <MapPin className="w-3 h-3 text-[#FF4D12]" />
+                                  <MapPin className="w-3 h-3 text-[#2563EB]" />
                                   {item.location}
                                 </span>
                                 <span className="flex items-center gap-1">
-                                  <Eye className="w-3 h-3 text-[#FF4D12]" />
+                                  <Eye className="w-3 h-3 text-[#2563EB]" />
                                   {item.views.toLocaleString()}
                                 </span>
                               </div>
@@ -568,7 +570,7 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
                 {/* Close Overlay Icon Mobile */}
                 <button
                   onClick={() => setActiveVideo(null)}
-                  className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 hover:bg-[#FF4D12] text-white backdrop-blur-md transition-colors cursor-pointer lg:hidden z-20"
+                  className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 hover:bg-[#2563EB] text-white backdrop-blur-md transition-colors cursor-pointer lg:hidden z-20"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -579,8 +581,8 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
                 <div>
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <span className="px-2.5 py-1 rounded-full bg-[#FF4D12]/20 border border-[#FF4D12]/40 text-[#FF4D12] text-xs font-mono font-bold uppercase flex items-center gap-1.5 w-fit">
-                        <Video className="w-3.5 h-3.5 text-[#FF4D12]" />
+                      <span className="px-2.5 py-1 rounded-full bg-[#2563EB]/20 border border-[#2563EB]/40 text-[#2563EB] text-xs font-mono font-bold uppercase flex items-center gap-1.5 w-fit">
+                        <Video className="w-3.5 h-3.5 text-[#2563EB]" />
                         <span>{activeVideo.category}</span>
                       </span>
                       <h2 className="text-xl font-bold font-mono text-white mt-3 leading-tight">
@@ -602,12 +604,12 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
 
                   <div className="space-y-3 pt-4 border-t border-neutral-800 text-xs font-mono text-neutral-400">
                     <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-[#FF4D12]" />
+                      <MapPin className="w-4 h-4 text-[#2563EB]" />
                       <span>{activeVideo.location}</span>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <Camera className="w-4 h-4 text-[#FF4D12]" />
+                      <Camera className="w-4 h-4 text-[#2563EB]" />
                       <span>{activeVideo.camera} • {activeVideo.lens}</span>
                     </div>
 
@@ -616,7 +618,7 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
                     </div>
 
                     <div className="flex items-center gap-2 text-[11px] text-neutral-400 pt-1">
-                      <Eye className="w-3.5 h-3.5 text-[#FF4D12]" />
+                      <Eye className="w-3.5 h-3.5 text-[#2563EB]" />
                       <span>{activeVideo.views.toLocaleString()} VIEWS • {activeVideo.duration}</span>
                     </div>
 
@@ -631,7 +633,7 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
                     onClick={(e) => toggleLike(activeVideo.id, e)}
                     className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-bold transition-colors cursor-pointer ${
                       likedVideos[activeVideo.id]
-                        ? 'bg-[#FF4D12] text-white'
+                        ? 'bg-[#2563EB] text-white'
                         : 'bg-neutral-800 text-neutral-200 hover:bg-neutral-700'
                     }`}
                   >

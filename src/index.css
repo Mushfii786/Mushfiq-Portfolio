@@ -167,6 +167,76 @@ html.lenis, html.lenis body {
   z-index: 9999;
 }
 
-.dark::view-transition-new(root) {
+.dark::view_transition-new(root) {
   z-index: 1;
+}
+
+/* Gradient Waves Fluid Animations */
+@keyframes waveSlow {
+  0% {
+    transform: translate3d(-2%, 0, 0) scaleY(1);
+  }
+  50% {
+    transform: translate3d(2%, -20px, 0) scaleY(1.08);
+  }
+  100% {
+    transform: translate3d(-2%, 0, 0) scaleY(1);
+  }
+}
+
+@keyframes waveMedium {
+  0% {
+    transform: translate3d(3%, 0, 0) scaleY(1.05);
+  }
+  50% {
+    transform: translate3d(-3%, 25px, 0) scaleY(0.94);
+  }
+  100% {
+    transform: translate3d(3%, 0, 0) scaleY(1.05);
+  }
+}
+
+@keyframes waveFast {
+  0% {
+    transform: translate3d(-4%, 12px, 0) rotate(0.3deg);
+  }
+  50% {
+    transform: translate3d(4%, -12px, 0) rotate(-0.3deg);
+  }
+  100% {
+    transform: translate3d(-4%, 12px, 0) rotate(0.3deg);
+  }
+}
+
+.animate-wave-slow {
+  animation: waveSlow 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-wave-medium {
+  animation: waveMedium 13s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-wave-fast {
+  animation: waveFast 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Moving Gradient Flow */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  animation: gradientFlow 6s ease infinite;
+  will-change: background-position;
 }
