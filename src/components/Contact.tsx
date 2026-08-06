@@ -127,17 +127,17 @@ export function Contact() {
               viewport={{ once: true }}
               whileHover={{ y: -3, scale: 1.01 }}
               transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-              className="p-5 rounded-2xl bg-neutral-900/80 dark:bg-neutral-950/80 border border-white/10 hover:border-[#2563EB]/60 text-white flex items-center gap-4.5 transition-all duration-300 shadow-xl hover:shadow-[0_10px_30px_rgba(37,99,235,0.25)] group cursor-pointer backdrop-blur-xl relative overflow-hidden"
+              className="p-5 sm:p-6 rounded-2xl bg-neutral-950/85 border border-white/10 hover:border-blue-500/50 text-white flex items-center gap-5 transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.6)] hover:shadow-[0_15px_35px_rgba(59,130,246,0.25)] group cursor-pointer backdrop-blur-3xl relative overflow-hidden ring-1 ring-white/5"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#2563EB]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-[#60A5FA] group-hover:bg-[#2563EB] group-hover:text-white transition-all duration-300 shadow-md">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.03] border border-white/10 text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-md">
                 <Mail className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
               </div>
               <div className="relative z-10">
-                <p className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 font-bold mb-0.5">
-                  DIRECT EMAIL
+                <p className="text-[11px] font-sans font-bold uppercase tracking-wider text-blue-300/80 mb-0.5">
+                  Direct Email
                 </p>
-                <p className="text-sm sm:text-base font-mono font-bold text-white group-hover:text-[#60A5FA] transition-colors">
+                <p className="text-sm sm:text-base font-sans font-extrabold tracking-tight text-white group-hover:text-blue-300 transition-colors">
                   {siteConfig.email}
                 </p>
               </div>
@@ -153,17 +153,17 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -3, scale: 1.01 }}
-              className="p-5 rounded-2xl bg-neutral-900/80 dark:bg-neutral-950/80 border border-white/10 hover:border-emerald-500/60 text-white flex items-center gap-4.5 transition-all duration-300 shadow-xl hover:shadow-[0_10px_30px_rgba(16,185,129,0.25)] group cursor-pointer backdrop-blur-xl relative overflow-hidden"
+              className="p-5 sm:p-6 rounded-2xl bg-neutral-950/85 border border-white/10 hover:border-emerald-500/50 text-white flex items-center gap-5 transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.6)] hover:shadow-[0_15px_35px_rgba(16,185,129,0.25)] group cursor-pointer backdrop-blur-3xl relative overflow-hidden ring-1 ring-white/5"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 shadow-md">
+              <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.03] border border-white/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 shadow-md">
                 <Phone className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
               </div>
               <div className="relative z-10">
-                <p className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 font-bold mb-0.5">
-                  DIRECT LINE / WHATSAPP
+                <p className="text-[11px] font-sans font-bold uppercase tracking-wider text-emerald-300/80 mb-0.5">
+                  Direct Line / WhatsApp
                 </p>
-                <p className="text-sm sm:text-base font-mono font-bold text-white group-hover:text-emerald-400 transition-colors">
+                <p className="text-sm sm:text-base font-sans font-extrabold tracking-tight text-white group-hover:text-emerald-300 transition-colors">
                   {siteConfig.whatsapp}
                 </p>
               </div>
@@ -176,16 +176,16 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -3, scale: 1.01 }}
-              className="p-5 rounded-2xl bg-neutral-900/80 dark:bg-neutral-950/80 border border-white/10 text-white flex items-center gap-4.5 transition-all duration-300 shadow-xl group backdrop-blur-xl"
+              className="p-5 sm:p-6 rounded-2xl bg-neutral-950/85 border border-white/10 hover:border-purple-500/50 text-white flex items-center gap-5 transition-all duration-300 shadow-[0_15px_35px_rgba(0,0,0,0.6)] group backdrop-blur-3xl relative overflow-hidden ring-1 ring-white/5"
             >
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-md">
+              <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.03] border border-white/10 text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-md">
                 <MapPin className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
               </div>
-              <div>
-                <p className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 font-bold mb-0.5">
-                  LOCATION
+              <div className="relative z-10">
+                <p className="text-[11px] font-sans font-bold uppercase tracking-wider text-purple-300/80 mb-0.5">
+                  Location
                 </p>
-                <p className="text-sm sm:text-base font-mono font-bold text-white">
+                <p className="text-sm sm:text-base font-sans font-extrabold tracking-tight text-white">
                   {siteConfig.location}
                 </p>
               </div>

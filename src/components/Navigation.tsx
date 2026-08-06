@@ -80,7 +80,7 @@ export function Navigation() {
                 <Logo className="w-6 h-6 sm:w-7 sm:h-7 rounded-full transition-transform duration-500 group-hover:rotate-12 shadow-md shadow-black/80 ring-1 ring-white/20" />
                 <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-neutral-950 animate-pulse" />
               </div>
-              <span className="font-mono text-sm sm:text-base group-hover:text-[#60A5FA] transition-colors">{siteConfig.initials}</span>
+              <span className="font-sans font-extrabold tracking-wider text-sm sm:text-base text-white group-hover:text-blue-400 transition-colors uppercase">{siteConfig.initials}</span>
             </a>
 
             {/* Desktop Direct Links Navigation */}

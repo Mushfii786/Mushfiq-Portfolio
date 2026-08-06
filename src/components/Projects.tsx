@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import { projects, photography, videography } from '../config/site';
 import { Project, Photo, VideoItem } from '../types';
 import { ProjectModal } from './ProjectModal';
@@ -122,9 +122,7 @@ export function Projects() {
           transition={{ delay: 0.1 }}
           className="text-3xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white uppercase leading-[1.05]"
         >
-          Photography <br />
-          Works & <br />
-          Showcase
+          PHOTOGRAPHY works
         </motion.h2>
 
         <motion.p
@@ -152,7 +150,7 @@ export function Projects() {
           className="group px-8 py-3 rounded-full bg-neutral-900 text-white border border-neutral-800 text-xs font-mono font-bold tracking-wider uppercase hover:bg-[#2563EB] hover:border-[#2563EB] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer shadow-2xl inline-flex items-center gap-2"
         >
           <span>SEE MORE PHOTOGRAPHY</span>
-          <span className="text-[#2563EB] group-hover:text-white transition-colors">↗</span>
+          <ArrowRight className="w-4 h-4 text-[#2563EB] group-hover:text-white transition-transform duration-300 group-hover:translate-x-1" />
         </button>
       </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Play, Video } from 'lucide-react';
+import { ArrowRight, Video } from 'lucide-react';
 import { videography } from '../config/site';
 import { VideoItem } from '../types';
 import { VideoLightbox } from './VideoLightbox';
@@ -38,7 +38,7 @@ export function Videography() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/30 text-[#2563EB] text-xs font-mono font-bold tracking-widest uppercase hover:scale-105 transition-transform duration-200 cursor-default"
         >
           <Video className="w-3.5 h-3.5 text-[#2563EB]" />
-          <span>CINEMATIC REELS & MOTION</span>
+          <span>CINEMATIC REELS</span>
         </motion.div>
 
         {/* Big Display Headline */}
@@ -49,9 +49,7 @@ export function Videography() {
           transition={{ delay: 0.1 }}
           className="text-3xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white uppercase leading-[1.05]"
         >
-          Videography & <br />
-          Cinematic <br />
-          Showcase
+          VIDEOGRAPHY works
         </motion.h2>
 
         <motion.p
@@ -86,7 +84,7 @@ export function Videography() {
           className="group px-8 py-3 rounded-full bg-neutral-900 text-white border border-neutral-800 text-xs font-mono font-bold tracking-wider uppercase hover:bg-[#2563EB] hover:border-[#2563EB] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer shadow-2xl inline-flex items-center gap-2"
         >
           <span>SEE MORE VIDEOGRAPHY</span>
-          <Play className="w-3.5 h-3.5 fill-current text-[#2563EB] group-hover:text-white transition-colors" />
+          <ArrowRight className="w-4 h-4 text-[#2563EB] group-hover:text-white transition-transform duration-300 group-hover:translate-x-1" />
         </button>
       </div>
 

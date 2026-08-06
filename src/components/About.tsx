@@ -72,19 +72,17 @@ export function About() {
       {/* Background Subtle Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-blue-600/5 dark:bg-blue-500/10 rounded-full blur-[160px] pointer-events-none" />
 
-      {/* Top Header Title: ❇ SELF-SUMMARY ❇ */}
+      {/* Top Header Title */}
       <motion.div
         initial={{ opacity: 0, y: -15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-10 flex items-center justify-center gap-3"
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="text-center mb-12 flex flex-col items-center justify-center gap-3"
       >
-        <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-400 dark:text-neutral-300 animate-pulse" />
-        <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-wider text-neutral-900 dark:text-white uppercase font-mono">
-          SELF-SUMMARY
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white uppercase font-sans drop-shadow-md">
+          About Me
         </h2>
-        <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-400 dark:text-neutral-300 animate-pulse" />
       </motion.div>
 
       {/* Bento Grid Container */}

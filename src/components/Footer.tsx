@@ -64,7 +64,7 @@ export function Footer() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
           <span className="text-[11px] font-mono text-neutral-300 tracking-wider uppercase">
-            Available for Freelance & Roles
+            AVAILABLE FOR FREELANCE PROJECTS
           </span>
           <Sparkles className="w-3.5 h-3.5 text-purple-400 group-hover:rotate-12 transition-transform duration-300" />
         </motion.div>
@@ -96,73 +96,47 @@ export function Footer() {
 
         {/* Minimal Tagline / Bio */}
         <p className="text-xs sm:text-sm text-neutral-400 font-light max-w-lg mx-auto leading-relaxed">
-          Creative Designer & Frontend Developer crafting digital products, brand systems, and cinematic visual stories.
+          Video Editor & Visual Designer crafting cinematic stories, stunning photography, and impactful creative designs.
         </p>
 
-        {/* Curved Glassmorphic Navigation Pill Bar */}
+        {/* Navigation Bar */}
         <motion.nav
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex flex-wrap justify-center items-center gap-1.5 sm:gap-2 p-1.5 rounded-full bg-neutral-900/80 border border-white/10 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] ring-1 ring-white/5"
+          className="flex flex-wrap justify-center items-center gap-1.5 sm:gap-3 py-2"
         >
           <a
             href="#home"
-            className="px-4 py-2 rounded-full text-xs font-mono text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200"
+            className="px-3 py-1.5 text-[11px] sm:text-xs font-sans font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-colors duration-200"
           >
             Home
           </a>
-          <span className="text-neutral-700 font-mono">•</span>
+          <span className="text-neutral-700 text-xs font-sans">•</span>
           <a
             href="#about"
-            className="px-4 py-2 rounded-full text-xs font-mono text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200"
+            className="px-3 py-1.5 text-[11px] sm:text-xs font-sans font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-colors duration-200"
           >
             About
           </a>
-          <span className="text-neutral-700 font-mono">•</span>
+          <span className="text-neutral-700 text-xs font-sans">•</span>
           <a
             href="#projects"
-            className="px-4 py-2 rounded-full text-xs font-mono text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200"
+            className="px-3 py-1.5 text-[11px] sm:text-xs font-sans font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-colors duration-200"
           >
-            Projects
+            Works
           </a>
-          <span className="text-neutral-700 font-mono">•</span>
-          <a
-            href="#experience"
-            className="px-4 py-2 rounded-full text-xs font-mono text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200"
-          >
-            Experience
-          </a>
-          <span className="text-neutral-700 font-mono">•</span>
+          <span className="text-neutral-700 text-xs font-sans">•</span>
           <a
             href="#contact"
-            className="px-4 py-2 rounded-full text-xs font-mono text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200"
+            className="px-3 py-1.5 text-[11px] sm:text-xs font-sans font-bold tracking-widest uppercase text-neutral-400 hover:text-white transition-colors duration-200"
           >
             Contact
           </a>
         </motion.nav>
 
-        {/* Social Network Icon Buttons */}
-        <div className="flex items-center gap-3 pt-2">
-          {socialLinks.map((social) => {
-            const Icon = social.icon;
-            return (
-              <motion.a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.15, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-                className="p-3 rounded-full bg-neutral-900/90 border border-white/10 text-neutral-400 hover:text-white hover:border-purple-500/50 hover:bg-neutral-800 hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-300 cursor-pointer"
-                title={social.name}
-              >
-                <Icon className="w-4 h-4" />
-              </motion.a>
-            );
-          })}
-        </div>
+
 
         {/* Divider Line with Shimmer Node */}
         <div className="w-full relative flex items-center justify-center my-4">
@@ -170,18 +144,12 @@ export function Footer() {
           <div className="absolute w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#8B5CF6]" />
         </div>
 
-        {/* Bottom Row: Location Badge, Copyright & Premium Back to Top Button */}
+        {/* Bottom Row: Copyright & Premium Back to Top Button */}
         <div className="flex flex-col sm:flex-row items-center justify-between w-full text-xs font-mono text-neutral-400 gap-4">
-          
-          {/* Location & Live Clock Badge */}
-          <div className="px-3.5 py-1.5 rounded-full bg-neutral-900/80 border border-white/10 backdrop-blur-md flex items-center gap-2 text-neutral-300 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Calicut, IN • {time || '12:00 PM'}</span>
-          </div>
 
           {/* Copyright Notice */}
-          <div className="text-neutral-500 text-[11px] sm:text-xs">
-            © {new Date().getFullYear()} <span className="text-neutral-300 font-semibold">{siteConfig.name}</span>. Crafted with precision.
+          <div className="text-neutral-400 text-[11px] sm:text-xs font-sans tracking-wider">
+            © 2026 <span className="text-white font-extrabold tracking-widest uppercase">MUSHFII</span>. Photography <span className="text-purple-400/80 mx-1">•</span> Videography <span className="text-purple-400/80 mx-1">•</span> Design
           </div>
 
           {/* Premium Back to Top Button */}
@@ -189,14 +157,10 @@ export function Footer() {
             onClick={scrollToTop}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-neutral-900/90 border border-white/10 text-xs font-mono text-neutral-300 hover:text-white hover:border-purple-500/50 hover:bg-neutral-800 transition-all duration-300 cursor-pointer shadow-lg overflow-hidden"
+            className="group relative inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-white transition-all duration-300 cursor-pointer bg-transparent border-none outline-none shadow-none"
           >
-            {/* Shimmer Sweep effect */}
-            <span className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 pointer-events-none" />
             <span>Back to top</span>
-            <div className="p-1 rounded-full bg-white/10 group-hover:bg-[#8B5CF6] group-hover:text-white transition-all duration-300">
-              <ArrowUp className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5" />
-            </div>
+            <ArrowUp className="w-3.5 h-3.5 text-purple-400 group-hover:text-purple-300 transition-transform duration-300 group-hover:-translate-y-0.5" />
           </motion.button>
 
         </div>

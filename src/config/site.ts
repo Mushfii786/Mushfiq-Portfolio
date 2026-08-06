@@ -15,7 +15,7 @@ export const siteConfig: SiteConfig = {
   aboutBio: "With over 5 years of experience bridging art direction, high-performance web engineering, and visual media, I build interfaces that feel calm, considered, and quietly fast. My work spans brand strategy, UI/UX systems, photography, and video creation.",
   email: "muhammedmushfiq178@gmail.com",
   whatsapp: "+918157868714",
-  location: "Calicut, Kerala, India • Available Worldwide",
+  location: "Kottakkal, Malappuram, India",
   status: "Available for freelance projects & design roles",
   avatarUrl: MushfiiImage,
   resumeUrl: "#resume",
