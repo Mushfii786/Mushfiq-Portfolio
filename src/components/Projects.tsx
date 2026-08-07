@@ -8,6 +8,7 @@ import { PhotoLightbox } from './PhotoLightbox';
 import { VideoLightbox } from './VideoLightbox';
 import { GalleryPage } from './GalleryPage';
 import { CoverFlowGallery, CoverFlowItem } from './CoverFlowGallery';
+import RegeneratedImage from '../assets/images/regenerated_image_1786114032574.png';
 
 // Items matching the reference screenshot design
 const coverFlowData: CoverFlowItem[] = [
@@ -34,7 +35,7 @@ const coverFlowData: CoverFlowItem[] = [
     title: "Tulus",
     subtitle: "Monokrom",
     category: "Studio Album",
-    url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000",
+    url: RegeneratedImage,
     type: "photo",
     data: photography[2]
   },
@@ -111,7 +112,7 @@ export function Projects() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/30 text-[#2563EB] text-xs font-mono font-bold tracking-widest uppercase hover:scale-105 transition-transform duration-200 cursor-default"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
-          <span>PORTFOLIO & PHOTOGRAPHY SHOWCASE</span>
+          <span>CREATIVE PHOTOGRAPHY</span>
         </motion.div>
 
         {/* Big Display Headline */}
@@ -122,7 +123,7 @@ export function Projects() {
           transition={{ delay: 0.1 }}
           className="text-3xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white uppercase leading-[1.05]"
         >
-          PHOTOGRAPHY works
+          PHOTOGRAPHY WORKS
         </motion.h2>
 
         <motion.p
@@ -144,13 +145,20 @@ export function Projects() {
       />
 
       {/* SEE MORE Action Button */}
-      <div className="text-center mt-10">
+      <div className="text-center mt-8 sm:mt-10">
         <button
           onClick={() => setShowFullGallery(true)}
-          className="group px-8 py-3 rounded-full bg-neutral-900 text-white border border-neutral-800 text-xs font-mono font-bold tracking-wider uppercase hover:bg-[#2563EB] hover:border-[#2563EB] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer shadow-2xl inline-flex items-center gap-2"
+          className="group relative overflow-hidden px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-neutral-950/90 text-white border border-white/15 hover:border-[#2563EB]/70 text-[11px] sm:text-xs font-['Syne'] font-bold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer shadow-[0_0_20px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-[1.03] active:scale-95 inline-flex items-center gap-2.5 sm:gap-3 backdrop-blur-md"
         >
-          <span>SEE MORE PHOTOGRAPHY</span>
-          <ArrowRight className="w-4 h-4 text-[#2563EB] group-hover:text-white transition-transform duration-300 group-hover:translate-x-1" />
+          {/* Animated Sheen Overlay */}
+          <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-[#2563EB]/25 to-transparent transition-transform duration-1000 ease-in-out pointer-events-none" />
+          
+          <span className="relative z-10 text-white group-hover:text-blue-300 transition-colors duration-300">
+            SEE MORE PHOTOGRAPHY
+          </span>
+          <div className="relative z-10 w-6 h-6 rounded-full bg-white/5 border border-white/10 group-hover:bg-[#2563EB] group-hover:border-[#2563EB] flex items-center justify-center transition-all duration-300">
+            <ArrowRight className="w-3 h-3 text-blue-400 group-hover:text-white transition-transform duration-300 group-hover:translate-x-0.5" />
+          </div>
         </button>
       </div>
 

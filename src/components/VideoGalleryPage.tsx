@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, X, Maximize2, Heart, Share2, Camera, MapPin, Sparkles, Video, Play, Eye, Film } from 'lucide-react';
 import { GradientWaves } from './GradientWaves';
@@ -338,8 +338,18 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
     setAnimKey((prev) => prev + 1);
   };
 
-  // Keyboard shortcut to close on Escape
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Focus container on mount for immediate mouse wheel & keyboard interaction
   useEffect(() => {
+    containerRef.current?.focus();
+  }, []);
+
+  // Keyboard shortcut to close on Escape & lock body scrolling & Mouse Wheel scroll handling
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         if (activeVideo) {
@@ -349,8 +359,21 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
         }
       }
     };
+
+    const handleWheel = (e: WheelEvent) => {
+      if (activeVideo) return;
+      if (containerRef.current) {
+        containerRef.current.scrollTop += e.deltaY;
+      }
+    };
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('wheel', handleWheel);
+    };
   }, [activeVideo, onClose]);
 
   const toggleLike = (id: string, e?: React.MouseEvent) => {
@@ -364,11 +387,13 @@ export function VideoGalleryPage({ onClose }: VideoGalleryPageProps) {
 
   return (
     <motion.div
+      ref={containerRef}
+      tabIndex={-1}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-0 z-[100] bg-[#080808]/90 backdrop-blur-2xl text-neutral-100 overflow-y-auto selection:bg-[#2563EB] selection:text-white"
+      className="fixed inset-0 z-[100] bg-[#080808]/90 backdrop-blur-2xl text-neutral-100 overflow-y-auto overscroll-contain touch-pan-y outline-none selection:bg-[#2563EB] selection:text-white"
     >
       <GradientWaves />
       {/* Top Header Navigation Bar */}

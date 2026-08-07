@@ -4,6 +4,7 @@ import Night from "../assets/images/Night.jpg";
 import Dog from "../assets/images/Dog.jpg";
 import House from "../assets/images/House.jpg";
 import Horse from "../assets/images/Horse.jpg";
+import RegeneratedImage from "../assets/images/regenerated_image_1786114032574.png";
 
 export const siteConfig: SiteConfig = {
   name: "Mushfiq",
@@ -182,7 +183,7 @@ export const photography: Photo[] = [
     id: "photo-3",
     title: "Visualizing Distorted Sound Mixes",
     category: "Digital Concept",
-    url: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&q=80&w=1200&h=1600",
+    url: RegeneratedImage,
     caption: "Gothic architecture emerging through dramatic fog and atmospheric lighting.",
     location: "Old Town Square",
     camera: "Sony A7IV",
