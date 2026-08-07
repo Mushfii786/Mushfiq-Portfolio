@@ -37,32 +37,28 @@ export function About() {
   ];
   const experiences = [
     {
-      period: "2023 - Present",
-      title: "Senior Designer & Developer",
-      company: "Studio Minimal / Freelance"
+      period: "2024 – Present",
+      title: "Videographer & Visual Designer",
+      company: "Freelance"
     },
     {
-      period: "2021 - 2023",
-      title: "UI/UX Designer & Media Specialist",
-      company: "Apex Digital Media"
+      period: "2024 – Present",
+      title: "Digital Poster Designer",
+      company: "College Media & Student Organizations"
     },
     {
-      period: "2019 - 2021",
-      title: "Visual Graphic Designer",
-      company: "Creative Pulse Studio"
+      period: "2024 – Present",
+      title: "Creative Video Editor",
+      company: "Freelance"
     }
   ];
 
   const education = [
     {
-      period: "2018 - 2021",
-      title: "Bachelor Degree in Computer Applications",
-      company: "University of Calicut"
-    },
-    {
-      period: "2021 - 2022",
-      title: "Master Certification in UI/UX & Media",
-      company: "Digital Media Academy"
+      period: "2019 – Present",
+      title: "Hudawi Course (Islamic Studies)",
+      company: "Al Hidaya Islamic Academy, Kalamassery, Ernakulam",
+      university: "Affiliated with Darul Huda Islamic University, Chemmad"
     }
   ];
 
@@ -139,9 +135,9 @@ export function About() {
               </p>
             </div>
 
-            <p className="text-neutral-300 text-sm sm:text-base font-light leading-relaxed pt-2">
-              {siteConfig.aboutIntro} {siteConfig.aboutBio}
-            </p>
+            <div className="text-neutral-300 text-sm sm:text-base font-light leading-relaxed pt-2">
+              <p>{siteConfig.aboutIntro}</p>
+            </div>
           </div>
 
           <div className="pt-6 flex items-center justify-between text-xs text-neutral-400 font-mono relative z-10 border-t border-white/5 mt-4">
@@ -215,7 +211,8 @@ export function About() {
                     <span className="text-[11px] font-mono text-cyan-300 px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">{edu.period}</span>
                   </div>
                   <h5 className="text-base font-bold text-white leading-snug group-hover/edu:text-cyan-200 transition-colors">{edu.title}</h5>
-                  <p className="text-xs text-neutral-400 font-light">{edu.company}</p>
+                  <p className="text-xs text-neutral-300 font-light">{edu.company}</p>
+                  {edu.university && <p className="text-xs text-neutral-400 font-light">{edu.university}</p>}
                 </div>
               ))}
             </div>

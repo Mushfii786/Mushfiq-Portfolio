@@ -11,8 +11,8 @@ export const siteConfig: SiteConfig = {
   handle: "@mushfiq_786",
   title: "Creative Designer & Frontend Developer",
   tagline: "Building digital experiences that combine cinematic aesthetic with functional precision.",
-  aboutIntro: "I'm Mushfiq, a multidisciplinary designer and creative developer crafting human-centered digital products, brand identities, and visual narratives.",
-  aboutBio: "With over 5 years of experience bridging art direction, high-performance web engineering, and visual media, I build interfaces that feel calm, considered, and quietly fast. My work spans brand strategy, UI/UX systems, photography, and video creation.",
+  aboutIntro: "Hi, I'm Mushfiq, a multidisciplinary creative specializing in photography, videography, video editing, photo editing, and visual design. For the past two years, I've been creating cinematic visuals, editing engaging photo and video content, and designing digital posters for college events and organizations. My work combines creativity, storytelling, and attention to detail to create visuals that leave a lasting impression.",
+  aboutBio: "Alongside my creative journey, I have been pursuing Hudawi studies since 2019 at Al Hidaya Islamic Academy, Kalamassery, Ernakulam, an institution affiliated with Darul Huda Islamic University, Chemmad. I continue my Islamic studies while following a parallel path in creative design and visual media, balancing academic, religious, and creative growth.",
   email: "muhammedmushfiq178@gmail.com",
   whatsapp: "+918157868714",
   location: "Kottakkal, Malappuram, India",
@@ -330,10 +330,10 @@ export const timelineItems: TimelineItem[] = [
   {
     id: "exp-1",
     type: "experience",
-    roleOrDegree: "Senior Lead Designer & Frontend Engineer",
-    organization: "Studio Minimal / Freelance",
-    location: "Remote / Calicut",
-    period: "2023 — Present",
+    roleOrDegree: "Videographer & Visual Designer",
+    organization: "Freelance",
+    location: "Kottakkal / Remote",
+    period: "2024 — Present",
     description: [
       "Directing visual strategy and frontend architecture for high-growth tech startups and creative agencies.",
       "Building high-conversion websites, WebGL experiences, and design systems using Next.js 16, React 19, and Tailwind CSS v4.",
@@ -344,42 +344,41 @@ export const timelineItems: TimelineItem[] = [
   {
     id: "exp-2",
     type: "experience",
-    roleOrDegree: "UI/UX Designer & Media Specialist",
-    organization: "Apex Digital Media",
-    location: "Kochi, Kerala",
-    period: "2021 — 2023",
+    roleOrDegree: "Digital Poster Designer",
+    organization: "College Media & Student Organizations",
+    location: "Kalamassery / Ernakulam",
+    period: "2024 — Present",
     description: [
-      "Led UI/UX redesigns for 15+ SaaS and enterprise client portals, improving task completion rates by 35%.",
-      "Head of commercial photography and promo video production, directing lightning, composition, and color grading in DaVinci Resolve.",
-      "Created motion graphics and interactive prototypes for investor pitches and product launches."
+      "Designing creative digital posters, event branding, and promotional visual media for college events and student organizations.",
+      "Crafting engaging social media banners, announcements, and print collaterals combining typography, color, and visual storytelling."
     ],
-    skills: ["Figma", "DaVinci Resolve", "Commercial Photography", "Motion Graphics", "Prototyping"]
+    skills: ["Poster Design", "Photoshop", "Illustrator", "Typography", "Visual Branding"]
   },
   {
     id: "exp-3",
     type: "experience",
-    roleOrDegree: "Visual Graphic Designer & Content Creator",
-    organization: "Creative Pulse Studio",
-    location: "Calicut",
-    period: "2019 — 2021",
+    roleOrDegree: "Creative Video Editor",
+    organization: "Freelance",
+    location: "Kottakkal / Remote",
+    period: "2024 — Present",
     description: [
-      "Crafted brand identities, editorial layouts, poster design, and digital marketing collaterals for local and regional brands.",
-      "Grew brand social media engagement by 300% through high-energy short-form video reels and motion design."
+      "Editing short-form and long-form video content, event highlights, promotional videos, and cinematic reels.",
+      "Applying advanced pacing, sound design, color grading, and motion graphics to produce engaging visual stories."
     ],
-    skills: ["Photoshop", "Illustrator", "After Effects", "Social Media Strategy"]
+    skills: ["Video Editing", "Premiere Pro", "DaVinci Resolve", "Sound Design", "Color Grading"]
   },
   {
     id: "edu-1",
     type: "education",
-    roleOrDegree: "Bachelor of Computer Applications & Digital Media",
-    organization: "University of Calicut",
-    location: "Calicut, Kerala",
-    period: "2018 — 2021",
+    roleOrDegree: "Hudawi Course (Islamic Studies)",
+    organization: "Al Hidaya Islamic Academy, Kalamassery, Ernakulam",
+    location: "Kalamassery / Chemmad",
+    period: "2019 — Present",
     description: [
-      "Specialized in Software Engineering, Web Development, Multimedia Production, and User Interface Engineering.",
-      "Awarded Best Digital Media Capstone Project for interactive web application."
+      "Pursuing Hudawi studies at Al Hidaya Islamic Academy, Kalamassery, Ernakulam.",
+      "Affiliated with Darul Huda Islamic University, Chemmad."
     ],
-    skills: ["Computer Science", "Web Development", "UI Engineering", "Digital Media Production"]
+    skills: ["Islamic Studies", "Hudawi Curriculum", "Arabic Literature", "Islamic Jurisprudence"]
   }
 ];
 
