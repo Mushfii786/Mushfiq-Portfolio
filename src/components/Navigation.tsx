@@ -66,32 +66,31 @@ export function Navigation() {
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="fixed top-5 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
           >
-        <div className="relative flex items-center pointer-events-auto w-[92vw] max-w-2xl sm:w-auto">
+        <div className="relative flex items-center pointer-events-auto w-[94vw] max-w-3xl sm:w-auto">
           
           {/* Main Floating Glass Pill Bar - Ultra Premium & Sleek */}
-          <div className="flex items-center justify-between sm:justify-start w-full gap-2 sm:gap-3 bg-neutral-950/90 text-white backdrop-blur-3xl border border-white/10 p-2 sm:p-2.5 px-4 sm:px-5 rounded-full shadow-[0_10px_50px_rgba(0,0,0,0.8)] ring-1 ring-white/5 transition-all">
+          <div className="flex items-center justify-between sm:justify-start w-full gap-2 sm:gap-3.5 bg-neutral-950/85 text-white backdrop-blur-2xl border border-white/12 p-2 sm:p-2.5 px-3.5 sm:px-5 rounded-full shadow-[0_16px_50px_rgba(0,0,0,0.85)] ring-1 ring-white/10 transition-all">
             
-            {/* Brand Logo & Status - Mushfii */}
+            {/* Brand Logo & Name - Mushfiq */}
             <a
               href="#home"
-              className="px-2.5 sm:px-3.5 py-1.5 font-bold text-sm sm:text-base tracking-tight text-white rounded-full hover:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2.5 group cursor-pointer"
+              className="px-2 sm:px-3 py-1 font-bold text-sm sm:text-base tracking-tight text-white rounded-full hover:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2.5 group cursor-pointer"
             >
-              <div className="relative">
-                <Logo className="w-6 h-6 sm:w-7 sm:h-7 rounded-full transition-transform duration-500 group-hover:rotate-12 shadow-md shadow-black/80 ring-1 ring-white/20" />
-                <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-neutral-950 animate-pulse" />
+              <div className="relative flex items-center justify-center">
+                <Logo className="w-8 h-8 sm:w-9 sm:h-9 transition-transform duration-500 group-hover:scale-110" />
               </div>
-              <span className="font-sans font-extrabold tracking-wider text-sm sm:text-base text-white group-hover:text-blue-400 transition-colors uppercase">{siteConfig.initials}</span>
+              <span className="font-sans font-extrabold tracking-widest text-sm sm:text-base text-white group-hover:text-blue-400 transition-colors uppercase">{siteConfig.initials}</span>
             </a>
 
             {/* Desktop Direct Links Navigation */}
-            <nav className="hidden md:flex items-center space-x-1.5">
+            <nav className="hidden md:flex items-center space-x-1 sm:space-x-1.5">
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
                   <a
                     key={item.id}
                     href={item.href}
-                    className={`relative px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold rounded-full hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer ${
+                    className={`relative px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold tracking-wide rounded-full hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer ${
                       isActive
                         ? 'text-white font-bold'
                         : 'text-neutral-300 hover:text-white hover:bg-white/5'
@@ -100,7 +99,7 @@ export function Navigation() {
                     {isActive && (
                       <motion.div
                         layoutId="activeNavBg"
-                        className="absolute inset-0 bg-[#2563EB] rounded-full -z-10 shadow-[0_0_20px_rgba(37,99,235,0.6)]"
+                        className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full -z-10 shadow-[0_0_20px_rgba(37,99,235,0.5)]"
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -110,20 +109,20 @@ export function Navigation() {
               })}
             </nav>
 
-            <div className="hidden md:block w-[1px] h-5 bg-white/10 mx-1" />
+            <div className="hidden md:block w-[1px] h-4 bg-white/15 mx-1" />
 
-            {/* Social Quick Links - Instagram & WhatsApp (Positioned after Contact section & shown on mobile) */}
-            <div className="flex items-center gap-1.5 sm:gap-2.5 pl-1 ml-auto md:ml-0">
+            {/* Social Quick Links - Instagram & WhatsApp */}
+            <div className="flex items-center gap-1.5 sm:gap-2 pl-0.5 ml-auto md:ml-0">
               {/* Instagram */}
               <a
                 href={siteConfig.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative p-2 sm:p-2.5 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] border border-white/10 hover:border-transparent text-neutral-300 hover:text-white transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-115 hover:-translate-y-0.5 active:scale-95 shadow-md hover:shadow-[0_0_25px_rgba(225,48,108,0.75)] cursor-pointer"
-                title="Instagram @mushfii_786"
+                className="group relative p-2 sm:p-2.5 rounded-full bg-white/5 hover:bg-gradient-to-tr hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] border border-white/10 hover:border-transparent text-neutral-300 hover:text-white transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110 active:scale-95 shadow-md hover:shadow-[0_0_20px_rgba(225,48,108,0.6)] cursor-pointer"
+                title="Instagram @mushfiq_786"
                 aria-label="Instagram Profile"
               >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 ease-out group-hover:rotate-12 group-hover:scale-110" />
+                <Instagram className="w-4 h-4 sm:w-4.5 sm:h-4.5 transition-transform duration-300 ease-out group-hover:rotate-12 group-hover:scale-110" />
               </a>
 
               {/* WhatsApp */}
@@ -131,12 +130,12 @@ export function Navigation() {
                 href={siteConfig.socials.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative p-2 sm:p-2.5 rounded-full bg-white/5 hover:bg-emerald-500 border border-white/10 hover:border-transparent text-neutral-300 hover:text-white transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-115 hover:-translate-y-0.5 active:scale-95 shadow-md hover:shadow-[0_0_25px_rgba(16,185,129,0.75)] cursor-pointer"
+                className="group relative p-2 sm:p-2.5 rounded-full bg-white/5 hover:bg-emerald-500 border border-white/10 hover:border-transparent text-neutral-300 hover:text-white transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-110 active:scale-95 shadow-md hover:shadow-[0_0_20px_rgba(16,185,129,0.6)] cursor-pointer"
                 title="WhatsApp Chat"
                 aria-label="WhatsApp Contact"
               >
                 <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 fill-current transition-transform duration-300 ease-out group-hover:-rotate-12 group-hover:scale-110"
+                  className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current transition-transform duration-300 ease-out group-hover:-rotate-12 group-hover:scale-110"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -149,10 +148,10 @@ export function Navigation() {
             {/* Mobile Menu Trigger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2.5 text-neutral-300 hover:bg-neutral-800 hover:scale-110 active:scale-90 rounded-full transition-all cursor-pointer"
+              className="md:hidden p-2 text-neutral-300 hover:bg-white/10 hover:scale-105 active:scale-95 rounded-full transition-all cursor-pointer"
               aria-label="Toggle menu"
             >
-              {mobileOpen ? <X className="w-5 h-5 text-[#2563EB]" /> : <Menu className="w-5 h-5" />}
+              {mobileOpen ? <X className="w-5 h-5 text-blue-400" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
 

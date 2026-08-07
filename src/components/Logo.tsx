@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Logo({ className = "w-6 h-6" }: { className?: string }) {
+export function Logo({ className = "w-8 h-8" }: { className?: string }) {
   return (
     <svg
       className={className}
@@ -8,9 +8,22 @@ export function Logo({ className = "w-6 h-6" }: { className?: string }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="256" cy="256" r="248" fill="#050505" />
-      <circle cx="256" cy="256" r="236" fill="#0B0B0E" stroke="#333338" strokeWidth="12" />
-      <path d="M 136,138 L 256,288 L 376,138 L 376,374 L 256,224 L 136,374 Z" fill="#FFFFFF" />
+      <circle cx="256" cy="256" r="256" fill="#000000" />
+      {/* Shape 1: Diamond */}
+      <path
+        d="M 144 216 L 184 288 L 144 360 L 104 288 Z"
+        fill="#FFFFFF"
+      />
+      {/* Shape 2: Middle Ribbon */}
+      <path
+        d="M 172 152 H 236 L 212 192 L 312 288 L 256 360 L 228 288 L 184 216 Z"
+        fill="#FFFFFF"
+      />
+      {/* Shape 3: Right Ribbon */}
+      <path
+        d="M 284 152 H 348 L 324 192 L 424 288 L 368 360 L 340 288 L 296 216 Z"
+        fill="#FFFFFF"
+      />
     </svg>
   );
 }

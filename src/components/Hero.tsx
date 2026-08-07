@@ -95,7 +95,7 @@ export function Hero() {
         {/* Subtitle Introduction */}
         <motion.div variants={lineVariants} className="max-w-[680px] mx-auto px-2">
           <p className="text-sm sm:text-base md:text-lg text-white/70 font-light leading-relaxed tracking-wide">
-            Hi, I'm <strong className="font-semibold text-white">Mushfii</strong>. I transform ideas into cinematic visuals through video editing, photography, videography, photo editing, and creative design.
+            Hi, I'm <strong className="font-semibold text-white">Mushfiq</strong>. I transform ideas into cinematic visuals through video editing, photography, videography, photo editing, and creative design.
           </p>
         </motion.div>
 

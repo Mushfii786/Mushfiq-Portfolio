@@ -6,12 +6,12 @@ import House from "../assets/images/House.jpg";
 import Horse from "../assets/images/Horse.jpg";
 
 export const siteConfig: SiteConfig = {
-  name: "Mushfii",
-  initials: "Mushfii",
-  handle: "@mushfii_786",
+  name: "Mushfiq",
+  initials: "Mushfiq",
+  handle: "@mushfiq_786",
   title: "Creative Designer & Frontend Developer",
   tagline: "Building digital experiences that combine cinematic aesthetic with functional precision.",
-  aboutIntro: "I'm Mushfii, a multidisciplinary designer and creative developer crafting human-centered digital products, brand identities, and visual narratives.",
+  aboutIntro: "I'm Mushfiq, a multidisciplinary designer and creative developer crafting human-centered digital products, brand identities, and visual narratives.",
   aboutBio: "With over 5 years of experience bridging art direction, high-performance web engineering, and visual media, I build interfaces that feel calm, considered, and quietly fast. My work spans brand strategy, UI/UX systems, photography, and video creation.",
   email: "muhammedmushfiq178@gmail.com",
   whatsapp: "+918157868714",
