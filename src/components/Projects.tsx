@@ -9,6 +9,7 @@ import { VideoLightbox } from './VideoLightbox';
 import { GalleryPage } from './GalleryPage';
 import { CoverFlowGallery, CoverFlowItem } from './CoverFlowGallery';
 import RegeneratedImage from '../assets/images/regenerated_image_1786114032574.png';
+import RegeneratedImage2 from '../assets/images/FortKochi.jpg';
 
 // Items matching the reference screenshot design
 const coverFlowData: CoverFlowItem[] = [
@@ -53,7 +54,7 @@ const coverFlowData: CoverFlowItem[] = [
     title: "Cybernetic Silhouette",
     subtitle: "Tokyo 2026 Archive",
     category: "Cyberpunk",
-    url: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80&w=1200",
+    url: RegeneratedImage2,
     type: "photo",
     data: photography[0]
   },

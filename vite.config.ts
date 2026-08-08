@@ -5,6 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    assetsInclude: ['**/*.octet-stream'],
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

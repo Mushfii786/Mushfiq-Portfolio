@@ -24,3 +24,8 @@ declare module '*.webp' {
   const src: string;
   export default src;
 }
+
+declare module '*.octet-stream' {
+  const src: string;
+  export default src;
+}

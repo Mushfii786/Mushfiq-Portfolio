@@ -293,7 +293,7 @@ export function About() {
               href="#contact"
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 rounded-full bg-gradient-to-r from-[#8B5CF6] via-[#3B82F6] to-[#06B6D4] text-white flex items-center justify-center shadow-[0_0_25px_rgba(139,92,246,0.5)] hover:shadow-[0_0_35px_rgba(59,130,246,0.8)] transition-all duration-300"
+              className="w-12 h-12 rounded-full bg-neutral-900/90 border border-white/15 text-neutral-300 flex items-center justify-center shadow-md focus:bg-gradient-to-r focus:from-[#8B5CF6] focus:via-[#3B82F6] focus:to-[#06B6D4] focus:text-white focus:border-transparent focus:shadow-[0_0_25px_rgba(139,92,246,0.6)] active:bg-gradient-to-r active:from-[#8B5CF6] active:via-[#3B82F6] active:to-[#06B6D4] active:text-white active:border-transparent active:shadow-[0_0_25px_rgba(139,92,246,0.6)] hover:bg-gradient-to-r hover:from-[#8B5CF6] hover:via-[#3B82F6] hover:to-[#06B6D4] hover:text-white hover:border-transparent hover:shadow-[0_0_25px_rgba(139,92,246,0.6)] transition-all duration-300 outline-none"
             >
               <ArrowUpRight className="w-6 h-6" />
             </motion.a>
