@@ -9,7 +9,7 @@ import { VideoLightbox } from './VideoLightbox';
 import { GalleryPage } from './GalleryPage';
 import { CoverFlowGallery, CoverFlowItem } from './CoverFlowGallery';
 import RegeneratedImage from '../assets/images/regenerated_image_1786114032574.png';
-import RegeneratedImage2 from '../assets/images/FortKochi.jpg';
+import RegeneratedImage2 from '../assets/images/regenerated_image_1786192879031.jpg';
 
 // Items matching the reference screenshot design
 const coverFlowData: CoverFlowItem[] = [
