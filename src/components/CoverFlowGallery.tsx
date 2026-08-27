@@ -143,16 +143,6 @@ export function CoverFlowGallery({
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#2563EB]/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[400px] h-[250px] bg-[#2563EB]/10 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Top Status Bar */}
-      <div className="flex items-center justify-between px-4 sm:px-8 mb-6 relative z-40">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
-          <span className="text-xs font-mono font-bold tracking-widest text-neutral-400 uppercase">
-            {badgeTitle}
-          </span>
-        </div>
-      </div>
-
       {/* 3D Coverflow Container */}
       <div className="relative w-full h-[420px] sm:h-[480px] flex items-center justify-center perspective-[1200px] overflow-hidden">
         {items.map((item, index) => {
@@ -208,12 +198,6 @@ export function CoverFlowGallery({
                     <div className="absolute top-3 right-3 p-2 rounded-full bg-black/70 backdrop-blur-md text-white border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
                       <Eye className="w-4 h-4 text-[#2563EB]" />
                     </div>
-                  )}
-
-                  {item.category && (
-                    <span className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-[10px] font-mono text-neutral-300 border border-white/10">
-                      {item.category}
-                    </span>
                   )}
                 </div>
 

@@ -1,7 +1,36 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, X, Maximize2, Heart, Share2, Sparkles, Layers, Palette, BookOpen, Type, ArrowUpRight, Check } from 'lucide-react';
-import { GradientWaves } from './GradientWaves';
+import { ArrowLeft, X, Heart, Share2, Sparkles, Layers, Palette, Check, Camera, Download, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import RegeneratedImage from '../assets/images/regenerated_image_1786114032574.png'; 
+import RegeneratedImage2 from '../assets/images/regenerated_image_1786192879031.jpg'; 
+import FortKochi from '../assets/images/FortKochi.jpg';
+import PostTruthImg from '../assets/images/regenerated_image_1787832022914.jpg';
+import ProphetYaqoobImg from '../assets/images/regenerated_image_1787832024208.jpg';
+import Night from '../assets/images/Night.jpg';
+import Horse from '../assets/images/Horse.jpg';
+import Dog from '../assets/images/Dog.jpg';
+import House from '../assets/images/House.jpg';
+import RegeneratedImage6 from '../assets/images/regenerated_image_1786192953982.jpg';
+import EditorialImg from '../assets/images/regenerated_image_1787834708404.jpg';
+import SunlitShadowsImg from '../assets/images/regenerated_image_1787837850773.jpg';
+import YellowCourtyardImg from '../assets/images/regenerated_image_1787837959046.jpg';
+import NeonMotionImg from '../assets/images/regenerated_image_1787838076486.jpg';
+import MonochromeBotanicalImg from '../assets/images/regenerated_image_1787838078346.jpg';
+import ForestLightImg from '../assets/images/regenerated_image_1787839186720.jpg';
+import MusicFestImg from '../assets/images/regenerated_image_1787839188725.jpg';
+import AbstractGeometricImg from '../assets/images/regenerated_image_1787840133505.jpg';
+import UploadedImg1 from '../assets/images/regenerated_image_1787832278363.jpg';
+import UploadedImg2 from '../assets/images/regenerated_image_1787832279801.jpg';
+import UploadedImg3 from '../assets/images/regenerated_image_1787832281218.jpg';
+import UploadedImg4 from '../assets/images/regenerated_image_1787832283145.jpg';
+import UploadedImg5 from '../assets/images/regenerated_image_1787832284639.jpg';
+import UploadedImg6 from '../assets/images/regenerated_image_1787832286039.jpg';
+import UploadedImg7 from '../assets/images/regenerated_image_1787807967477.jpg';
+import UploadedImg8 from '../assets/images/regenerated_image_1786113837883.jpg';
+import UploadedImg9 from '../assets/images/regenerated_image_1787840681000.jpg';
+import UploadedImg10 from '../assets/images/regenerated_image_1787840682571.jpg';
+import UploadedImg11 from '../assets/images/regenerated_image_1787807484045.jpg';
+import UploadedImg12 from '../assets/images/regenerated_image_1787841584292.png';
 
 interface GalleryPageProps {
   onClose: () => void;
@@ -11,257 +40,349 @@ interface GalleryPageProps {
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'Poster Designing' | 'Photo Editing' | 'Book Covers' | 'Typography Images';
+  category: 'Photography' | 'Poster Designing' | 'Photo Editing';
   url: string;
   caption: string;
   clientOrEvent?: string;
   tools?: string;
   year?: string;
-  column: 1 | 2 | 3 | 4 | 5;
-  aspectRatioClass: string;
   badge?: string;
 }
 
-// 25 Curated Works structured into 5 columns matching the exact reference studio gallery layout
+// Curated works with balanced items across all categories
 export const galleryGridPhotos: GalleryItem[] = [
-  // COLUMN 1
+  // ================= PHOTOGRAPHY =================
   {
-    id: "gal-1-1",
-    title: "Terracotta High-Fashion Editorial",
-    category: "Photo Editing",
-    url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800",
-    caption: "Vibrant orange hue adjustment, skin retouching, and studio lighting balance.",
-    clientOrEvent: "Vogue Creative Studio",
-    tools: "Lightroom • Photoshop",
-    year: "2026",
-    column: 1,
-    aspectRatioClass: "aspect-[3/4]",
-    badge: "Editorial Edit"
+    id: "gal-photo-2",
+    title: "Post-truth",
+    category: "Photography",
+    url: PostTruthImg,
+    caption: "Book cover design exploring contemporary themes and visual storytelling.",
+    clientOrEvent: "Book cover Design",
+    tools: "Fujifilm X-T5 • 35mm f/2.0",
+    year: "2025 Archive",
+    badge: "Book Cover"
   },
   {
-    id: "gal-1-2",
+    id: "gal-photo-1",
+    title: "Prophet Ya'qoob",
+    category: "Photography",
+    url: ProphetYaqoobImg,
+    caption: "Book cover design with atmospheric tones and thematic typography.",
+    clientOrEvent: "Book cover Design",
+    tools: "Sony A7IV • 85mm f/1.4 GM",
+    year: "2026 Archive",
+    badge: "Book Cover"
+  },
+  {
+    id: "gal-photo-3",
+    title: "Captured Moments",
+    category: "Photography",
+    url: RegeneratedImage,
+    caption: "Gothic architecture emerging through dramatic fog and atmospheric lighting.",
+    clientOrEvent: "Frames by Mushfii",
+    tools: "Sony A7IV • 35mm f/1.4 GM",
+    year: "2025 Archive",
+    badge: "Atmospheric"
+  },
+  {
+    id: "gal-photo-4",
+    title: "The Ship",
+    category: "Photography",
+    url: FortKochi,
+    caption: "Vessel anchored along the historic coastline of Fort Kochi.",
+    clientOrEvent: "Fort Kochi, Kerala",
+    tools: "Sony A7IV • 24-70mm f/2.8 GM",
+    year: "2026 Archive",
+    badge: "Fort Kochi"
+  },
+  {
+    id: "gal-photo-5",
+    title: "Wild Horse",
+    category: "Photography",
+    url: Horse,
+    caption: "Wild horse grazing in the misty landscapes of Kodaikanal.",
+    clientOrEvent: "Kodaikanal, Tamil Nadu",
+    tools: "Sony A7IV • 70-200mm f/2.8 GM",
+    year: "2026 Archive",
+    badge: "Wildlife"
+  },
+  {
+    id: "gal-photo-6",
+    title: "Wheel of Lights",
+    category: "Photography",
+    url: Night,
+    caption: "Night perspectives and festival lights in Kozhikode.",
+    clientOrEvent: "Kozhikode, Kerala",
+    tools: "Sony A7IV • 50mm f/1.2 GM",
+    year: "2026 Archive",
+    badge: "Night Lights"
+  },
+  {
+    id: "gal-photo-7",
+    title: "Dog",
+    category: "Photography",
+    url: Dog,
+    caption: "Intimate candid portrait capturing golden sunlight and gentle spirit.",
+    clientOrEvent: "Kerala, India",
+    tools: "Sony A7IV • 85mm f/1.4 GM",
+    year: "2026 Archive",
+    badge: "Candid"
+  },
+  {
+    id: "gal-photo-11",
+    title: "Jew Town",
+    category: "Photography",
+    url: RegeneratedImage6,
+    caption: "Atmospheric perspectives and heritage alleys in Fort Kochi.",
+    clientOrEvent: "Fort Kochi, Kerala",
+    tools: "Fujifilm X-T5 • 50-140mm",
+    year: "2026 Archive",
+    badge: "Jew Town"
+  },
+
+  // ================= PHOTO EDITING =================
+  {
+    id: "gal-edit-1",
+    title: "Mysore Stories",
+    category: "Photo Editing",
+    url: EditorialImg,
+    caption: "Captured in Mysore.",
+    clientOrEvent: "Captured in Mysore",
+    tools: "Photoshop • Capture One",
+    year: "2026",
+    badge: "Mysore"
+  },
+  {
+    id: "gal-edit-2",
+    title: "Travel Memories",
+    category: "Photo Editing",
+    url: SunlitShadowsImg,
+    caption: "Captured in Mysore.",
+    clientOrEvent: "Captured in Mysore",
+    tools: "Lightroom Classic",
+    year: "2025",
+    badge: "Mysore"
+  },
+  {
+    id: "gal-edit-3",
+    title: "Yellow Courtyard & Desert Flora",
+    category: "Photo Editing",
+    url: YellowCourtyardImg,
+    caption: "Selective saturation and tonal curves highlighting golden terracotta tones.",
+    clientOrEvent: "Solstice Studio",
+    tools: "Photoshop • Camera Raw",
+    year: "2026",
+    badge: "Color Grade"
+  },
+  {
+    id: "gal-edit-4",
+    title: "Cinematic Neon Motion Blur",
+    category: "Photo Editing",
+    url: NeonMotionImg,
+    caption: "Long-exposure color tuning emphasizing midnight blue and electric magenta tones.",
+    clientOrEvent: "Nightfall Media",
+    tools: "Lightroom • Photoshop",
+    year: "2025",
+    badge: "Night Grade"
+  },
+  {
+    id: "gal-edit-5",
     title: "Monochrome Botanical Silhouette",
     category: "Photo Editing",
-    url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
-    caption: "High-contrast shadow grading with soft sunbeam flares.",
+    url: MonochromeBotanicalImg,
+    caption: "High-contrast shadow grading with soft sunbeam flares and film grain.",
     clientOrEvent: "Personal Archive",
     tools: "Lightroom Classic",
     year: "2026",
-    column: 1,
-    aspectRatioClass: "aspect-[4/5]"
+    badge: "Monochrome"
   },
   {
-    id: "gal-1-3",
-    title: "Ethereal Moss & Light Installation",
+    id: "gal-edit-6",
+    title: "Ethereal Moss & Forest Light",
     category: "Photo Editing",
-    url: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800",
-    caption: "Surreal color manipulation transforming forest light into emerald glow.",
+    url: ForestLightImg,
+    caption: "Surreal color manipulation transforming woodland light into deep emerald glow.",
     clientOrEvent: "Botanical Arts Fest",
     tools: "Photoshop • Camera Raw",
     year: "2025",
-    column: 1,
-    aspectRatioClass: "aspect-[3/4]"
+    badge: "Surreal Grade"
   },
+
+  // ================= POSTER DESIGNING =================
   {
-    id: "gal-1-4",
+    id: "gal-poster-1",
     title: "Campus Music Fest Mainstage",
     category: "Poster Designing",
-    url: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=800",
-    caption: "Dynamic event poster with vibrant typography and stage lighting overlay.",
-    clientOrEvent: "College Media Union",
-    tools: "Photoshop • Illustrator",
+    url: MusicFestImg,
+    caption: "Bold typographic hierarchy and textured gradient overlays for annual music gala.",
+    clientOrEvent: "Farook College Fest",
+    tools: "Illustrator • Photoshop",
     year: "2025",
-    column: 1,
-    aspectRatioClass: "aspect-[4/3]"
+    badge: "Music Gala"
   },
-
-  // COLUMN 2
   {
-    id: "gal-2-1",
-    title: "Sunlit Architectural Shadows",
-    category: "Photo Editing",
-    url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800",
-    caption: "Warm terracotta and ochre color palette grading for interior design editorial.",
-    clientOrEvent: "ArchDigest Edition",
-    tools: "Lightroom • Capture One",
+    id: "gal-poster-2",
+    title: "Abstract Geometric Balance",
+    category: "Poster Designing",
+    url: AbstractGeometricImg,
+    caption: "Monochrome typographic artwork exploring negative space and structured grid forms.",
+    clientOrEvent: "Type Directors Club",
+    tools: "Illustrator • InDesign",
     year: "2026",
-    column: 2,
-    aspectRatioClass: "aspect-[9/16]",
-    badge: "Featured Edit"
+    badge: "Exhibition"
   },
   {
-    id: "gal-2-2",
-    title: "Hermes Home — Minimal Art Print",
-    category: "Book Covers",
-    url: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800",
-    caption: "Minimalist hardcover novel layout featuring abstract geometric forms.",
-    clientOrEvent: "Hermes Publishing",
+    id: "gal-poster-3",
+    title: "Typography & Sound Waves",
+    category: "Poster Designing",
+    url: UploadedImg1,
+    caption: "Experimental kinetic typography poster with dynamic sound frequency waveforms.",
+    clientOrEvent: "SoundLab Kerala",
+    tools: "Illustrator • Photoshop",
+    year: "2026",
+    badge: "Typography"
+  },
+  {
+    id: "gal-poster-4",
+    title: "Future Heritage Exhibition",
+    category: "Poster Designing",
+    url: UploadedImg2,
+    caption: "Visual identity and promotional poster blending traditional motifs with modernist Swiss grid.",
+    clientOrEvent: "Heritage Foundation",
     tools: "InDesign • Illustrator",
     year: "2026",
-    column: 2,
-    aspectRatioClass: "aspect-[4/3]"
+    badge: "Branding"
   },
   {
-    id: "gal-2-3",
-    title: "Abstract Geometric Balance",
-    category: "Typography Images",
-    url: "https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=800",
-    caption: "Monochrome typographic artwork exploring negative space and letterforms.",
-    clientOrEvent: "Type Directors Club",
-    tools: "Illustrator • Photoshop",
+    id: "gal-poster-5",
+    title: "Cinephile Film Retrospective",
+    category: "Poster Designing",
+    url: UploadedImg3,
+    caption: "Minimalist theatrical poster featuring subtle film grain textures and stark title typography.",
+    clientOrEvent: "Cinema Society",
+    tools: "Photoshop • Lightroom",
     year: "2025",
-    column: 2,
-    aspectRatioClass: "aspect-[3/4]"
+    badge: "Film Poster"
   },
   {
-    id: "gal-2-4",
-    title: "Cyan Neural Wave Network",
-    category: "Typography Images",
-    url: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800",
-    caption: "Procedural gradient mesh combined with modern sans-serif typography.",
-    clientOrEvent: "Tech Symposium 2025",
-    tools: "Photoshop • Cinema 4D",
-    year: "2025",
-    column: 2,
-    aspectRatioClass: "aspect-[16/9]"
+    id: "gal-poster-6",
+    title: "Echoes of Modernism",
+    category: "Poster Designing",
+    url: UploadedImg4,
+    caption: "Brutalist layout design exploring stark geometric contrast and expressive character forms.",
+    clientOrEvent: "Design Biennale",
+    tools: "Illustrator • Figma",
+    year: "2026",
+    badge: "Modernism"
   },
 
-  // COLUMN 3
+  // ================= EXPANDED GALLERY WORKS =================
   {
-    id: "gal-3-1",
-    title: "Yellow Courtyard & Desert Flora",
+    id: "gal-photo-new-1",
+    title: "Traditional Courtyard House",
+    category: "Photography",
+    url: House,
+    caption: "Kerala vernacular architecture bathed in calm monsoon afternoon light.",
+    clientOrEvent: "Kerala Heritage Archive",
+    tools: "Sony A7IV • 24mm f/1.4 GM",
+    year: "2026 Archive",
+    badge: "Architecture"
+  },
+  {
+    id: "gal-photo-new-2",
+    title: "Golden Hour Solitude",
+    category: "Photography",
+    url: UploadedImg5,
+    caption: "Warm backlight filtering across textured landscape horizons.",
+    clientOrEvent: "Personal Series",
+    tools: "Fujifilm X-T5 • 35mm f/1.4",
+    year: "2026 Archive",
+    badge: "Golden Hour"
+  },
+  {
+    id: "gal-photo-new-3",
+    title: "Coastal Tide & Distant Sails",
+    category: "Photography",
+    url: UploadedImg6,
+    caption: "Minimalist seaside composition capturing tranquil coastal waters and gentle ripples.",
+    clientOrEvent: "Kozhikode Beach",
+    tools: "Sony A7IV • 85mm f/1.8",
+    year: "2026 Archive",
+    badge: "Coastal"
+  },
+  {
+    id: "gal-photo-new-4",
+    title: "Old Town Heritage Facades",
+    category: "Photography",
+    url: UploadedImg7,
+    caption: "Preserved colonial corridors, textured timber eaves, and historic alleyway shadows.",
+    clientOrEvent: "Mattancherry, Kochi",
+    tools: "Sony A7IV • 50mm f/1.4",
+    year: "2025 Archive",
+    badge: "Heritage"
+  },
+  {
+    id: "gal-edit-new-1",
+    title: "Velvet Dusk Color Tuning",
     category: "Photo Editing",
-    url: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&q=80&w=800",
-    caption: "Vibrant yellow tint balancing direct sunlight and cactus shadows.",
-    clientOrEvent: "Oasis Living Magazine",
+    url: UploadedImg8,
+    caption: "Custom color grading accentuating deep twilight purples and warm incandescent lanterns.",
+    clientOrEvent: "Editorial Work",
+    tools: "Lightroom Classic • Photoshop",
+    year: "2026",
+    badge: "Color Grade"
+  },
+  {
+    id: "gal-edit-new-2",
+    title: "Cinematic Desert Horizons",
+    category: "Photo Editing",
+    url: UploadedImg9,
+    caption: "Warm cinematic tones with soft grain and highlight roll-off across sweeping dunes.",
+    clientOrEvent: "Traveler Journal",
     tools: "Lightroom Classic",
     year: "2026",
-    column: 3,
-    aspectRatioClass: "aspect-[4/3]"
+    badge: "Desert Series"
   },
   {
-    id: "gal-3-2",
-    title: "Contemporary Living & Wood Forms",
-    category: "Book Covers",
-    url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800",
-    caption: "Hardcover coffee table book layout design with rich tactile textures.",
-    clientOrEvent: "Nordic Press",
-    tools: "InDesign • Photoshop",
-    year: "2026",
-    column: 3,
-    aspectRatioClass: "aspect-[4/5]",
-    badge: "Book Design"
-  },
-  {
-    id: "gal-3-3",
-    title: "Desert Cactus Minimal Poster",
+    id: "gal-poster-new-7",
+    title: "Minimalist Architectural Form",
     category: "Poster Designing",
-    url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
-    caption: "Clean poster layout for environmental conservation summit.",
-    clientOrEvent: "Green Earth Org",
-    tools: "Illustrator • Photoshop",
-    year: "2025",
-    column: 3,
-    aspectRatioClass: "aspect-[3/4]"
-  },
-
-  // COLUMN 4
-  {
-    id: "gal-4-1",
-    title: "Cinematic Neon Motion Blur",
-    category: "Photo Editing",
-    url: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80&w=800",
-    caption: "Long-exposure motion blur synthesis with cyberpunk glow highlights.",
-    clientOrEvent: "Tokyo After Dark Series",
-    tools: "Photoshop • Lightroom",
+    url: UploadedImg10,
+    caption: "Architectural poster design celebrating symmetry, structural light, and understated typography.",
+    clientOrEvent: "ArchArt Studio",
+    tools: "InDesign • Illustrator",
     year: "2026",
-    column: 4,
-    aspectRatioClass: "aspect-[3/4]"
+    badge: "Arch Design"
   },
   {
-    id: "gal-4-2",
-    title: "Magenta Flare & Lens Distortion",
-    category: "Photo Editing",
-    url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=800",
-    caption: "Analog film light leaks combined with modern portrait retouching.",
-    clientOrEvent: "Indie Album Art",
-    tools: "Photoshop • Dehancer",
-    year: "2026",
-    column: 4,
-    aspectRatioClass: "aspect-square"
+    id: "gal-photo-new-5",
+    title: "Monsoon Mist & Highland Greens",
+    category: "Photography",
+    url: UploadedImg11,
+    caption: "Atmospheric mountain mist rolling over lush evergreen plantation slopes.",
+    clientOrEvent: "Wayanad Highlands",
+    tools: "Sony A7IV • 70-200mm f/2.8 GM",
+    year: "2026 Archive",
+    badge: "Highland"
   },
   {
-    id: "gal-4-3",
-    title: "Urban Streetwear Fashion Poster",
-    category: "Poster Designing",
-    url: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=800",
-    caption: "High-energy promotional poster with custom distressed type and grain.",
-    clientOrEvent: "Pulse Apparel Co.",
-    tools: "Illustrator • Photoshop",
-    year: "2025",
-    column: 4,
-    aspectRatioClass: "aspect-[3/4]",
-    badge: "Poster Design"
-  },
-
-  // COLUMN 5
-  {
-    id: "gal-5-1",
-    title: "Art Exhibition Crowd Silhouette",
-    category: "Poster Designing",
-    url: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800",
-    caption: "Sophisticated event poster featuring repeating silhouette figures.",
-    clientOrEvent: "Biennale Art Expo 2026",
-    tools: "Photoshop • Illustrator",
-    year: "2026",
-    column: 5,
-    aspectRatioClass: "aspect-[4/5]",
-    badge: "Exhibition Poster"
-  },
-  {
-    id: "gal-5-2",
-    title: "Alpaca Cutout Surreal Collage",
-    category: "Photo Editing",
-    url: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800",
-    caption: "Precision cutout line art superimposed on pastoral landscape background.",
-    clientOrEvent: "Creative Media Collective",
-    tools: "Photoshop Pen Tool",
-    year: "2026",
-    column: 5,
-    aspectRatioClass: "aspect-[9/16]"
-  },
-  {
-    id: "gal-5-3",
-    title: "Organic Form Modernist Book",
-    category: "Book Covers",
-    url: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=800",
-    caption: "Tactile paperback jacket layout featuring organic sculptural art.",
-    clientOrEvent: "Horizon Books",
-    tools: "InDesign • Photoshop",
-    year: "2025",
-    column: 5,
-    aspectRatioClass: "aspect-[4/3]"
-  },
-  {
-    id: "gal-5-4",
-    title: "Experimental Kinetic Letterforms",
-    category: "Typography Images",
-    url: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=800",
-    caption: "Warped kinetic typography composition for digital poster series.",
-    clientOrEvent: "Type & Form Exhibition",
-    tools: "Illustrator • After Effects",
-    year: "2025",
-    column: 5,
-    aspectRatioClass: "aspect-[3/4]"
+    id: "gal-photo-new-6",
+    title: "Urban Transit & Metro Perspectives",
+    category: "Photography",
+    url: UploadedImg12,
+    caption: "Modern geometric architecture framing the dynamic rhythms of city transit.",
+    clientOrEvent: "Urban Horizons Project",
+    tools: "Sony A7IV • 35mm f/1.4 GM",
+    year: "2026 Archive",
+    badge: "Urban"
   }
 ];
 
 const categories = [
   { id: 'ALL', label: 'All Works', icon: Sparkles },
+  { id: 'PHOTOGRAPHY', label: 'Photography', icon: Camera },
   { id: 'POSTER DESIGNING', label: 'Poster Designing', icon: Layers },
-  { id: 'PHOTO EDITING', label: 'Photo Editing', icon: Palette },
-  { id: 'BOOK COVERS', label: 'Book Covers', icon: BookOpen },
-  { id: 'TYPOGRAPHY IMAGES', label: 'Typography Images', icon: Type },
 ];
 
 export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPageProps) {
@@ -270,20 +391,68 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
   const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
   const [likedItems, setLikedItems] = useState<Record<string, boolean>>({});
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownload = async (url: string, title: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setDownloading(true);
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = `${title.toLowerCase().replace(/[^a-z0-9]/g, '-') || 'photo'}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch {
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${title || 'photo'}.jpg`;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    setTimeout(() => setDownloading(false), 1500);
+  };
 
   const handleCategoryClick = (catId: string) => {
     setSelectedCategory(catId);
     setAnimKey((prev) => prev + 1);
   };
 
+  const filteredItems = selectedCategory === 'ALL'
+    ? galleryGridPhotos
+    : galleryGridPhotos.filter((p) => p.category.toUpperCase() === selectedCategory);
+
+  const activeIndex = activeItem ? filteredItems.findIndex((p) => p.id === activeItem.id) : -1;
+
+  const handlePrev = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (!activeItem || filteredItems.length === 0) return;
+    const currentIdx = filteredItems.findIndex((p) => p.id === activeItem.id);
+    const prevIdx = (currentIdx - 1 + filteredItems.length) % filteredItems.length;
+    setActiveItem(filteredItems[prevIdx]);
+  }, [activeItem, filteredItems]);
+
+  const handleNext = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (!activeItem || filteredItems.length === 0) return;
+    const currentIdx = filteredItems.findIndex((p) => p.id === activeItem.id);
+    const nextIdx = (currentIdx + 1) % filteredItems.length;
+    setActiveItem(filteredItems[nextIdx]);
+  }, [activeItem, filteredItems]);
+
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Focus container on mount for immediate mouse wheel & keyboard interaction
   useEffect(() => {
     containerRef.current?.focus();
   }, []);
 
-  // Keyboard shortcut to close on Escape & Mouse Wheel scroll handling
   useEffect(() => {
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -294,6 +463,12 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
           setActiveItem(null);
         } else {
           onClose();
+        }
+      } else if (activeItem) {
+        if (e.key === 'ArrowLeft') {
+          handlePrev();
+        } else if (e.key === 'ArrowRight') {
+          handleNext();
         }
       }
     };
@@ -312,7 +487,7 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [activeItem, onClose]);
+  }, [activeItem, onClose, handlePrev, handleNext]);
 
   const toggleLike = (id: string, e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -325,10 +500,6 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  const filteredItems = selectedCategory === 'ALL'
-    ? galleryGridPhotos
-    : galleryGridPhotos.filter((p) => p.category.toUpperCase() === selectedCategory);
-
   return (
     <motion.div
       ref={containerRef}
@@ -336,41 +507,43 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-0 z-[100] bg-[#030712] text-white overflow-y-auto overscroll-contain touch-pan-y outline-none selection:bg-[#2563EB] selection:text-white font-['Syne',sans-serif]"
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="fixed inset-0 z-[100] bg-[#090A0F] text-neutral-100 overflow-y-auto overscroll-contain touch-pan-y outline-none font-sans selection:bg-[#2563EB] selection:text-white"
     >
-      {/* Background Ambient Radial Glow & Luxury Particle Mesh */}
+      {/* Background Ambient Glow */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-[700px] h-[700px] bg-gradient-to-br from-blue-600/15 to-indigo-600/10 rounded-full blur-[160px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gradient-to-tl from-cyan-500/15 to-blue-600/10 rounded-full blur-[160px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/5 rounded-full blur-[180px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/[0.03] via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[140px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/[0.02] via-transparent to-transparent" />
       </div>
 
-      {/* Top Editorial Header Navigation Bar - Luxury Dark Glass */}
-      <header className="sticky top-0 z-40 bg-[#030712]/90 backdrop-blur-2xl border-b border-white/10 px-4 sm:px-8 py-3 flex flex-col md:flex-row md:items-center justify-between gap-3.5 shadow-[0_10px_35px_rgba(0,0,0,0.85)] relative">
+      {/* Top Header Navigation */}
+      <header className="sticky top-0 z-40 bg-[#090A0F]/90 backdrop-blur-xl border-b border-white/10 px-4 sm:px-8 py-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.8)] relative">
         
-        {/* Left: Studio Brand Identifier */}
+        {/* Left: Brand / Return */}
         <div className="flex items-center gap-3.5">
           <button
             onClick={onClose}
-            className="group px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#2563EB] text-white border border-white/20 hover:border-blue-400/50 text-[10px] font-bold tracking-[0.16em] uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-md hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] hover:scale-105 active:scale-95"
+            className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#2563EB] text-white border border-white/15 text-xs font-semibold tracking-normal transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
           >
-            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform text-white" />
-            <span>RETURN TO HOME</span>
+            <ArrowLeft className="w-3.5 h-3.5" />
+            <span>Return to Portfolio</span>
           </button>
 
-          <div className="hidden sm:block h-4 w-[1px] bg-white/20" />
+          <div className="hidden sm:block h-4 w-[1px] bg-white/15" />
 
-          <div className="flex items-center gap-2">
-            <span className="text-xs sm:text-sm font-extrabold tracking-widest uppercase text-white font-['Syne'] drop-shadow-md">
-              photography works<span className="text-blue-400">.</span>
+          <div className="flex items-center gap-2.5">
+            <span className="text-sm sm:text-base font-bold text-white tracking-tight bg-gradient-to-r from-white via-neutral-100 to-neutral-300 bg-clip-text">
+              Photography & Design
+            </span>
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold tracking-wide text-blue-400 bg-blue-500/10 border border-blue-500/25 shadow-[0_0_12px_rgba(37,99,235,0.18)]">
+              {filteredItems.length} {filteredItems.length === 1 ? 'WORK' : 'WORKS'}
             </span>
           </div>
         </div>
 
-        {/* Center: Category Filters with Animated Layout Pill */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-0.5 md:pb-0 no-scrollbar">
+        {/* Right / Center: Category Filters */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 md:pb-0 no-scrollbar">
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isSelected = selectedCategory === cat.id;
@@ -379,226 +552,205 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
               <button
                 key={cat.id}
                 onClick={() => handleCategoryClick(cat.id)}
-                className={`relative px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.1em] transition-all duration-300 cursor-pointer whitespace-nowrap flex items-center gap-1.5 z-10 ${
+                className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5 z-10 ${
                   isSelected
                     ? 'text-white'
-                    : 'text-neutral-300 hover:text-white'
+                    : 'text-neutral-400 hover:text-white'
                 }`}
               >
                 {isSelected && (
                   <motion.div
                     layoutId="activeCategoryPill"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(37,99,235,0.55)] border border-blue-300/40 -z-10"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    className="absolute inset-0 rounded-full bg-[#2563EB] shadow-[0_0_20px_rgba(37,99,235,0.45)] border border-blue-400/30 -z-10"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
                 {!isSelected && (
-                  <div className="absolute inset-0 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all -z-10" />
+                  <div className="absolute inset-0 rounded-full bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-all -z-10" />
                 )}
-                <Icon className={`w-3 h-3 ${isSelected ? 'text-white' : 'text-neutral-400'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-neutral-400'}`} />
                 <span>{cat.label}</span>
               </button>
             );
           })}
         </div>
-
       </header>
 
-      {/* Main Studio Canvas Area - Multi-Column Collage Layout */}
-      <main className="max-w-[1600px] mx-auto px-3 sm:px-6 md:px-8 py-6 sm:py-8 relative z-10">
-        
-        {/* Responsive Multi-Column Mosaic Grid */}
+      {/* Main Gallery Area - Orderly Responsive Grid */}
+      <main className="max-w-[1540px] mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={`${selectedCategory}-${animKey}`}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-start"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch"
           >
-            {[1, 2, 3, 4, 5].map((colNum) => {
-              const columnItems = filteredItems.filter((p) => p.column === colNum);
+            {filteredItems.map((item, idx) => {
+              const isLiked = Boolean(likedItems[item.id]);
 
               return (
-                <div key={colNum} className="flex flex-col gap-4">
-                  {columnItems.map((item, idx) => {
-                    const isLiked = Boolean(likedItems[item.id]);
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ delay: idx * 0.03, duration: 0.3 }}
+                  onClick={() => setActiveItem(item)}
+                  className="group relative flex flex-col p-3 pb-4 sm:p-3.5 sm:pb-5 rounded-[28px] sm:rounded-[32px] bg-[#111216]/95 border-2 border-[#2563EB]/70 hover:border-[#3B82F6] shadow-[0_15px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_35px_rgba(37,99,235,0.4)] transition-all duration-300 cursor-pointer"
+                >
+                  {/* Image Container with Rounded Inside */}
+                  <div className="relative w-full aspect-[4/5] rounded-[20px] sm:rounded-[22px] overflow-hidden bg-neutral-950 border border-neutral-800/60 shadow-inner">
+                    <img
+                      src={item.url}
+                      alt={item.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                  </div>
 
-                    return (
-                      <motion.div
-                        key={item.id}
-                        layout
-                        initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        whileHover={{ y: -6, scale: 1.02 }}
-                        transition={{ delay: idx * 0.04, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        onClick={() => setActiveItem(item)}
-                        className="group relative w-full overflow-hidden rounded-2xl bg-neutral-900/90 cursor-pointer border border-white/10 hover:border-blue-500/80 hover:shadow-[0_15px_35px_rgba(37,99,235,0.3)] transition-all duration-500"
-                      >
-                        {/* Image Container with Exact Aspect Ratios */}
-                        <div className={`w-full ${item.aspectRatioClass} relative overflow-hidden bg-neutral-950`}>
-                          <img
-                            src={item.url}
-                            alt={item.title}
-                            loading="lazy"
-                            className="w-full h-full object-cover group-hover:scale-[1.07] transition-transform duration-700 ease-out brightness-[0.92] group-hover:brightness-105"
-                          />
-
-                          {/* Minimal Badge Overlay if present */}
-                          {item.badge && (
-                            <div className="absolute top-3.5 left-3.5 z-10 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-xl text-cyan-300 text-[9px] font-bold uppercase tracking-wider border border-cyan-500/40 shadow-xl">
-                              {item.badge}
-                            </div>
-                          )}
-
-                          {/* Premium Studio Vignette Hover Overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-between">
-                            <div className="flex justify-between items-start">
-                              <span className="px-2.5 py-1 rounded-full bg-blue-600/90 text-white text-[10px] font-bold uppercase tracking-wider shadow-md border border-blue-400/40 backdrop-blur-md">
-                                {item.category}
-                              </span>
-
-                              <button
-                                onClick={(e) => toggleLike(item.id, e)}
-                                className={`p-2 rounded-full backdrop-blur-md transition-all ${
-                                  isLiked
-                                    ? 'bg-[#2563EB] text-white shadow-lg'
-                                    : 'bg-black/60 text-white hover:bg-white hover:text-neutral-950'
-                                }`}
-                              >
-                                <Heart className={`w-3.5 h-3.5 ${isLiked ? 'fill-white' : ''}`} />
-                              </button>
-                            </div>
-
-                            <div className="space-y-1">
-                              <h3 className="text-white font-extrabold text-sm tracking-tight leading-tight">
-                                {item.title}
-                              </h3>
-                              <p className="text-neutral-300 text-xs font-sans line-clamp-1">
-                                {item.caption}
-                              </p>
-                              <div className="flex items-center justify-between text-[10px] text-neutral-400 pt-2 border-t border-white/20 font-mono">
-                                <span>{item.clientOrEvent}</span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                  {/* Centered Typography Matching Reference Card */}
+                  <div className="mt-3.5 sm:mt-4 text-center px-1">
+                    <h3 className="text-base sm:text-lg font-bold text-white tracking-tight line-clamp-1 group-hover:text-blue-300 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-neutral-400 font-medium mt-0.5 truncate">
+                      {item.clientOrEvent || item.category}
+                    </p>
+                  </div>
+                </motion.div>
               );
             })}
           </motion.div>
         </AnimatePresence>
-
       </main>
 
-      {/* Lightbox Modal Overlay when a work is selected */}
+      {/* Lightbox Modal when a work is selected */}
       <AnimatePresence>
         {activeItem && (
-          <div className="fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-6 md:p-10">
-            {/* Backdrop */}
+          <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveItem(null)}
-              className="fixed inset-0 bg-black/90 backdrop-blur-2xl"
+              className="fixed inset-0 bg-black/85 backdrop-blur-md"
             />
 
-            {/* Modal Container */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative max-w-5xl w-full max-h-[90vh] bg-neutral-900 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.9)] z-10 flex flex-col lg:flex-row my-auto text-white border border-white/15"
-            >
-              {/* Media View */}
-              <div className="relative flex-1 bg-black flex items-center justify-center p-4 sm:p-8 min-h-[350px] lg:min-h-[550px]">
-                <img
-                  src={activeItem.url}
-                  alt={activeItem.title}
-                  className="max-h-[75vh] w-auto max-w-full object-contain rounded-lg select-none shadow-2xl"
-                />
+            {/* Left Scroll / Navigation Arrow Button */}
+            {filteredItems.length > 1 && (
+              <button
+                onClick={handlePrev}
+                className="hidden sm:flex absolute left-4 sm:left-6 md:left-12 lg:left-24 z-[160] p-3.5 rounded-full bg-black/80 hover:bg-white text-white hover:text-black hover:scale-110 active:scale-95 transition-all duration-200 backdrop-blur-md cursor-pointer border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+                aria-label="Previous image"
+                title="Previous image (Left Arrow key)"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+            )}
 
-                {/* Close Overlay Icon Mobile */}
+            {/* Right Scroll / Navigation Arrow Button */}
+            {filteredItems.length > 1 && (
+              <button
+                onClick={handleNext}
+                className="hidden sm:flex absolute right-4 sm:right-6 md:right-12 lg:right-24 z-[160] p-3.5 rounded-full bg-black/80 hover:bg-white text-white hover:text-black hover:scale-110 active:scale-95 transition-all duration-200 backdrop-blur-md cursor-pointer border border-white/15 shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+                aria-label="Next image"
+                title="Next image (Right Arrow key)"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            )}
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 20 }}
+              transition={{ type: 'spring', damping: 26, stiffness: 320 }}
+              className="relative max-w-[460px] sm:max-w-[500px] w-full bg-[#121316]/95 border border-white/15 rounded-[32px] sm:rounded-[36px] p-4 sm:p-5 shadow-[0_25px_70px_rgba(0,0,0,0.9),0_0_35px_rgba(37,99,235,0.15)] backdrop-blur-2xl z-10 flex flex-col my-auto text-white"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button at top right */}
+              <button
+                onClick={() => setActiveItem(null)}
+                className="absolute top-4 right-4 z-30 p-2 rounded-full bg-black/80 hover:bg-white text-white hover:text-black hover:scale-110 active:scale-90 transition-all duration-200 shadow-lg cursor-pointer backdrop-blur-md border border-white/15"
+                aria-label="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              {/* Inner Photo Area */}
+              <div className="relative w-full h-[380px] sm:h-[460px] bg-[#181920] border border-white/10 rounded-[24px] overflow-hidden flex items-center justify-center shadow-inner group">
+                {/* Ambient Blurred Fill */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  <img
+                    src={activeItem.url}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-full h-full object-cover blur-2xl scale-125 opacity-35 select-none"
+                  />
+                  <div className="absolute inset-0 bg-neutral-950/40" />
+                </div>
+
+                {/* Main Photo Image - Fitted to Height */}
+                <div className="relative z-10 w-full h-full flex items-center justify-center p-2 rounded-[20px] overflow-hidden">
+                  <img
+                    src={activeItem.url}
+                    alt={activeItem.title}
+                    className="h-full w-auto max-w-full object-contain rounded-[18px] select-none block shadow-2xl transition-all duration-300"
+                  />
+                </div>
+
+                {/* Mobile In-card Left & Right Scroll Arrows */}
+                {filteredItems.length > 1 && (
+                  <>
+                    <button
+                      onClick={handlePrev}
+                      className="sm:hidden absolute left-2.5 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/75 hover:bg-white text-white hover:text-black backdrop-blur-md transition-all active:scale-90 border border-white/15 cursor-pointer shadow-lg"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+
+                    <button
+                      onClick={handleNext}
+                      className="sm:hidden absolute right-2.5 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/75 hover:bg-white text-white hover:text-black backdrop-blur-md transition-all active:scale-90 border border-white/15 cursor-pointer shadow-lg"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </>
+                )}
+
+                {/* Download Pill Button */}
                 <button
-                  onClick={() => setActiveItem(null)}
-                  className="absolute top-4 right-4 p-2.5 rounded-full bg-black/70 hover:bg-[#2563EB] text-white backdrop-blur-md transition-colors cursor-pointer lg:hidden z-20 border border-white/20"
+                  onClick={(e) => handleDownload(activeItem.url, activeItem.title, e)}
+                  title="Download image"
+                  className="absolute bottom-3.5 right-3.5 z-20 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/80 hover:bg-white text-neutral-200 hover:text-black border border-white/15 backdrop-blur-md text-xs font-sans font-medium transition-all duration-200 shadow-lg active:scale-95 cursor-pointer group"
                 >
-                  <X className="w-5 h-5" />
+                  {downloading ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[2.5]" />
+                      <span>Saved</span>
+                    </>
+                  ) : (
+                    <>
+                      <Download className="w-3.5 h-3.5" />
+                      <span>Download</span>
+                    </>
+                  )}
                 </button>
               </div>
 
-              {/* Sidebar Metadata Info */}
-              <div className="w-full lg:w-80 p-6 lg:p-8 bg-neutral-900/95 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/10">
-                <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <span className="px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wider border border-blue-500/30">
-                        {activeItem.category}
-                      </span>
-                      <h2 className="text-xl font-extrabold text-white mt-3 leading-tight font-['Syne']">
-                        {activeItem.title}
-                      </h2>
-                    </div>
-
-                    <button
-                      onClick={() => setActiveItem(null)}
-                      className="hidden lg:flex p-2 rounded-full hover:bg-white/10 text-neutral-400 hover:text-white transition-colors cursor-pointer"
-                    >
-                      <X className="w-5 h-5" />
-                    </button>
-                  </div>
-
-                  <p className="text-xs sm:text-sm text-neutral-300 font-normal leading-relaxed mb-6">
-                    "{activeItem.caption}"
-                  </p>
-
-                  <div className="space-y-3 pt-4 border-t border-white/10 text-xs font-mono text-neutral-300">
-                    <div>
-                      <span className="text-neutral-500 uppercase text-[10px] block">Client / Event</span>
-                      <span className="font-semibold text-white">{activeItem.clientOrEvent}</span>
-                    </div>
-
-                    <div>
-                      <span className="text-neutral-500 uppercase text-[10px] block">Tools & Software</span>
-                      <span className="font-semibold text-white">{activeItem.tools}</span>
-                    </div>
-
-                    <div>
-                      <span className="text-neutral-500 uppercase text-[10px] block">Year</span>
-                      <span className="font-semibold text-white">{activeItem.year}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between gap-2">
-                  <button
-                    onClick={(e) => toggleLike(activeItem.id, e)}
-                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                      likedItems[activeItem.id]
-                        ? 'bg-[#2563EB] text-white shadow-md'
-                        : 'bg-white/10 text-white hover:bg-white/20'
-                    }`}
-                  >
-                    <Heart className={`w-4 h-4 ${likedItems[activeItem.id] ? 'fill-white' : ''}`} />
-                    <span>{likedItems[activeItem.id] ? 'LIKED' : 'LIKE WORK'}</span>
-                  </button>
-
-                  <button
-                    onClick={(e) => copyLink(activeItem.id, e)}
-                    className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-neutral-300 transition-colors cursor-pointer"
-                    title="Share Work"
-                  >
-                    {copiedId === activeItem.id ? <Check className="w-4 h-4 text-green-400" /> : <Share2 className="w-4 h-4" />}
-                  </button>
-                </div>
+              {/* Centered Typography: Title & Subtitle */}
+              <div className="mt-4 px-2 text-center">
+                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                  {activeItem.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-neutral-400 font-medium mt-0.5 truncate">
+                  {activeItem.clientOrEvent ? `Captured in ${activeItem.clientOrEvent}` : (activeItem.caption || activeItem.category)}
+                </p>
               </div>
             </motion.div>
           </div>

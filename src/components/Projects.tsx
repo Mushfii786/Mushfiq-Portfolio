@@ -11,16 +11,17 @@ import { CoverFlowGallery, CoverFlowItem } from './CoverFlowGallery';
 import RegeneratedImage from '../assets/images/regenerated_image_1786114032574.png'; 
 import RegeneratedImage2 from '../assets/images/regenerated_image_1786192879031.jpg'; 
 import FortKochi from '../assets/images/FortKochi.jpg';
-import RegeneratedImage4 from '../assets/images/regenerated_image_1787807484045.jpg';
+import RegeneratedImage4 from '../assets/images/regenerated_image_1787841813563.png';
 import RegeneratedImage5 from '../assets/images/regenerated_image_1787807967477.jpg';
 import Night from '../assets/images/Night.jpg';
+import Horse from '../assets/images/Horse.jpg';
 
 // Items matching the reference screenshot design
 const coverFlowData: CoverFlowItem[] = [
   {
     id: "cf-1",
-    title: "Gery & Gany",
-    subtitle: "Rusuk",
+    title: "Monsoon Mood",
+    subtitle: "Malappuram, Kerala",
     category: "Photo",
     url: RegeneratedImage2,
     type: "photo",
@@ -28,8 +29,8 @@ const coverFlowData: CoverFlowItem[] = [
   },
   {
     id: "cf-2",
-    title: "Mahalini",
-    subtitle: "Bawa Dia Kembali",
+    title: "Kochi Metro",
+    subtitle: "Kochi, Kerala",
     category: "Photo",
     url: RegeneratedImage4,
     type: "photo",
@@ -37,8 +38,8 @@ const coverFlowData: CoverFlowItem[] = [
   },
   {
     id: "cf-3",
-    title: "Tulus",
-    subtitle: "Monokrom",
+    title: "Captured Moments",
+    subtitle: "Frames by Mushfii",
     category: "Photo",
     url: RegeneratedImage,
     type: "photo",
@@ -46,8 +47,8 @@ const coverFlowData: CoverFlowItem[] = [
   },
   {
     id: "cf-4",
-    title: "Anggi Marito",
-    subtitle: "Mana Boleh",
+    title: "The Ship",
+    subtitle: "Captured in Fort Kochi",
     category: "Photo",
     url: FortKochi,
     type: "photo",
@@ -55,17 +56,17 @@ const coverFlowData: CoverFlowItem[] = [
   },
   {
     id: "cf-5",
-    title: "Aetheria Node",
-    subtitle: "Spatial Light Canvas",
+    title: "Wild Horse",
+    subtitle: "Captured in Kodaikanal",
     category: "Photo",
-    url: RegeneratedImage5,
+    url: Horse,
     type: "photo",
     data: photography[4] || photography[0]
   },
   {
     id: "cf-6",
-    title: "Nocturnal Shadows",
-    subtitle: "Tokyo 2026 Archive",
+    title: "Wheel of Lights",
+    subtitle: "Kozhikode, Kerala",
     category: "Photo",
     url: Night,
     type: "photo",
@@ -121,16 +122,6 @@ export function Projects() {
         >
           PHOTOGRAPHY WORKS
         </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-xs sm:text-base text-neutral-600 dark:text-neutral-400 font-light max-w-xl mx-auto leading-relaxed"
-        >
-          Interactive 3D Cover Flow Deck with a 5-second auto-scroll interval and smooth cubic-bezier 3D depth transitions.
-        </motion.p>
       </div>
 
       {/* Interactive 3D Cover Flow Gallery */}

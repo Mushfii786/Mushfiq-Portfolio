@@ -30,12 +30,12 @@ export function Navigation() {
         setMobileOpen(false);
       }
 
-      const sections = ['home', 'about', 'projects', 'contact'];
-      for (const section of sections.reverse()) {
+      const sections = ['about', 'projects', 'contact'];
+      for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 280) {
+          if (rect.top <= 280 && rect.bottom >= 80) {
             setActiveSection(section);
             break;
           }
@@ -49,7 +49,6 @@ export function Navigation() {
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home', href: '#home' },
     { id: 'about', label: 'About', href: '#about' },
     { id: 'projects', label: 'Works', href: '#projects' },
     { id: 'contact', label: 'Contact', href: '#contact' },
@@ -180,25 +179,13 @@ export function Navigation() {
 
             <nav className="flex flex-col space-y-2">
               <a
-                href="#home"
-                onClick={() => setMobileOpen(false)}
-                className="p-3.5 rounded-2xl bg-neutral-900 border border-neutral-800 text-xs sm:text-sm font-bold text-white flex items-center justify-between hover:border-[#2563EB] hover:scale-[1.02] active:scale-95 transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <HomeIcon className="w-4 h-4 text-[#2563EB]" />
-                  <span>Home</span>
-                </div>
-                <ArrowUpRight className="w-4 h-4 text-neutral-500" />
-              </a>
-
-              <a
                 href="#about"
                 onClick={() => setMobileOpen(false)}
                 className="p-3.5 rounded-2xl bg-neutral-900 border border-neutral-800 text-xs sm:text-sm font-bold text-white flex items-center justify-between hover:border-[#2563EB] hover:scale-[1.02] active:scale-95 transition-all"
               >
                 <div className="flex items-center gap-3">
                   <User className="w-4 h-4 text-[#2563EB]" />
-                  <span>About Bio</span>
+                  <span>About</span>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-neutral-500" />
               </a>
@@ -210,7 +197,7 @@ export function Navigation() {
               >
                 <div className="flex items-center gap-3">
                   <FolderGit2 className="w-4 h-4 text-[#2563EB]" />
-                  <span>Selected Works & Showcase</span>
+                  <span>Works</span>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-neutral-500" />
               </a>
@@ -222,7 +209,7 @@ export function Navigation() {
               >
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4" />
-                  <span>Contact Direct</span>
+                  <span>Contact</span>
                 </div>
                 <ArrowUpRight className="w-4 h-4" />
               </a>

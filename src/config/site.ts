@@ -6,7 +6,7 @@ import FortKochi from "../assets/images/FortKochi.jpg";
 import Horse from "../assets/images/Horse.jpg";
 import RegeneratedImage from "../assets/images/regenerated_image_1786114032574.png";
 import RegeneratedImage2 from "../assets/images/regenerated_image_1786192879031.jpg";
-import RegeneratedImage4 from "../assets/images/regenerated_image_1787807484045.jpg";
+import RegeneratedImage4 from "../assets/images/regenerated_image_1787841813563.png";
 import RegeneratedImage5 from "../assets/images/regenerated_image_1787807967477.jpg";
 
 
@@ -161,11 +161,11 @@ export const projects: Project[] = [
 export const photography: Photo[] = [
   {
     id: "photo-1",
-    title: "Cybernetic Silhouette & Neon Lights",
+    title: "Monsoon Mood",
     category: "Photography",
     url: RegeneratedImage2,
-    caption: "Futuristic visor reflection and ambient cyberpunk Tokyo night light.",
-    location: "Shinjuku District",
+    caption: "Atmospheric monsoon tones and rainy textures in Malappuram.",
+    location: "Malappuram, Kerala",
     camera: "Sony A7IV",
     lens: "85mm f/1.4 GM",
     settings: "f/1.8 • 1/500s • ISO 400",
@@ -173,11 +173,11 @@ export const photography: Photo[] = [
   },
   {
     id: "photo-2",
-    title: "Getting That Film Look in Post",
-    category: "Branding",
+    title: "Kochi Metro",
+    category: "Photography",
     url: RegeneratedImage4,
-    caption: "Organic botanical stillness and rich natural film grain grading.",
-    location: "Studio 4",
+    caption: "Transit perspectives and urban architecture along the Kochi Metro line.",
+    location: "Kochi, Kerala",
     camera: "Fujifilm X-T5",
     lens: "35mm f/2.0",
     settings: "f/2.8 • 1/1000s • ISO 160",
@@ -185,10 +185,10 @@ export const photography: Photo[] = [
   },
   {
     id: "photo-3",
-    title: "Visualizing Distorted Sound Mixes",
-    category: "Digital Concept",
+    title: "Captured Moments",
+    category: "Photography",
     url: RegeneratedImage,
-    caption: "Gothic architecture emerging through dramatic fog and atmospheric lighting.",
+    caption: "Frames by Mushfii - Gothic architecture emerging through dramatic fog and atmospheric lighting.",
     location: "Old Town Square",
     camera: "Sony A7IV",
     lens: "35mm f/1.4 GM",
@@ -197,35 +197,35 @@ export const photography: Photo[] = [
   },
   {
     id: "photo-4",
-    title: "Exora Ambient Studio Liquid Art",
-    category: "Spatial Art",
+    title: "The Ship",
+    category: "Photography",
     url: FortKochi,
-    caption: "Fluid gradient waves and vibrant luminescent particle fields.",
-    location: "Digital Canvas",
-    camera: "WebGL Shader Engine",
-    lens: "Custom GLSL",
-    settings: "GPU Realtime",
+    caption: "Vessel anchored along the historic coastline of Fort Kochi.",
+    location: "Captured in Fort Kochi",
+    camera: "Sony A7IV",
+    lens: "24-70mm f/2.8 GM",
+    settings: "f/4.0 • 1/640s • ISO 100",
     year: "2026 Archive"
   },
   {
     id: "photo-5",
-    title: "Aetheria Node Spatial Canvas",
-    category: "3D & Motion",
-    url: RegeneratedImage5,
-    caption: "Deep sea dark matter network with subtle glowing cyan grid nodes.",
-    location: "Spatial Lab",
-    camera: "Three.js Canvas",
-    lens: "Perspective Camera",
-    settings: "120 FPS Render",
+    title: "Wild Horse",
+    category: "Photography",
+    url: Horse,
+    caption: "Wild horse grazing in the misty landscapes of Kodaikanal.",
+    location: "Captured in Kodaikanal",
+    camera: "Sony A7IV",
+    lens: "70-200mm f/2.8 GM",
+    settings: "f/2.8 • 1/1000s • ISO 200",
     year: "2026 Archive"
   },
   {
     id: "photo-6",
-    title: "Nocturnal Shadows & Skyline",
+    title: "Wheel of Lights",
     category: "Night Photography",
     url: Night,
-    caption: "Moody urban nightscapes with deep shadow contrast and subtle ambient reflections.",
-    location: "Metro Cityscape",
+    caption: "Night perspectives and festival lights in Kozhikode.",
+    location: "Kozhikode, Kerala",
     camera: "Sony A7IV",
     lens: "50mm f/1.2 GM",
     settings: "f/2.0 • 1/80s • ISO 1600",

@@ -51,16 +51,6 @@ export function Videography() {
         >
           VIDEOGRAPHY works
         </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-xs sm:text-base text-neutral-400 font-light max-w-xl mx-auto leading-relaxed"
-        >
-          Commercial films, drone cinematography, short-form reels, and color grading narratives.
-        </motion.p>
       </div>
 
       {/* Premium 3D Cover Flow Deck Container matching Photography Showcase */}
