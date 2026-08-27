@@ -8,8 +8,12 @@ import { PhotoLightbox } from './PhotoLightbox';
 import { VideoLightbox } from './VideoLightbox';
 import { GalleryPage } from './GalleryPage';
 import { CoverFlowGallery, CoverFlowItem } from './CoverFlowGallery';
-import RegeneratedImage from '../assets/images/regenerated_image_1786114032574.png';
-import RegeneratedImage2 from '../assets/images/regenerated_image_1786192879031.jpg';
+import RegeneratedImage from '../assets/images/regenerated_image_1786114032574.png'; 
+import RegeneratedImage2 from '../assets/images/regenerated_image_1786192879031.jpg'; 
+import FortKochi from '../assets/images/FortKochi.jpg';
+import RegeneratedImage4 from '../assets/images/regenerated_image_1787807484045.jpg';
+import RegeneratedImage5 from '../assets/images/regenerated_image_1787807967477.jpg';
+import Night from '../assets/images/Night.jpg';
 
 // Items matching the reference screenshot design
 const coverFlowData: CoverFlowItem[] = [
@@ -17,8 +21,8 @@ const coverFlowData: CoverFlowItem[] = [
     id: "cf-1",
     title: "Gery & Gany",
     subtitle: "Rusuk",
-    category: "Creativestyle",
-    url: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=1000",
+    category: "Photo",
+    url: RegeneratedImage2,
     type: "photo",
     data: photography[0]
   },
@@ -26,8 +30,8 @@ const coverFlowData: CoverFlowItem[] = [
     id: "cf-2",
     title: "Mahalini",
     subtitle: "Bawa Dia Kembali",
-    category: "Fábula",
-    url: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&q=80&w=1000",
+    category: "Photo",
+    url: RegeneratedImage4,
     type: "photo",
     data: photography[1]
   },
@@ -35,7 +39,7 @@ const coverFlowData: CoverFlowItem[] = [
     id: "cf-3",
     title: "Tulus",
     subtitle: "Monokrom",
-    category: "Studio Album",
+    category: "Photo",
     url: RegeneratedImage,
     type: "photo",
     data: photography[2]
@@ -44,37 +48,28 @@ const coverFlowData: CoverFlowItem[] = [
     id: "cf-4",
     title: "Anggi Marito",
     subtitle: "Mana Boleh",
-    category: "Editorial",
-    url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1000",
+    category: "Photo",
+    url: FortKochi,
     type: "photo",
     data: photography[3] || photography[0]
   },
   {
     id: "cf-5",
-    title: "Cybernetic Silhouette",
-    subtitle: "Tokyo 2026 Archive",
-    category: "Cyberpunk",
-    url: RegeneratedImage2,
+    title: "Aetheria Node",
+    subtitle: "Spatial Light Canvas",
+    category: "Photo",
+    url: RegeneratedImage5,
     type: "photo",
-    data: photography[0]
+    data: photography[4] || photography[0]
   },
   {
     id: "cf-6",
-    title: "Tokyo Neon Streets",
-    subtitle: "Cinematic Reel 2026",
-    category: "Film & Drone",
-    url: videography[0].posterUrl,
-    type: "video",
-    data: videography[0]
-  },
-  {
-    id: "cf-7",
-    title: "Loom Studio",
-    subtitle: "UI/UX & Spatial Design",
-    category: "Product Engineering",
-    url: projects[0].image,
-    type: "project",
-    data: projects[0]
+    title: "Nocturnal Shadows",
+    subtitle: "Tokyo 2026 Archive",
+    category: "Photo",
+    url: Night,
+    type: "photo",
+    data: photography[5] || photography[0]
   }
 ];
 

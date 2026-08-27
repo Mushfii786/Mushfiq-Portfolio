@@ -2,9 +2,13 @@ import { SiteConfig, Project, Photo, VideoItem, TimelineItem, TechItem, Service,
 import MushfiiImage from "../assets/images/Mushfii.jpg"
 import Night from "../assets/images/Night.jpg";
 import Dog from "../assets/images/Dog.jpg";
-import House from "../assets/images/House.jpg";
+import FortKochi from "../assets/images/FortKochi.jpg";
 import Horse from "../assets/images/Horse.jpg";
 import RegeneratedImage from "../assets/images/regenerated_image_1786114032574.png";
+import RegeneratedImage2 from "../assets/images/regenerated_image_1786192879031.jpg";
+import RegeneratedImage4 from "../assets/images/regenerated_image_1787807484045.jpg";
+import RegeneratedImage5 from "../assets/images/regenerated_image_1787807967477.jpg";
+
 
 export const siteConfig: SiteConfig = {
   name: "Mushfiq",
@@ -159,7 +163,7 @@ export const photography: Photo[] = [
     id: "photo-1",
     title: "Cybernetic Silhouette & Neon Lights",
     category: "Photography",
-    url: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=80&w=1200&h=1600",
+    url: RegeneratedImage2,
     caption: "Futuristic visor reflection and ambient cyberpunk Tokyo night light.",
     location: "Shinjuku District",
     camera: "Sony A7IV",
@@ -171,7 +175,7 @@ export const photography: Photo[] = [
     id: "photo-2",
     title: "Getting That Film Look in Post",
     category: "Branding",
-    url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200&h=1600",
+    url: RegeneratedImage4,
     caption: "Organic botanical stillness and rich natural film grain grading.",
     location: "Studio 4",
     camera: "Fujifilm X-T5",
@@ -195,7 +199,7 @@ export const photography: Photo[] = [
     id: "photo-4",
     title: "Exora Ambient Studio Liquid Art",
     category: "Spatial Art",
-    url: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200&h=1600",
+    url: FortKochi,
     caption: "Fluid gradient waves and vibrant luminescent particle fields.",
     location: "Digital Canvas",
     camera: "WebGL Shader Engine",
@@ -207,12 +211,24 @@ export const photography: Photo[] = [
     id: "photo-5",
     title: "Aetheria Node Spatial Canvas",
     category: "3D & Motion",
-    url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200&h=1600",
+    url: RegeneratedImage5,
     caption: "Deep sea dark matter network with subtle glowing cyan grid nodes.",
     location: "Spatial Lab",
     camera: "Three.js Canvas",
     lens: "Perspective Camera",
     settings: "120 FPS Render",
+    year: "2026 Archive"
+  },
+  {
+    id: "photo-6",
+    title: "Nocturnal Shadows & Skyline",
+    category: "Night Photography",
+    url: Night,
+    caption: "Moody urban nightscapes with deep shadow contrast and subtle ambient reflections.",
+    location: "Metro Cityscape",
+    camera: "Sony A7IV",
+    lens: "50mm f/1.2 GM",
+    settings: "f/2.0 • 1/80s • ISO 1600",
     year: "2026 Archive"
   }
 ];
@@ -315,7 +331,7 @@ export const polaroids: PolaroidPhoto[] = [
   },
   {
     id: "pol-3",
-    imageUrl: House,
+    imageUrl: FortKochi,
     caption: "Where the clouds gather 🌤️",
     rotation: -2,
   },
