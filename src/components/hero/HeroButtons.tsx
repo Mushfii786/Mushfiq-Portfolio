@@ -12,8 +12,8 @@ interface HeroButtonsProps {
 export function HeroButtons({
   primaryText = "Explore My Work",
   primaryHref = "#projects",
-  secondaryText = "Let's Talk",
-  secondaryHref = "#contact"
+  secondaryText,
+  secondaryHref
 }: HeroButtonsProps) {
   // Magnetic effect for primary button
   const primaryBtnRef = useRef<HTMLAnchorElement>(null);
@@ -61,19 +61,21 @@ export function HeroButtons({
         <ArrowRight className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1.5" />
       </motion.a>
 
-      {/* Secondary Button */}
-      <motion.a
-        href={secondaryHref}
-        whileHover={{ scale: 1.05, y: -2 }}
-        whileTap={{ scale: 0.95 }}
-        className="group relative inline-flex items-center gap-3 px-8 py-4 sm:px-9 sm:py-4.5 rounded-full font-bold text-sm sm:text-base text-neutral-200 hover:text-white bg-neutral-900/90 hover:bg-neutral-900 border border-white/10 hover:border-purple-500/60 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_35px_rgba(59,130,246,0.4)] transition-all duration-300 cursor-pointer overflow-hidden ring-1 ring-white/5"
-      >
-        {/* Shimmer Light Line Sweep */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+      {/* Secondary Button (Conditional) */}
+      {secondaryText && secondaryHref && (
+        <motion.a
+          href={secondaryHref}
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          className="group relative inline-flex items-center gap-3 px-8 py-4 sm:px-9 sm:py-4.5 rounded-full font-bold text-sm sm:text-base text-neutral-200 hover:text-white bg-neutral-900/90 hover:bg-neutral-900 border border-white/10 hover:border-purple-500/60 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_35px_rgba(59,130,246,0.4)] transition-all duration-300 cursor-pointer overflow-hidden ring-1 ring-white/5"
+        >
+          {/* Shimmer Light Line Sweep */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
 
-        <span className="relative z-10 font-sans tracking-wide">{secondaryText}</span>
-        <MessageSquare className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 text-purple-400 group-hover:text-cyan-400 transition-colors duration-300 group-hover:rotate-12" />
-      </motion.a>
+          <span className="relative z-10 font-sans tracking-wide">{secondaryText}</span>
+          <MessageSquare className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 text-purple-400 group-hover:text-cyan-400 transition-colors duration-300 group-hover:rotate-12" />
+        </motion.a>
+      )}
     </motion.div>
   );
 }

@@ -104,8 +104,6 @@ export function Hero() {
           <HeroButtons
             primaryText="Explore My Work"
             primaryHref="#projects"
-            secondaryText="Let's Talk"
-            secondaryHref="#contact"
           />
         </motion.div>
       </motion.div>

@@ -31,6 +31,7 @@ import UploadedImg9 from '../assets/images/regenerated_image_1787840681000.jpg';
 import UploadedImg10 from '../assets/images/regenerated_image_1787840682571.jpg';
 import UploadedImg11 from '../assets/images/regenerated_image_1787807484045.jpg';
 import UploadedImg12 from '../assets/images/regenerated_image_1787841584292.png';
+import UploadedImg13 from '../assets/images/regenerated_image_1787913915768.jpg';
 
 interface GalleryPageProps {
   onClose: () => void;
@@ -376,6 +377,17 @@ export const galleryGridPhotos: GalleryItem[] = [
     tools: "Sony A7IV • 35mm f/1.4 GM",
     year: "2026 Archive",
     badge: "Urban"
+  },
+  {
+    id: "gal-photo-new-7",
+    title: "Monsoon Mood",
+    category: "Photography",
+    url: UploadedImg13,
+    caption: "Capturing the serene rainy atmosphere and lush greenery of Malappuram, Kerala.",
+    clientOrEvent: "malappuram,kerala",
+    tools: "Sony A7IV • 24-70mm f/2.8 GM",
+    year: "2026 Archive",
+    badge: "Kerala"
   }
 ];
 
@@ -427,7 +439,9 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
 
   const filteredItems = selectedCategory === 'ALL'
     ? galleryGridPhotos
-    : galleryGridPhotos.filter((p) => p.category.toUpperCase() === selectedCategory);
+    : (selectedCategory === 'PHOTOGRAPHY' || selectedCategory === 'POSTER DESIGNING')
+      ? []
+      : galleryGridPhotos.filter((p) => p.category.toUpperCase() === selectedCategory);
 
   const activeIndex = activeItem ? filteredItems.findIndex((p) => p.id === activeItem.id) : -1;
 
@@ -587,42 +601,60 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
             transition={{ duration: 0.3, ease: 'easeOut' }}
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch"
           >
-            {filteredItems.map((item, idx) => {
-              const isLiked = Boolean(likedItems[item.id]);
-
-              return (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ delay: idx * 0.03, duration: 0.3 }}
-                  onClick={() => setActiveItem(item)}
-                  className="group relative flex flex-col p-3 pb-4 sm:p-3.5 sm:pb-5 rounded-[28px] sm:rounded-[32px] bg-[#111216]/95 border-2 border-[#2563EB]/70 hover:border-[#3B82F6] shadow-[0_15px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_35px_rgba(37,99,235,0.4)] transition-all duration-300 cursor-pointer"
+            {filteredItems.length === 0 ? (
+              <div className="col-span-full py-24 flex flex-col items-center justify-center text-center">
+                <div className="w-16 h-16 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4 text-blue-400 shadow-inner">
+                  <Sparkles className="w-7 h-7" />
+                </div>
+                <h4 className="text-lg font-bold text-white tracking-tight">No works in this category</h4>
+                <p className="text-sm text-neutral-400 mt-1.5 max-w-sm">
+                  All photos and posters are presented in the All Works gallery.
+                </p>
+                <button
+                  onClick={() => setSelectedCategory('ALL')}
+                  className="mt-6 px-5 py-2.5 rounded-full bg-[#2563EB] hover:bg-blue-600 text-white text-xs font-semibold tracking-wide transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 cursor-pointer"
                 >
-                  {/* Image Container with Rounded Inside */}
-                  <div className="relative w-full aspect-[4/5] rounded-[20px] sm:rounded-[22px] overflow-hidden bg-neutral-950 border border-neutral-800/60 shadow-inner">
-                    <img
-                      src={item.url}
-                      alt={item.title}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
-                  </div>
+                  View All Works
+                </button>
+              </div>
+            ) : (
+              filteredItems.map((item, idx) => {
+                const isLiked = Boolean(likedItems[item.id]);
 
-                  {/* Centered Typography Matching Reference Card */}
-                  <div className="mt-3.5 sm:mt-4 text-center px-1">
-                    <h3 className="text-base sm:text-lg font-bold text-white tracking-tight line-clamp-1 group-hover:text-blue-300 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-neutral-400 font-medium mt-0.5 truncate">
-                      {item.clientOrEvent || item.category}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+                return (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{ delay: idx * 0.03, duration: 0.3 }}
+                    onClick={() => setActiveItem(item)}
+                    className="group relative flex flex-col p-3 pb-4 sm:p-3.5 sm:pb-5 rounded-[28px] sm:rounded-[32px] bg-[#111216]/95 border-2 border-[#2563EB]/70 hover:border-[#3B82F6] shadow-[0_15px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_35px_rgba(37,99,235,0.4)] transition-all duration-300 cursor-pointer"
+                  >
+                    {/* Image Container with Rounded Inside */}
+                    <div className="relative w-full aspect-[4/5] rounded-[20px] sm:rounded-[22px] overflow-hidden bg-neutral-950 border border-neutral-800/60 shadow-inner">
+                      <img
+                        src={item.url}
+                        alt={item.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                      />
+                    </div>
+
+                    {/* Centered Typography Matching Reference Card */}
+                    <div className="mt-3.5 sm:mt-4 text-center px-1">
+                      <h3 className="text-base sm:text-lg font-bold text-white tracking-tight line-clamp-1 group-hover:text-blue-300 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-neutral-400 font-medium mt-0.5 truncate">
+                        {item.clientOrEvent || item.category}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })
+            )}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -743,13 +775,13 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
                 </button>
               </div>
 
-              {/* Centered Typography: Title & Subtitle */}
+              {/* Centered Typography: Title & Subtitle matching photo card */}
               <div className="mt-4 px-2 text-center">
                 <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
                   {activeItem.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-neutral-400 font-medium mt-0.5 truncate">
-                  {activeItem.clientOrEvent ? `Captured in ${activeItem.clientOrEvent}` : (activeItem.caption || activeItem.category)}
+                  {activeItem.clientOrEvent || activeItem.category}
                 </p>
               </div>
             </motion.div>
