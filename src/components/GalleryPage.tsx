@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo, useDeferredValue } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, X, Heart, Share2, Sparkles, Layers, Palette, Check, Camera, Download, MapPin, ChevronLeft, ChevronRight, Search, SlidersHorizontal } from 'lucide-react';
 import RegeneratedImage from '../assets/images/regenerated_image_1786114032574.png'; 
@@ -438,21 +438,25 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
     setAnimKey((prev) => prev + 1);
   };
 
-  const filteredItems = galleryGridPhotos.filter((item) => {
-    const matchesCategory =
-      selectedCategory === 'ALL' || item.category.toUpperCase() === selectedCategory;
-    if (!matchesCategory) return false;
-    if (!searchQuery.trim()) return true;
-    const q = searchQuery.toLowerCase().trim();
-    return (
-      item.title.toLowerCase().includes(q) ||
-      (item.clientOrEvent && item.clientOrEvent.toLowerCase().includes(q)) ||
-      (item.caption && item.caption.toLowerCase().includes(q)) ||
-      (item.badge && item.badge.toLowerCase().includes(q)) ||
-      (item.tools && item.tools.toLowerCase().includes(q)) ||
-      item.category.toLowerCase().includes(q)
-    );
-  });
+  const deferredSearch = useDeferredValue(searchQuery);
+
+  const filteredItems = useMemo(() => {
+    const q = deferredSearch.toLowerCase().trim();
+    return galleryGridPhotos.filter((item) => {
+      const matchesCategory =
+        selectedCategory === 'ALL' || item.category.toUpperCase() === selectedCategory;
+      if (!matchesCategory) return false;
+      if (!q) return true;
+      return (
+        item.title.toLowerCase().includes(q) ||
+        (item.clientOrEvent && item.clientOrEvent.toLowerCase().includes(q)) ||
+        (item.caption && item.caption.toLowerCase().includes(q)) ||
+        (item.badge && item.badge.toLowerCase().includes(q)) ||
+        (item.tools && item.tools.toLowerCase().includes(q)) ||
+        item.category.toLowerCase().includes(q)
+      );
+    });
+  }, [selectedCategory, deferredSearch]);
 
   const activeIndex = activeItem ? filteredItems.findIndex((p) => p.id === activeItem.id) : -1;
 
@@ -584,7 +588,7 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
               placeholder="Search by title, location, tools, or tags..."
               className="w-full pl-10 pr-9 sm:pr-10 py-2 sm:py-2.5 rounded-full bg-neutral-900/90 hover:bg-neutral-900 focus:bg-neutral-950 text-xs sm:text-sm text-white placeholder-neutral-500 border border-neutral-800 hover:border-neutral-700 focus:border-blue-500/70 focus:outline-none focus:ring-2 focus:ring-blue-500/20 shadow-[0_2px_8px_rgba(0,0,0,0.5),inset_0_1px_2px_rgba(0,0,0,0.4)] transition-all duration-200"
             />
-            {searchQuery ? (
+            {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear search"
@@ -592,12 +596,6 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
               >
                 <X className="w-3.5 h-3.5" />
               </button>
-            ) : (
-              <div className="hidden sm:flex absolute right-3.5 items-center pointer-events-none">
-                <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-medium uppercase bg-neutral-800 text-neutral-400 border border-neutral-700">
-                  Search
-                </span>
-              </div>
             )}
           </div>
         </div>
@@ -678,17 +676,12 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
                 </div>
               </div>
             ) : (
-              filteredItems.map((item, idx) => {
+              filteredItems.map((item) => {
                 return (
-                  <motion.div
+                  <div
                     key={item.id}
-                    layout
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.96 }}
-                    transition={{ delay: idx * 0.02, duration: 0.25 }}
                     onClick={() => setActiveItem(item)}
-                    className="group relative flex flex-col p-1.5 pb-2 sm:p-3 sm:pb-4 rounded-[14px] sm:rounded-[24px] md:rounded-[28px] bg-[#111216]/95 border sm:border-2 border-[#2563EB]/70 hover:border-[#3B82F6] shadow-[0_6px_20px_rgba(0,0,0,0.7),0_0_12px_rgba(37,99,235,0.15)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(37,99,235,0.35)] transition-all duration-300 active:scale-[0.97] cursor-pointer"
+                    className="group relative flex flex-col p-1.5 pb-2 sm:p-3 sm:pb-4 rounded-[14px] sm:rounded-[24px] md:rounded-[28px] bg-[#111216]/95 border sm:border-2 border-[#2563EB]/70 hover:border-[#3B82F6] shadow-[0_6px_20px_rgba(0,0,0,0.7),0_0_12px_rgba(37,99,235,0.15)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(37,99,235,0.35)] transition-all duration-300 active:scale-[0.97] cursor-pointer animate-fadeIn"
                   >
                     {/* Image Container with Rounded Inside */}
                     <div className="relative w-full aspect-[4/5] rounded-[10px] sm:rounded-[18px] md:rounded-[20px] overflow-hidden bg-neutral-950 border border-neutral-800/60 shadow-inner">
@@ -709,7 +702,7 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
                         {item.clientOrEvent || item.category}
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })
             )}
