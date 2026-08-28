@@ -151,7 +151,7 @@ export function PhotoLightbox({ photo, photos, onClose, onSelectPhoto }: PhotoLi
               {photo.title}
             </h3>
             <p className="text-xs sm:text-sm text-neutral-400 font-medium mt-0.5 truncate">
-              {photo.location ? `Captured in ${photo.location}` : 'Frames by Mushfii'}
+              {photo.location || photo.caption || 'Frames by Mushfii'}
             </p>
           </div>
         </motion.div>

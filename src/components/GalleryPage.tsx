@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, X, Heart, Share2, Sparkles, Layers, Palette, Check, Camera, Download, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, X, Heart, Share2, Sparkles, Layers, Palette, Check, Camera, Download, MapPin, ChevronLeft, ChevronRight, Search, SlidersHorizontal } from 'lucide-react';
 import RegeneratedImage from '../assets/images/regenerated_image_1786114032574.png'; 
 import RegeneratedImage2 from '../assets/images/regenerated_image_1786192879031.jpg'; 
 import FortKochi from '../assets/images/FortKochi.jpg';
@@ -52,11 +52,11 @@ export interface GalleryItem {
 
 // Curated works with balanced items across all categories
 export const galleryGridPhotos: GalleryItem[] = [
-  // ================= PHOTOGRAPHY =================
+  // ================= PHOTOGRAPHY & BOOK COVERS =================
   {
     id: "gal-photo-2",
     title: "Post-truth",
-    category: "Photography",
+    category: "Poster Designing",
     url: PostTruthImg,
     caption: "Book cover design exploring contemporary themes and visual storytelling.",
     clientOrEvent: "Book cover Design",
@@ -67,7 +67,7 @@ export const galleryGridPhotos: GalleryItem[] = [
   {
     id: "gal-photo-1",
     title: "Prophet Ya'qoob",
-    category: "Photography",
+    category: "Poster Designing",
     url: ProphetYaqoobImg,
     caption: "Book cover design with atmospheric tones and thematic typography.",
     clientOrEvent: "Book cover Design",
@@ -142,11 +142,11 @@ export const galleryGridPhotos: GalleryItem[] = [
     badge: "Jew Town"
   },
 
-  // ================= PHOTO EDITING =================
+  // ================= PHOTO EDITING & CAPTURES =================
   {
     id: "gal-edit-1",
     title: "Mysore Stories",
-    category: "Photo Editing",
+    category: "Photography",
     url: EditorialImg,
     caption: "Captured in Mysore.",
     clientOrEvent: "Captured in Mysore",
@@ -157,7 +157,7 @@ export const galleryGridPhotos: GalleryItem[] = [
   {
     id: "gal-edit-2",
     title: "Travel Memories",
-    category: "Photo Editing",
+    category: "Photography",
     url: SunlitShadowsImg,
     caption: "Captured in Mysore.",
     clientOrEvent: "Captured in Mysore",
@@ -167,216 +167,216 @@ export const galleryGridPhotos: GalleryItem[] = [
   },
   {
     id: "gal-edit-3",
-    title: "Yellow Courtyard & Desert Flora",
-    category: "Photo Editing",
+    title: "Railway Moments",
+    category: "Photography",
     url: YellowCourtyardImg,
-    caption: "Selective saturation and tonal curves highlighting golden terracotta tones.",
-    clientOrEvent: "Solstice Studio",
+    caption: "Captured at Shornur Railway Station",
+    clientOrEvent: "Captured at Shornur Railway Station",
     tools: "Photoshop • Camera Raw",
     year: "2026",
-    badge: "Color Grade"
+    badge: "Shornur"
   },
   {
     id: "gal-edit-4",
-    title: "Cinematic Neon Motion Blur",
-    category: "Photo Editing",
+    title: "Hilltop Moments",
+    category: "Photography",
     url: NeonMotionImg,
-    caption: "Long-exposure color tuning emphasizing midnight blue and electric magenta tones.",
-    clientOrEvent: "Nightfall Media",
+    caption: "Captured in Kodaikanal",
+    clientOrEvent: "Captured in Kodaikanal",
     tools: "Lightroom • Photoshop",
     year: "2025",
-    badge: "Night Grade"
+    badge: "Kodaikanal"
   },
   {
     id: "gal-edit-5",
-    title: "Monochrome Botanical Silhouette",
-    category: "Photo Editing",
+    title: "Kodaikanal Memories",
+    category: "Photography",
     url: MonochromeBotanicalImg,
-    caption: "High-contrast shadow grading with soft sunbeam flares and film grain.",
-    clientOrEvent: "Personal Archive",
+    caption: "Captured in Kodaikanal",
+    clientOrEvent: "Captured in Kodaikanal",
     tools: "Lightroom Classic",
     year: "2026",
-    badge: "Monochrome"
+    badge: "Kodaikanal"
   },
   {
     id: "gal-edit-6",
-    title: "Ethereal Moss & Forest Light",
-    category: "Photo Editing",
+    title: "Kodaikanal Memories",
+    category: "Photography",
     url: ForestLightImg,
-    caption: "Surreal color manipulation transforming woodland light into deep emerald glow.",
-    clientOrEvent: "Botanical Arts Fest",
+    caption: "Captured in Kodaikanal",
+    clientOrEvent: "Captured in Kodaikanal",
     tools: "Photoshop • Camera Raw",
     year: "2025",
-    badge: "Surreal Grade"
+    badge: "Kodaikanal"
   },
 
   // ================= POSTER DESIGNING =================
   {
     id: "gal-poster-1",
-    title: "Campus Music Fest Mainstage",
-    category: "Poster Designing",
+    title: "Kodaikanal Memories",
+    category: "Photography",
     url: MusicFestImg,
-    caption: "Bold typographic hierarchy and textured gradient overlays for annual music gala.",
-    clientOrEvent: "Farook College Fest",
+    caption: "Captured in Kodaikanal",
+    clientOrEvent: "Captured in Kodaikanal",
     tools: "Illustrator • Photoshop",
     year: "2025",
-    badge: "Music Gala"
+    badge: "Kodaikanal"
   },
   {
     id: "gal-poster-2",
-    title: "Abstract Geometric Balance",
+    title: "Meelad-Un-Nabi",
     category: "Poster Designing",
     url: AbstractGeometricImg,
-    caption: "Monochrome typographic artwork exploring negative space and structured grid forms.",
-    clientOrEvent: "Type Directors Club",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Illustrator • InDesign",
     year: "2026",
-    badge: "Exhibition"
+    badge: "Poster"
   },
   {
     id: "gal-poster-3",
-    title: "Typography & Sound Waves",
+    title: "Eid al-Adha",
     category: "Poster Designing",
     url: UploadedImg1,
-    caption: "Experimental kinetic typography poster with dynamic sound frequency waveforms.",
-    clientOrEvent: "SoundLab Kerala",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Illustrator • Photoshop",
     year: "2026",
-    badge: "Typography"
+    badge: "Poster"
   },
   {
     id: "gal-poster-4",
-    title: "Future Heritage Exhibition",
+    title: "Wedding invitation Poster",
     category: "Poster Designing",
     url: UploadedImg2,
-    caption: "Visual identity and promotional poster blending traditional motifs with modernist Swiss grid.",
-    clientOrEvent: "Heritage Foundation",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "InDesign • Illustrator",
     year: "2026",
-    badge: "Branding"
+    badge: "Poster"
   },
   {
     id: "gal-poster-5",
-    title: "Cinephile Film Retrospective",
+    title: "Welcome Baby",
     category: "Poster Designing",
     url: UploadedImg3,
-    caption: "Minimalist theatrical poster featuring subtle film grain textures and stark title typography.",
-    clientOrEvent: "Cinema Society",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Photoshop • Lightroom",
     year: "2025",
-    badge: "Film Poster"
+    badge: "Poster"
   },
   {
     id: "gal-poster-6",
-    title: "Echoes of Modernism",
+    title: "Moulid Majlis",
     category: "Poster Designing",
     url: UploadedImg4,
-    caption: "Brutalist layout design exploring stark geometric contrast and expressive character forms.",
-    clientOrEvent: "Design Biennale",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Illustrator • Figma",
     year: "2026",
-    badge: "Modernism"
+    badge: "Poster"
   },
 
   // ================= EXPANDED GALLERY WORKS =================
   {
     id: "gal-photo-new-1",
-    title: "Traditional Courtyard House",
-    category: "Photography",
+    title: "Majlisunnoor",
+    category: "Poster Designing",
     url: House,
-    caption: "Kerala vernacular architecture bathed in calm monsoon afternoon light.",
-    clientOrEvent: "Kerala Heritage Archive",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Sony A7IV • 24mm f/1.4 GM",
     year: "2026 Archive",
-    badge: "Architecture"
+    badge: "Poster"
   },
   {
     id: "gal-photo-new-2",
-    title: "Golden Hour Solitude",
-    category: "Photography",
+    title: "Kerala Day Program",
+    category: "Poster Designing",
     url: UploadedImg5,
-    caption: "Warm backlight filtering across textured landscape horizons.",
-    clientOrEvent: "Personal Series",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Fujifilm X-T5 • 35mm f/1.4",
     year: "2026 Archive",
-    badge: "Golden Hour"
+    badge: "Poster"
   },
   {
     id: "gal-photo-new-3",
-    title: "Coastal Tide & Distant Sails",
-    category: "Photography",
+    title: "Pista Water Poster",
+    category: "Poster Designing",
     url: UploadedImg6,
-    caption: "Minimalist seaside composition capturing tranquil coastal waters and gentle ripples.",
-    clientOrEvent: "Kozhikode Beach",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Sony A7IV • 85mm f/1.8",
     year: "2026 Archive",
-    badge: "Coastal"
+    badge: "Poster"
   },
   {
     id: "gal-photo-new-4",
-    title: "Old Town Heritage Facades",
-    category: "Photography",
+    title: "Voice of Campus",
+    category: "Poster Designing",
     url: UploadedImg7,
-    caption: "Preserved colonial corridors, textured timber eaves, and historic alleyway shadows.",
-    clientOrEvent: "Mattancherry, Kochi",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Sony A7IV • 50mm f/1.4",
     year: "2025 Archive",
-    badge: "Heritage"
+    badge: "Poster"
   },
   {
     id: "gal-edit-new-1",
-    title: "Velvet Dusk Color Tuning",
-    category: "Photo Editing",
+    title: "Watermelon Poster",
+    category: "Poster Designing",
     url: UploadedImg8,
-    caption: "Custom color grading accentuating deep twilight purples and warm incandescent lanterns.",
-    clientOrEvent: "Editorial Work",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Lightroom Classic • Photoshop",
     year: "2026",
-    badge: "Color Grade"
+    badge: "Poster"
   },
   {
     id: "gal-edit-new-2",
-    title: "Cinematic Desert Horizons",
-    category: "Photo Editing",
+    title: "Painting Competition Poster",
+    category: "Poster Designing",
     url: UploadedImg9,
-    caption: "Warm cinematic tones with soft grain and highlight roll-off across sweeping dunes.",
-    clientOrEvent: "Traveler Journal",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Lightroom Classic",
     year: "2026",
-    badge: "Desert Series"
+    badge: "Poster"
   },
   {
     id: "gal-poster-new-7",
-    title: "Minimalist Architectural Form",
+    title: "Collage Program",
     category: "Poster Designing",
     url: UploadedImg10,
-    caption: "Architectural poster design celebrating symmetry, structural light, and understated typography.",
-    clientOrEvent: "ArchArt Studio",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "InDesign • Illustrator",
     year: "2026",
-    badge: "Arch Design"
+    badge: "Poster"
   },
   {
     id: "gal-photo-new-5",
-    title: "Monsoon Mist & Highland Greens",
-    category: "Photography",
+    title: "Program Hunt",
+    category: "Poster Designing",
     url: UploadedImg11,
-    caption: "Atmospheric mountain mist rolling over lush evergreen plantation slopes.",
-    clientOrEvent: "Wayanad Highlands",
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
     tools: "Sony A7IV • 70-200mm f/2.8 GM",
     year: "2026 Archive",
-    badge: "Highland"
+    badge: "Poster"
   },
   {
     id: "gal-photo-new-6",
-    title: "Urban Transit & Metro Perspectives",
+    title: "Kochi Metro",
     category: "Photography",
     url: UploadedImg12,
-    caption: "Modern geometric architecture framing the dynamic rhythms of city transit.",
-    clientOrEvent: "Urban Horizons Project",
+    caption: "Kochi, Kerala",
+    clientOrEvent: "Kochi, Kerala",
     tools: "Sony A7IV • 35mm f/1.4 GM",
     year: "2026 Archive",
-    badge: "Urban"
+    badge: "Kochi"
   },
   {
     id: "gal-photo-new-7",
@@ -399,6 +399,7 @@ const categories = [
 
 export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPageProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory.toUpperCase());
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [animKey, setAnimKey] = useState<number>(0);
   const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
   const [likedItems, setLikedItems] = useState<Record<string, boolean>>({});
@@ -437,11 +438,21 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
     setAnimKey((prev) => prev + 1);
   };
 
-  const filteredItems = selectedCategory === 'ALL'
-    ? galleryGridPhotos
-    : (selectedCategory === 'PHOTOGRAPHY' || selectedCategory === 'POSTER DESIGNING')
-      ? []
-      : galleryGridPhotos.filter((p) => p.category.toUpperCase() === selectedCategory);
+  const filteredItems = galleryGridPhotos.filter((item) => {
+    const matchesCategory =
+      selectedCategory === 'ALL' || item.category.toUpperCase() === selectedCategory;
+    if (!matchesCategory) return false;
+    if (!searchQuery.trim()) return true;
+    const q = searchQuery.toLowerCase().trim();
+    return (
+      item.title.toLowerCase().includes(q) ||
+      (item.clientOrEvent && item.clientOrEvent.toLowerCase().includes(q)) ||
+      (item.caption && item.caption.toLowerCase().includes(q)) ||
+      (item.badge && item.badge.toLowerCase().includes(q)) ||
+      (item.tools && item.tools.toLowerCase().includes(q)) ||
+      item.category.toLowerCase().includes(q)
+    );
+  });
 
   const activeIndex = activeItem ? filteredItems.findIndex((p) => p.id === activeItem.id) : -1;
 
@@ -532,22 +543,22 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
       </div>
 
       {/* Top Header Navigation */}
-      <header className="sticky top-0 z-40 bg-[#090A0F]/90 backdrop-blur-xl border-b border-white/10 px-4 sm:px-8 py-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3.5 shadow-[0_10px_30px_rgba(0,0,0,0.8)] relative">
+      <header className="sticky top-0 z-40 bg-[#090A0F]/90 backdrop-blur-2xl border-b border-white/[0.08] px-4 sm:px-8 py-3.5 flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.85)] relative">
         
         {/* Left: Brand / Return */}
-        <div className="flex items-center gap-3.5">
+        <div className="flex items-center justify-between lg:justify-start gap-3 sm:gap-4">
           <button
             onClick={onClose}
-            className="px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#2563EB] text-white border border-white/15 text-xs font-semibold tracking-normal transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
+            className="group px-3.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-[#2563EB] text-white border border-white/10 hover:border-blue-400/40 text-xs font-semibold tracking-normal transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-[0_2px_10px_rgba(0,0,0,0.4)] hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
             <span>Return to Portfolio</span>
           </button>
 
           <div className="hidden sm:block h-4 w-[1px] bg-white/15" />
 
           <div className="flex items-center gap-2.5">
-            <span className="text-sm sm:text-base font-bold text-white tracking-tight bg-gradient-to-r from-white via-neutral-100 to-neutral-300 bg-clip-text">
+            <span className="text-sm sm:text-base font-bold text-white tracking-tight bg-gradient-to-r from-white via-neutral-100 to-neutral-400 bg-clip-text">
               Photography & Design
             </span>
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold tracking-wide text-blue-400 bg-blue-500/10 border border-blue-500/25 shadow-[0_0_12px_rgba(37,99,235,0.18)]">
@@ -556,8 +567,39 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
           </div>
         </div>
 
-        {/* Right / Center: Category Filters */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 md:pb-0 no-scrollbar">
+        {/* Center: Premium Luxury Search Bar */}
+        <div className="w-full lg:max-w-md xl:max-w-lg relative">
+          <div className="relative flex items-center w-full group">
+            <div className="absolute left-3.5 pointer-events-none flex items-center justify-center text-neutral-400 group-focus-within:text-blue-400 transition-colors">
+              <Search className="w-4 h-4" />
+            </div>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by title, location, camera, or tags..."
+              className="w-full pl-10 pr-9 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.07] focus:bg-white/[0.09] text-xs sm:text-sm text-white placeholder-neutral-500 border border-white/10 hover:border-white/20 focus:border-blue-500/60 focus:outline-none focus:ring-2 focus:ring-blue-500/20 shadow-[inset_0_2px_4px_rgba(0,0,0,0.5),0_0_15px_rgba(0,0,0,0.3)] transition-all duration-200"
+            />
+            {searchQuery ? (
+              <button
+                onClick={() => setSearchQuery('')}
+                aria-label="Clear search"
+                className="absolute right-3 p-1 rounded-full text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            ) : (
+              <div className="hidden sm:flex absolute right-3 items-center pointer-events-none">
+                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono uppercase bg-white/[0.06] border border-white/10 text-neutral-400">
+                  Search
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Right / Category Filter Pills */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 no-scrollbar">
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isSelected = selectedCategory === cat.id;
@@ -604,18 +646,35 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
             {filteredItems.length === 0 ? (
               <div className="col-span-full py-24 flex flex-col items-center justify-center text-center">
                 <div className="w-16 h-16 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4 text-blue-400 shadow-inner">
-                  <Sparkles className="w-7 h-7" />
+                  {searchQuery ? <Search className="w-7 h-7" /> : <Sparkles className="w-7 h-7" />}
                 </div>
-                <h4 className="text-lg font-bold text-white tracking-tight">No works in this category</h4>
+                <h4 className="text-lg font-bold text-white tracking-tight">
+                  {searchQuery ? `No works matching "${searchQuery}"` : 'No works in this category'}
+                </h4>
                 <p className="text-sm text-neutral-400 mt-1.5 max-w-sm">
-                  All photos and posters are presented in the All Works gallery.
+                  {searchQuery
+                    ? 'Try searching with different keywords, location names, or clear the search filter.'
+                    : 'All photos and posters are presented in the All Works gallery.'}
                 </p>
-                <button
-                  onClick={() => setSelectedCategory('ALL')}
-                  className="mt-6 px-5 py-2.5 rounded-full bg-[#2563EB] hover:bg-blue-600 text-white text-xs font-semibold tracking-wide transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 cursor-pointer"
-                >
-                  View All Works
-                </button>
+                <div className="flex items-center gap-3 mt-6">
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery('')}
+                      className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/15 text-white text-xs font-semibold tracking-wide transition-all border border-white/15 hover:scale-105 active:scale-95 cursor-pointer"
+                    >
+                      Clear Search
+                    </button>
+                  )}
+                  <button
+                    onClick={() => {
+                      setSelectedCategory('ALL');
+                      setSearchQuery('');
+                    }}
+                    className="px-5 py-2.5 rounded-full bg-[#2563EB] hover:bg-blue-600 text-white text-xs font-semibold tracking-wide transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 cursor-pointer"
+                  >
+                    View All Works
+                  </button>
+                </div>
               </div>
             ) : (
               filteredItems.map((item, idx) => {
