@@ -543,54 +543,58 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
       </div>
 
       {/* Top Header Navigation */}
-      <header className="sticky top-0 z-40 bg-[#090A0F]/90 backdrop-blur-2xl border-b border-white/[0.08] px-4 sm:px-8 py-3.5 flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4 shadow-[0_12px_40px_rgba(0,0,0,0.85)] relative">
+      <header className="sticky top-0 z-40 bg-[#090A0F]/90 backdrop-blur-2xl border-b border-white/[0.08] px-3.5 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex flex-col lg:flex-row lg:items-center justify-between gap-2.5 sm:gap-3.5 shadow-[0_10px_35px_rgba(0,0,0,0.85)] relative">
+        {/* Subtle Top Ambient Gradient Highlight */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#2563EB]/40 via-purple-500/30 to-transparent pointer-events-none" />
         
-        {/* Left: Brand / Return */}
-        <div className="flex items-center justify-between lg:justify-start gap-3 sm:gap-4">
+        {/* Left: Brand / Return to Portfolio */}
+        <div className="flex items-center justify-between lg:justify-start gap-2.5 sm:gap-4">
           <button
             onClick={onClose}
-            className="group px-3.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-[#2563EB] text-white border border-white/10 hover:border-blue-400/40 text-xs font-semibold tracking-normal transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-[0_2px_10px_rgba(0,0,0,0.4)] hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95"
+            className="group relative px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/[0.05] hover:bg-[#2563EB] text-white border border-white/10 hover:border-blue-400/40 text-xs font-semibold tracking-normal transition-all duration-300 flex items-center gap-1.5 sm:gap-2 cursor-pointer shadow-[0_2px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.45)] hover:scale-105 active:scale-95 overflow-hidden shrink-0"
           >
-            <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
-            <span>Return to Portfolio</span>
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-1 text-blue-400 group-hover:text-white" />
+            <span className="font-medium tracking-wide">Back</span>
+            <span className="hidden sm:inline font-medium tracking-wide">to Portfolio</span>
           </button>
 
           <div className="hidden sm:block h-4 w-[1px] bg-white/15" />
 
-          <div className="flex items-center gap-2.5">
-            <span className="text-sm sm:text-base font-bold text-white tracking-tight bg-gradient-to-r from-white via-neutral-100 to-neutral-400 bg-clip-text">
+          <div className="flex items-center gap-2 sm:gap-2.5 overflow-hidden">
+            <span className="text-xs sm:text-base font-bold text-white tracking-tight bg-gradient-to-r from-white via-neutral-100 to-neutral-300 bg-clip-text truncate">
               Photography & Design
             </span>
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold tracking-wide text-blue-400 bg-blue-500/10 border border-blue-500/25 shadow-[0_0_12px_rgba(37,99,235,0.18)]">
+            <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 py-0.5 rounded-full text-[9px] sm:text-[11px] font-mono font-bold tracking-wider text-blue-400 bg-blue-500/10 border border-blue-500/25 shadow-[0_0_12px_rgba(37,99,235,0.18)] shrink-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
               {filteredItems.length} {filteredItems.length === 1 ? 'WORK' : 'WORKS'}
             </span>
           </div>
         </div>
 
-        {/* Center: Premium Luxury Search Bar */}
+        {/* Center: Premium Standard Search Bar */}
         <div className="w-full lg:max-w-md xl:max-w-lg relative">
           <div className="relative flex items-center w-full group">
-            <div className="absolute left-3.5 pointer-events-none flex items-center justify-center text-neutral-400 group-focus-within:text-blue-400 transition-colors">
+            <div className="absolute left-3.5 pointer-events-none flex items-center justify-center text-neutral-400 group-focus-within:text-blue-400 transition-colors duration-200">
               <Search className="w-4 h-4" />
             </div>
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by title, location, camera, or tags..."
-              className="w-full pl-10 pr-9 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.07] focus:bg-white/[0.09] text-xs sm:text-sm text-white placeholder-neutral-500 border border-white/10 hover:border-white/20 focus:border-blue-500/60 focus:outline-none focus:ring-2 focus:ring-blue-500/20 shadow-[inset_0_2px_4px_rgba(0,0,0,0.5),0_0_15px_rgba(0,0,0,0.3)] transition-all duration-200"
+              placeholder="Search by title, location, tools, or tags..."
+              className="w-full pl-10 pr-9 sm:pr-10 py-2 sm:py-2.5 rounded-full bg-neutral-900/90 hover:bg-neutral-900 focus:bg-neutral-950 text-xs sm:text-sm text-white placeholder-neutral-500 border border-neutral-800 hover:border-neutral-700 focus:border-blue-500/70 focus:outline-none focus:ring-2 focus:ring-blue-500/20 shadow-[0_2px_8px_rgba(0,0,0,0.5),inset_0_1px_2px_rgba(0,0,0,0.4)] transition-all duration-200"
             />
             {searchQuery ? (
               <button
                 onClick={() => setSearchQuery('')}
                 aria-label="Clear search"
-                className="absolute right-3 p-1 rounded-full text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                className="absolute right-3 p-1 rounded-full text-neutral-400 hover:text-white hover:bg-white/10 transition-all duration-150 cursor-pointer"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
             ) : (
-              <div className="hidden sm:flex absolute right-3 items-center pointer-events-none">
-                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono uppercase bg-white/[0.06] border border-white/10 text-neutral-400">
+              <div className="hidden sm:flex absolute right-3.5 items-center pointer-events-none">
+                <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-medium uppercase bg-neutral-800 text-neutral-400 border border-neutral-700">
                   Search
                 </span>
               </div>
@@ -599,7 +603,7 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
         </div>
 
         {/* Right / Category Filter Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 no-scrollbar">
+        <div className="flex items-center gap-1 sm:gap-1.5 p-1 rounded-full bg-neutral-950/80 border border-neutral-800 backdrop-blur-xl overflow-x-auto touch-pan-x pb-1 lg:pb-1 no-scrollbar shadow-inner -mx-1 px-1 sm:mx-0 sm:px-1">
           {categories.map((cat) => {
             const Icon = cat.icon;
             const isSelected = selectedCategory === cat.id;
@@ -608,23 +612,20 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
               <button
                 key={cat.id}
                 onClick={() => handleCategoryClick(cat.id)}
-                className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5 z-10 ${
+                className={`relative px-3 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap flex items-center gap-1.5 z-10 select-none shrink-0 ${
                   isSelected
                     ? 'text-white'
-                    : 'text-neutral-400 hover:text-white'
+                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-white/[0.04]'
                 }`}
               >
                 {isSelected && (
                   <motion.div
                     layoutId="activeCategoryPill"
                     className="absolute inset-0 rounded-full bg-[#2563EB] shadow-[0_0_20px_rgba(37,99,235,0.45)] border border-blue-400/30 -z-10"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    transition={{ type: 'spring', stiffness: 450, damping: 32 }}
                   />
                 )}
-                {!isSelected && (
-                  <div className="absolute inset-0 rounded-full bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] transition-all -z-10" />
-                )}
-                <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-neutral-400'}`} />
+                <Icon className={`w-3.5 h-3.5 transition-colors duration-200 ${isSelected ? 'text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]' : 'text-neutral-400'}`} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -632,8 +633,8 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
         </div>
       </header>
 
-      {/* Main Gallery Area - Orderly Responsive Grid */}
-      <main className="max-w-[1540px] mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 relative z-10">
+      {/* Main Gallery Area - Orderly Responsive Grid with 3 columns on mobile */}
+      <main className="max-w-[1540px] mx-auto px-2 xs:px-3 sm:px-6 md:px-8 py-4 sm:py-8 relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={`${selectedCategory}-${animKey}`}
@@ -641,26 +642,26 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch"
+            className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-4 md:gap-6 items-stretch"
           >
             {filteredItems.length === 0 ? (
-              <div className="col-span-full py-24 flex flex-col items-center justify-center text-center">
-                <div className="w-16 h-16 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4 text-blue-400 shadow-inner">
-                  {searchQuery ? <Search className="w-7 h-7" /> : <Sparkles className="w-7 h-7" />}
+              <div className="col-span-full py-16 sm:py-24 flex flex-col items-center justify-center text-center px-4">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4 text-blue-400 shadow-inner">
+                  {searchQuery ? <Search className="w-6 h-6 sm:w-7 sm:h-7" /> : <Sparkles className="w-6 h-6 sm:w-7 sm:h-7" />}
                 </div>
-                <h4 className="text-lg font-bold text-white tracking-tight">
+                <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
                   {searchQuery ? `No works matching "${searchQuery}"` : 'No works in this category'}
                 </h4>
-                <p className="text-sm text-neutral-400 mt-1.5 max-w-sm">
+                <p className="text-xs sm:text-sm text-neutral-400 mt-1.5 max-w-sm">
                   {searchQuery
                     ? 'Try searching with different keywords, location names, or clear the search filter.'
                     : 'All photos and posters are presented in the All Works gallery.'}
                 </p>
-                <div className="flex items-center gap-3 mt-6">
+                <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mt-6">
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery('')}
-                      className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/15 text-white text-xs font-semibold tracking-wide transition-all border border-white/15 hover:scale-105 active:scale-95 cursor-pointer"
+                      className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/10 hover:bg-white/15 text-white text-xs font-semibold tracking-wide transition-all border border-white/15 hover:scale-105 active:scale-95 cursor-pointer"
                     >
                       Clear Search
                     </button>
@@ -670,7 +671,7 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
                       setSelectedCategory('ALL');
                       setSearchQuery('');
                     }}
-                    className="px-5 py-2.5 rounded-full bg-[#2563EB] hover:bg-blue-600 text-white text-xs font-semibold tracking-wide transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 cursor-pointer"
+                    className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#2563EB] hover:bg-blue-600 text-white text-xs font-semibold tracking-wide transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 cursor-pointer"
                   >
                     View All Works
                   </button>
@@ -678,8 +679,6 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
               </div>
             ) : (
               filteredItems.map((item, idx) => {
-                const isLiked = Boolean(likedItems[item.id]);
-
                 return (
                   <motion.div
                     key={item.id}
@@ -687,12 +686,12 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.96 }}
-                    transition={{ delay: idx * 0.03, duration: 0.3 }}
+                    transition={{ delay: idx * 0.02, duration: 0.25 }}
                     onClick={() => setActiveItem(item)}
-                    className="group relative flex flex-col p-3 pb-4 sm:p-3.5 sm:pb-5 rounded-[28px] sm:rounded-[32px] bg-[#111216]/95 border-2 border-[#2563EB]/70 hover:border-[#3B82F6] shadow-[0_15px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(37,99,235,0.2)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_35px_rgba(37,99,235,0.4)] transition-all duration-300 cursor-pointer"
+                    className="group relative flex flex-col p-1.5 pb-2 sm:p-3 sm:pb-4 rounded-[14px] sm:rounded-[24px] md:rounded-[28px] bg-[#111216]/95 border sm:border-2 border-[#2563EB]/70 hover:border-[#3B82F6] shadow-[0_6px_20px_rgba(0,0,0,0.7),0_0_12px_rgba(37,99,235,0.15)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(37,99,235,0.35)] transition-all duration-300 active:scale-[0.97] cursor-pointer"
                   >
                     {/* Image Container with Rounded Inside */}
-                    <div className="relative w-full aspect-[4/5] rounded-[20px] sm:rounded-[22px] overflow-hidden bg-neutral-950 border border-neutral-800/60 shadow-inner">
+                    <div className="relative w-full aspect-[4/5] rounded-[10px] sm:rounded-[18px] md:rounded-[20px] overflow-hidden bg-neutral-950 border border-neutral-800/60 shadow-inner">
                       <img
                         src={item.url}
                         alt={item.title}
@@ -702,11 +701,11 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
                     </div>
 
                     {/* Centered Typography Matching Reference Card */}
-                    <div className="mt-3.5 sm:mt-4 text-center px-1">
-                      <h3 className="text-base sm:text-lg font-bold text-white tracking-tight line-clamp-1 group-hover:text-blue-300 transition-colors">
+                    <div className="mt-1.5 sm:mt-3 text-center px-0.5 sm:px-1">
+                      <h3 className="text-[11px] xs:text-xs sm:text-sm md:text-base font-bold text-white tracking-tight line-clamp-1 group-hover:text-blue-300 transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-neutral-400 font-medium mt-0.5 truncate">
+                      <p className="text-[9px] xs:text-[10px] sm:text-xs text-neutral-400 font-medium mt-0.5 truncate">
                         {item.clientOrEvent || item.category}
                       </p>
                     </div>
