@@ -32,6 +32,12 @@ import UploadedImg10 from '../assets/images/regenerated_image_1787840682571.jpg'
 import UploadedImg11 from '../assets/images/regenerated_image_1787807484045.jpg';
 import UploadedImg12 from '../assets/images/regenerated_image_1787841584292.png';
 import UploadedImg13 from '../assets/images/regenerated_image_1787913915768.jpg';
+import PosterDesign1 from '../assets/images/poster_design_1.jpg';
+import PosterDesign2 from '../assets/images/poster_design_2.jpg';
+import PosterDesign3 from '../assets/images/poster_design_3.jpg';
+import PosterDesign4 from '../assets/images/poster_design_4.jpg';
+import PosterDesign5 from '../assets/images/poster_design_5.jpg';
+import PosterDesign6 from '../assets/images/poster_design_6.jpg';
 
 interface GalleryPageProps {
   onClose: () => void;
@@ -388,6 +394,72 @@ export const galleryGridPhotos: GalleryItem[] = [
     tools: "Sony A7IV • 24-70mm f/2.8 GM",
     year: "2026 Archive",
     badge: "Kerala"
+  },
+  {
+    id: "gal-poster-new-8",
+    title: "Meelad Program",
+    category: "Poster Designing",
+    url: PosterDesign1,
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
+    tools: "Illustrator • Photoshop",
+    year: "2026",
+    badge: "Poster"
+  },
+  {
+    id: "gal-poster-new-9",
+    title: "Meelad Fest 26",
+    category: "Poster Designing",
+    url: PosterDesign2,
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
+    tools: "Photoshop • InDesign",
+    year: "2026",
+    badge: "Poster"
+  },
+  {
+    id: "gal-poster-new-10",
+    title: "Wedding Wishes",
+    category: "Poster Designing",
+    url: PosterDesign3,
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
+    tools: "Illustrator • Figma",
+    year: "2026",
+    badge: "Poster"
+  },
+  {
+    id: "gal-poster-new-11",
+    title: "Family Onam",
+    category: "Poster Designing",
+    url: PosterDesign4,
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
+    tools: "Illustrator • Photoshop",
+    year: "2026",
+    badge: "Poster"
+  },
+  {
+    id: "gal-poster-new-12",
+    title: "Family Onam",
+    category: "Poster Designing",
+    url: PosterDesign5,
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
+    tools: "InDesign • Photoshop",
+    year: "2026",
+    badge: "Poster"
+  },
+  {
+    id: "gal-poster-new-13",
+    title: "Family Onam",
+    category: "Poster Designing",
+    url: PosterDesign6,
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
+    tools: "Illustrator • Lightroom",
+    year: "2026",
+    badge: "Poster"
   }
 ];
 
@@ -689,6 +761,7 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
                         src={item.url}
                         alt={item.title}
                         loading="lazy"
+                        referrerPolicy="no-referrer"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                       />
                     </div>
@@ -771,6 +844,7 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
                     src={activeItem.url}
                     alt=""
                     aria-hidden="true"
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover blur-2xl scale-125 opacity-35 select-none"
                   />
                   <div className="absolute inset-0 bg-neutral-950/40" />
@@ -781,6 +855,7 @@ export function GalleryPage({ onClose, initialCategory = 'ALL' }: GalleryPagePro
                   <img
                     src={activeItem.url}
                     alt={activeItem.title}
+                    referrerPolicy="no-referrer"
                     className="h-full w-auto max-w-full object-contain rounded-[18px] select-none block shadow-2xl transition-all duration-300"
                   />
                 </div>
