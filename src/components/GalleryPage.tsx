@@ -38,6 +38,7 @@ import PosterDesign3 from '../assets/images/poster_design_3.jpg';
 import PosterDesign4 from '../assets/images/poster_design_4.jpg';
 import PosterDesign5 from '../assets/images/poster_design_5.jpg';
 import PosterDesign6 from '../assets/images/poster_design_6.jpg';
+import PosterDesign7 from '../assets/images/poster_design_7.jpg';
 
 interface GalleryPageProps {
   onClose: () => void;
@@ -458,6 +459,17 @@ export const galleryGridPhotos: GalleryItem[] = [
     caption: "Poster Design",
     clientOrEvent: "Poster Design",
     tools: "Illustrator • Lightroom",
+    year: "2026",
+    badge: "Poster"
+  },
+  {
+    id: "gal-poster-new-14",
+    title: "Mandhi Poster",
+    category: "Poster Designing",
+    url: PosterDesign7,
+    caption: "Poster Design",
+    clientOrEvent: "Poster Design",
+    tools: "Photoshop • Illustrator",
     year: "2026",
     badge: "Poster"
   }
